@@ -19,21 +19,49 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://cool.xiaohei.us/tags/"/>
+    <link rel="canonical" href="https://cool.xiaohei.us/2024/03/03/通过cloudflare的workers直接cdn部署高速节点/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://cool.xiaohei.us/tags/index.html">
+        <meta name="description" content="​        现在科学上网是越来越难，找个好用的vps也是动辄15~20刀&#x2F;每年，去年通过cloudflare的workers直接CDN部署高速节点的方案横空出世，总算是解决了这个痛点，速度也是极快。经过一段时间的演变和进化，总算是相对稳定了，可以作为一个科学上网的方案长期使用。（IP可能会有跳动，不建议用这个方法登录认证比较严格的网站，如果向上youtube，最好不要登录) 搭建流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过Cloudflare的Workers直接CDN部署高速节点">
+<meta property="og:url" content="https://cool.xiaohei.us/2024/03/03/%E9%80%9A%E8%BF%87Cloudflare%E7%9A%84Workers%E7%9B%B4%E6%8E%A5CDN%E9%83%A8%E7%BD%B2%E9%AB%98%E9%80%9F%E8%8A%82%E7%82%B9/index.html">
 <meta property="og:site_name" content="一只特立独行的猪">
+<meta property="og:description" content="​        现在科学上网是越来越难，找个好用的vps也是动辄15~20刀&#x2F;每年，去年通过cloudflare的workers直接CDN部署高速节点的方案横空出世，总算是解决了这个痛点，速度也是极快。经过一段时间的演变和进化，总算是相对稳定了，可以作为一个科学上网的方案长期使用。（IP可能会有跳动，不建议用这个方法登录认证比较严格的网站，如果向上youtube，最好不要登录) 搭建流">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-02-07T07:38:08.000Z">
-<meta property="article:modified_time" content="2024-02-07T07:38:08.624Z">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/b779ef54b8b23524939bdc3cf6f7d09d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/04376f4aef46f33e0f370ddb777e58b3.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/d5d7217a1c6bf0692fe610cdf8fc4926.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/213c19884eea49ef84623b97be6a9e3d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/10b3c61308b002aaac414f0bb273b9a4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/d915b61f030bf2968f7b66fddd6fe645.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/8142fe2fa6a65e425ac508b3a15278f0.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/0718b20def38879c579cb030018641c3.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/c682d02f551650fa0d686b16c48bb471.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/927dc0becf60b034ae7c1ca6f1c3dca6.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/33d753e5a0322318cacb3430365f7aaa.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/dc6adcb5c8f817f0c1e31eb44ad6ad3f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/7a798df8340078de8cf67cf4554ece00.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/2863fce250958b5ebf6b85f39bbefae0.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/3e4d8cbd13d33648c3716bd0348d793a.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/57d8b7e91ef872d1a2ed2720bd1bdf86.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/fabd032d411058c61557483498e0762b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/ce71c4b35030fd7cce8066b54d0ea3cd.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/9b10f858430fadc5c771a7783a8e8a32.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/29f6af23794a624681f310506391e063.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/79b099bdf107279f9d0d1425669356a6.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/47a64eee632b1d83d2af1cb2935c787f.png">
+<meta property="article:published_time" content="2024-03-03T11:43:26.000Z">
+<meta property="article:modified_time" content="2024-03-03T14:51:46.605Z">
 <meta property="article:author" content="Bboy">
-<meta property="article:tag" content="博客,技术分享,教程,生活">
+<meta property="article:tag" content="Cloudflare">
+<meta property="article:tag" content="Vless">
+<meta property="article:tag" content="Workers">
+<meta property="article:tag" content="节点">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img01.xiaohei.us/2024/03/b779ef54b8b23524939bdc3cf6f7d09d.png">
     
     
     <!--- Icon Part-->
@@ -45,7 +73,7 @@
     
     <title>
         
-            标签 -
+            通过Cloudflare的Workers直接CDN部署高速节点 -
         
         一只特立独行的猪
     </title>
@@ -386,7 +414,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/tags"
                                         >
                                     <i class="fa-regular fa-tag fa-fw"></i>
@@ -516,7 +544,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/tags"
                         >
                             <span>
@@ -571,18 +599,418 @@
             <div class="main-content">
 
                 
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="https://img01.xiaohei.us/2024/03/d77a588d92b9915d38bd3555bfa1b730.png" alt="通过Cloudflare的Workers直接CDN部署高速节点" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">通过Cloudflare的Workers直接CDN部署高速节点</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Xiao.Hei.Ge</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-03-03 19:43:26</span>
+        <span class="mobile">2024-03-03 19:43:26</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-03-03 22:51:46</span>
+            <span class="mobile">2024-03-03 22:51:46</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
                     
-<div class="tagcloud-container">
-	<div>
-		<h1 class="tagcloud-header">标签</h1>
-	</div>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        <li>
+                            | <a href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD/">翻山越岭</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Cloudflare/">Cloudflare</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Vless/">Vless</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Workers/">Workers</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%8A%82%E7%82%B9/">节点</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
 
-	
-	<div class="tagcloud-content">
-		<a href="/tags/Backlaze/" style="font-size: 1rem;">Backlaze</a> <a href="/tags/Cloudflare/" style="font-size: 2rem;">Cloudflare</a> <a href="/tags/Docker/" style="font-size: 2rem;">Docker</a> <a href="/tags/Game/" style="font-size: 1rem;">Game</a> <a href="/tags/Github/" style="font-size: 2rem;">Github</a> <a href="/tags/Hexo/" style="font-size: 5rem;">Hexo</a> <a href="/tags/Hexo%E6%90%AD%E5%BB%BA/" style="font-size: 5rem;">Hexo搭建</a> <a href="/tags/Lsky-Pro/" style="font-size: 1rem;">Lsky Pro</a> <a href="/tags/Markdown/" style="font-size: 3rem;">Markdown</a> <a href="/tags/NAS/" style="font-size: 1rem;">NAS</a> <a href="/tags/Nas/" style="font-size: 1rem;">Nas</a> <a href="/tags/Pegasus/" style="font-size: 1rem;">Pegasus</a> <a href="/tags/PicGo/" style="font-size: 1rem;">PicGo</a> <a href="/tags/Redefine/" style="font-size: 1rem;">Redefine</a> <a href="/tags/Typora/" style="font-size: 4rem;">Typora</a> <a href="/tags/Vless/" style="font-size: 1rem;">Vless</a> <a href="/tags/Workers/" style="font-size: 1rem;">Workers</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 2rem;">图床</a> <a href="/tags/%E5%A4%A9%E7%BF%BC%E7%BD%91%E5%85%B3/" style="font-size: 1rem;">天翼网关</a> <a href="/tags/%E5%A4%A9%E9%A9%ACG/" style="font-size: 1rem;">天马G</a> <a href="/tags/%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 1rem;">威联通</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E5%99%A8/" style="font-size: 1rem;">模拟器</a> <a href="/tags/%E8%8A%82%E7%82%B9/" style="font-size: 1rem;">节点</a> <a href="/tags/%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98/" style="font-size: 1rem;">超级管理员</a> <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/" style="font-size: 1rem;">青龙面板</a>
-	</div>
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
 
-	
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <p>​        现在科学上网是越来越难，找个好用的vps也是动辄15~20刀&#x2F;每年，去年通过cloudflare的workers直接CDN部署高速节点的方案横空出世，总算是解决了这个痛点，速度也是极快。经过一段时间的演变和进化，总算是相对稳定了，可以作为一个科学上网的方案长期使用。（IP可能会有跳动，不建议用这个方法登录认证比较严格的网站，如果向上youtube，最好不要登录)</p>
+<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><p>1、注册一个<strong>cloudflare</strong>账号；</p>
+<p>这个网上教程一大把，不在这里展开说了。</p>
+<p>2、在cloudflare的“<strong>Workers 和 Pages</strong>”菜单中“<strong>创建应用程序</strong>”；</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/b779ef54b8b23524939bdc3cf6f7d09d.png"
+                      alt="image-20240303200622853"
+                ></p>
+<p>第一次进入可能需要验证邮箱，按照提示操作即可。通过后出现如下界面：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/04376f4aef46f33e0f370ddb777e58b3.png"
+                      alt="image-20240303200852668"
+                ></p>
+<p>点击“<strong>创建应用程序</strong>”—&gt;”<strong>创建Worker</strong>“</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/d5d7217a1c6bf0692fe610cdf8fc4926.png"
+                      alt="image-20240303200948319"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/213c19884eea49ef84623b97be6a9e3d.png"
+                      alt="image-20240303201204009"
+                ></p>
+<p>修改名称，点击右下角“<strong>部署</strong>”按钮：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/10b3c61308b002aaac414f0bb273b9a4.png"
+                      alt="image-20240303201314848"
+                ></p>
+<p>部署完成后，点击“<strong>编辑代码</strong>”</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/d915b61f030bf2968f7b66fddd6fe645.png"
+                      alt="image-20240303201616823"
+                ></p>
+<p>进入代码界面，清除代码内容</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/8142fe2fa6a65e425ac508b3a15278f0.png"
+                      alt="image-20240303201731355"
+                ></p>
+<p>进入github复制项目内容</p>
+<p>github地址：<a class="link"   target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zizifn/edgetunnel/main/src/worker-vless.js" >raw.githubusercontent.com&#x2F;zizifn&#x2F;edgetunnel&#x2F;main&#x2F;src&#x2F;worker-vless.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/0718b20def38879c579cb030018641c3.png"
+                      alt="image-20240303202237322"
+                ></p>
+<p>把复制的内容粘贴到worker代码框中：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/c682d02f551650fa0d686b16c48bb471.png"
+                      alt="image-20240303203453775"
+                ></p>
+<p>到这一步，代码就部署好了。</p>
+<p>我们找到第九行代码：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/927dc0becf60b034ae7c1ca6f1c3dca6.png"
+                      alt="image-20240303203603035"
+                ></p>
+<p>把“workers.bestip.one”这个地址填入第九行：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/33d753e5a0322318cacb3430365f7aaa.png"
+                      alt="image-20240303203727248"
+                ></p>
+<p>修改好以后最好把第七行的userID也改一下(用v2rayn生成一个vless ID)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/dc6adcb5c8f817f0c1e31eb44ad6ad3f.png"
+                      alt="image-20240303213423424"
+                ></p>
+<p>全部修改完毕，记得点击屏幕右边的“保存并部署”</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/7a798df8340078de8cf67cf4554ece00.png"
+                      alt="image-20240303213629558"
+                ></p>
+<p>接下来复制第七行的UserId，粘贴到图示位置：</p>
+<p>Http：&#x2F;&#x2F;0303.呵24587332.workers.dev&#x2F;后面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/2863fce250958b5ebf6b85f39bbefae0.png"
+                      alt="image-20240303213833853"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/3e4d8cbd13d33648c3716bd0348d793a.png"
+                      alt="image-20240303214001743"
+                ></p>
+<p>粘贴好后点击”Send”并查看右侧窗口，如果配置正确右侧窗口会出现v2ray配置信息，如果没有出现，请多点击几次”Send”</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/57d8b7e91ef872d1a2ed2720bd1bdf86.png"
+                      alt="image-20240303214723816"
+                ></p>
+<p>复制v2ray配置信息，打开v2rayn软件，并导入</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/fabd032d411058c61557483498e0762b.png"
+                      alt="image-20240303220611374"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/ce71c4b35030fd7cce8066b54d0ea3cd.png"
+                      alt="image-20240303221651204"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/9b10f858430fadc5c771a7783a8e8a32.png"
+                      alt="image-20240303221730783"
+                ></p>
+<p>修改443端口为2052，并关掉tls。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/29f6af23794a624681f310506391e063.png"
+                      alt="image-20240303221826723"
+                ></p>
+<p>地址改为优选域名：</p>
+<p>联通高速优选域名30w+：acjp2.cloudflarest.link   acsg.cloudflarest.link   acsg3.cloudflarest.link </p>
+<p>移动高速优选域名40w+：acjp2.cloudflarest.link   acsg3.cloudflarest.link </p>
+<p>电信高速优选域名：acsg3.cloudflarest.link    acsg.cloudflarest.link</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/79b099bdf107279f9d0d1425669356a6.png"
+                      alt="image-20240303222238422"
+                ></p>
+<p>到这里就大功告成了！如果测速的时候速度为-1，大概率是优选域名导致的。</p>
+<p>解决办法：打开itdog.cn&#x2F;ping网站，输入优选域名，选择本地区，本网络的对应IP替换掉优选域名。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/47a64eee632b1d83d2af1cb2935c787f.png"
+                      alt="image-20240303222537329"
+                ></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 通过Cloudflare的Workers直接CDN部署高速节点</li>
+        <li><strong>作者:</strong> Xiao.Hei.Ge</li>
+        <li><strong>创建于
+                :</strong> 2024-03-03 19:43:26</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-03-03 22:51:46
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://cool.xiaohei.us/2024/03/03/通过Cloudflare的Workers直接CDN部署高速节点/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Cloudflare/">#Cloudflare</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Vless/">#Vless</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Workers/">#Workers</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E8%8A%82%E7%82%B9/">#节点</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/02/08/Docker%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C-%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8%E5%AE%9E%E4%BE%8B%E3%80%81%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Docker常规操作--删除容器实例、删除镜像</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'walxhg.xiaohei.us',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          requiredMeta: ['nick', 'mail'],
+          emoji: ['//unpkg.com/@waline/emojis@1.2.0/bmoji'],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">通过Cloudflare的Workers直接CDN部署高速节点</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-text">搭建流程</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
 </div>
 
 
@@ -667,6 +1095,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
