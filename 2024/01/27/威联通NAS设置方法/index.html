@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="博客,技术分享,教程,生活">
+    
+    <meta name="author" content="Xiao.Hei.Ge">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://cool.xiaohei.us/2024/01/27/威联通nas设置方法/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="写在前面NAS 起初主要为文件存储而设计，但其实际远超这一功能，以威联通 NAS 为例，不仅仅是存储工具，更是一个能够大幅提升生产力的设备。经过这几年的使用，威联通 NAS 已融入日常工作与娱乐，今天我们一起来分享一下，威联通在协同办公、实时资料备份、云盘数据同步、虚拟化支持、DOCKER支持及服务器的部署等方面都有哪些出色科技，这些功能已经让威联通 NAS 成为一个生产力利器。 一、TS-464">
+<meta property="og:type" content="article">
+<meta property="og:title" content="威联通NAS设置方法(含兰空图床)">
+<meta property="og:url" content="https://cool.xiaohei.us/2024/01/27/%E5%A8%81%E8%81%94%E9%80%9ANAS%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="一只特立独行的猪">
+<meta property="og:description" content="写在前面NAS 起初主要为文件存储而设计，但其实际远超这一功能，以威联通 NAS 为例，不仅仅是存储工具，更是一个能够大幅提升生产力的设备。经过这几年的使用，威联通 NAS 已融入日常工作与娱乐，今天我们一起来分享一下，威联通在协同办公、实时资料备份、云盘数据同步、虚拟化支持、DOCKER支持及服务器的部署等方面都有哪些出色科技，这些功能已经让威联通 NAS 成为一个生产力利器。 一、TS-464">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/bc535b74e4c2962bf0c73084c6ecd961.jpeg">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0ad6c6ecd3118a47ae5bf894de12571b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/caf25b683c1bfc3871aaa1a53130f0b1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/cfba9f5553d907a5a6404afc518abe8f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/2f29eeba2840e790366019a8a795033c.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/7a247b3345d3231cf4d43240957d2f8a.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0af6bce846d01e83c64f51206ef98621.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/85749a34bf59e45dc70307ea1ec292e1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/2a596d73a1630c4e16e37a7d61da8532.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/33ba972603cb07927bc0121bf37b2644.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/bc5dbfa1b5d1f13e51d69193debd4c77.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0796ecc48106cb11f6cc9f81dbf6c5c0.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0d1d425152d29c4c1740c09f6bd93116.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/c1f6e7f12fcf83a7f061d0c38ebe2a04.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/df80de0884db1f6721e9099d5f77b6fa.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/3776c70d23494e8743410edae690e43d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5b91b3baeae3aaf7d105de53f22fae8b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9481a8c2ed3f63b59159faa032f52520.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/fbea96858c20196a57b75738c73be513.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a94f1264bc2143e904828ca64ad6b24f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a83164273bc4312f7225af51b5e72f11.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/85034b2290e0e92e4b28b65581208a09.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9771bee78e76338eb4c74b0d9c17226a.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0405e9df240771fdba79c2d926dccd0b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/e79c8cc0072899dbb3e7c3b4bfbcde11.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/573a8a1a58dad3ba8c2c910c1248694f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a97d6234a91f3bee5b38aa42bb01c2a3.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/c47e803609c26851cfa02c78be9d4ee4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/33619bc452df9f80aacb0ce00f0db5e2.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/db77afd452d758ecc1dc1adf1cb07512.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/80abd1ed649c06559a4da6f638864caa.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/01ec51224618a1961d2db8778777463b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/2da398f3dd199a6d4ef4e7446e95bfc3.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/6960cb7000073f810493cef53eeecffc.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/911afa1f449d7edbd81432c0b668154f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ca9dcf02d9621b6548199127641dae6d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/59adb249789f508ebb21142654ce163e.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d29116a62aebaf69c74d19d17d35ed47.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/32ddabdace5f144a8341d1f68d70b12b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d2b2e883204f752f957439ed3d5d6c7b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a2a630544b369d948e91cbf7706d0d02.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/01a3b6c6e0b18a6c2d23d1329a7383bb.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a83d66daaf4a75569d9e6d36c4d68c73.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/57e71ea7f91f357966c11301d37bd86d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1f0f8360da5aa7a1b8e52587c7da7c54.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/87761a0eccfdc6d413c5f1ab7989daf9.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/bba81200fe8e6b6b0ae57f25678a6707.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ea6050371e71efa058a0f7b290ed584a.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/dc494e29db8b71febfc4faada39ad680.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0f5e6b2f7edd1a154d1cbf5d2381a26b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1199172903a4052c87989b6d3c295c5f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/683c2ec86278fb7af944d5d749f8cdb4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b6a133fd54608e8e99be4cb4c1189bf2.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/81d2a9d5d4583779d5d68c8a7c732529.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/921fbce17d1a62bdf8601c7149833f51.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d975a8da8fc13aca53035401aba72315.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/68516fd1df9c0c5c375a88edacde97aa.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/68b41e31359d7c8549652c8d0ec34fd1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b18db112cc82006b501838bf5ff72c77.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b3fe54ddc7f581e32546d712e1e0f37b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5392c46c985fabec860e7d3e8530d602.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d4d0b157cc8dc6de240f428e39ac87a8.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/cef33eeadaeb2e7e037989cb91f0dab7.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/c20cfafe1966167701dc3bad96ae3068.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/c968c4374e958ff37e59217e170c1ad8.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/8d188aa88337027aaf293b8bcdcadc8e.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/cddcabb601b4a5277b28c7df7da7b2e2.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b8fed39e8e81619d7a24c298e922799b.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/232396f696932ff62225fff19cd91a78.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/63227d0df608f86c4b8fc4410d02acc1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d700a58dc917b4a20537797f9bb51fbc.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/fac75530405df100645251a4e387babf.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/947eefd17bb9e36358758fb7ee75dcc1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/f4421831bcec279f228335dc583aced4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/14ce8b961714a6a41096e21894971d11.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/25ef54479226663f7b653da725378651.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b35d6604f9c4aaf7a0a5a1c23fdd1b73.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/bb1fa15773c164a419047e6e5775b734.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/af6c531fd33b8d070fe4dedb161819e1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/3187397ab6d2f74959e6936bf3bdb7e7.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a0afca6ee05b3b791c5d48457233c95d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9109ab8c06c735eba7c1677417e1b0df.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/04f26691e9cc9e637d56db4e03aba336.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/7ba446dc9444cea18b3fa152b33d00a7.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/93bc1d90e6efc39a5249cd244230cd48.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/6c5aee958b445db060d800a229069858.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/482c4fbab4ca55592242298f5c7520a2.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/aa9ff1c40c34ab1ce4d045a1577be4aa.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/32e5014c2515c649747321bf52f7a5da.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5ca836d5e2fc9b24d79707dbbf055193.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/934371cbdf1b2b2628dc42e7617ffad1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/21ae19a36a31349d9b439c695c87a9a6.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/8a111f74a1536c05fcf7cb8805eba6a2.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/fbfa3c2a8215c2172ead7b8712eeca9e.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/88eabc1ab93c28de5765f6970ff5c83d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/bd35ddac3a9bc6b9f37e3e24a4a9a32d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5791a7fc6fcdd98e846ec29d76155116.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d0b6fe8d2e346c2dfe1148be3b5c0663.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/88b9f49f52929ff68b54af6fc2345701.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/feeefcb577de4bf90ace7c3eb6f08ccb.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/31d48213ff75d6a0c908d506da3dffd7.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1a70d55f368696e0f7e621fff0c51dfb.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/138c0b26d8645a13d21b13bc86cd3116.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0f08d44c6775dfd97e5f04ffb5bb9b2c.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/0b0a81ea85769099b3d5f9dda80de630.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/3388087854152733a56588fcc52bc264.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/206c691e4beabd4593ebb58f391c092f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/27579bbd07f84c334724afda3ee4c36f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/8a1d905a965e7225ae45034338460273.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ce0cd5b113de31a9cdc46a5ff4ae85fd.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/40b62b2911114e898dae1862d24cdc17.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9fe2192d6ba25bb920808ff4ee23583e.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/c03f2324d4f166f9b5ded3d2deb0ecba.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/3503ed11d039672736ad6f7e253034ad.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/122403c2f7e26dd9d4e930b6bafe6d2d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/dde5bfaa282bac12c86fb9f9bec85619.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/241d5cd4bf2f445704f464c8da55b784.jpeg">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/73926cea9bf0400c2824d71b01950aa5.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/99e8c66a604e894c9131dfd8f23bcca4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/f52311677c4785890646e42945c7e3f1.png">
+<meta property="article:published_time" content="2024-01-27T03:26:07.000Z">
+<meta property="article:modified_time" content="2024-01-27T17:26:19.138Z">
+<meta property="article:author" content="Bboy">
+<meta property="article:tag" content="Hexo搭建">
+<meta property="article:tag" content="图床">
+<meta property="article:tag" content="Nas">
+<meta property="article:tag" content="威联通">
+<meta property="article:tag" content="Lsky Pro">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img01.xiaohei.us/2024/01/bc535b74e4c2962bf0c73084c6ecd961.jpeg">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            威联通NAS设置方法(含兰空图床) -
+        
+        一只特立独行的猪
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        一只特立独行的猪
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"cool.xiaohei.us","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"睡着、醒着、不停地走着......","subtitle":{"text":["每天都在期望着，明天或许会有不同"],"hitokoto":{"enable":true,"api":"https://v1.hitokoto.cn/?c=k"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"path":"/categories","icon":"fa-regular fa-folder-open","submenus":{"学习笔记":"/categories/学习笔记","游戏相关":"/categories/游戏相关","NAS应用":"/categories/NAS应用","翻山越岭":"/categories/翻山越岭","杂七杂八":"/categories/杂七杂八"}},"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tag"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"念念不忘，必有回响","show_on_mobile":true,"links":{"分类":{"path":"/categories","icon":"fa-regular fa-folder-open","submenus":{"学习笔记":"/categories/学习笔记","游戏相关":"/categories/游戏相关","NAS应用":"/categories/NAS应用","杂七杂八":"/categories/杂七杂八"}},"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tag"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                一只特立独行的猪
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-folder-open fa-fw"></i>
+                                    分类
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                                    学习笔记
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3">
+                                                    游戏相关
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/NAS%E5%BA%94%E7%94%A8">
+                                                    NAS应用
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD">
+                                                    翻山越岭
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB">
+                                                    杂七杂八
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tag fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-分类"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-分类">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3">游戏相关</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/NAS%E5%BA%94%E7%94%A8">NAS应用</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD">翻山越岭</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB">杂七杂八</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tag fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">22</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">14</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="https://img01.xiaohei.us/2024/01/c70581574bdcd3412ea9faf4b07f05d0.png" alt="威联通NAS设置方法(含兰空图床)" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">威联通NAS设置方法(含兰空图床)</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Xiao.Hei.Ge</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-01-27 11:26:07</span>
+        <span class="mobile">2024-01-27 11:26:07</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-01-28 01:26:19</span>
+            <span class="mobile">2024-01-28 01:26:19</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        <li>
+                            | <a href="/categories/NAS%E5%BA%94%E7%94%A8/">NAS应用</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Hexo%E6%90%AD%E5%BB%BA/">Hexo搭建</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%9B%BE%E5%BA%8A/">图床</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Nas/">Nas</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%A8%81%E8%81%94%E9%80%9A/">威联通</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Lsky-Pro/">Lsky Pro</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>NAS 起初主要为文件存储而设计，但其实际远超这一功能，以威联通 NAS 为例，不仅仅是存储工具，更是一个能够大幅提升生产力的设备。经过这几年的使用，威联通 NAS 已融入日常工作与娱乐，今天我们一起来分享一下，威联通在协同办公、实时资料备份、云盘数据同步、虚拟化支持、DOCKER支持及服务器的部署等方面都有哪些出色科技，这些功能已经让威联通 NAS 成为一个生产力利器。</p>
+<h2 id="一、TS-464C2介绍及无损迁移"><a href="#一、TS-464C2介绍及无损迁移" class="headerlink" title="一、TS-464C2介绍及无损迁移"></a>一、TS-464C2介绍及无损迁移</h2><p>首先介绍一下我现在正在用的设备是威联通 TS-464C2 ，是一款 4 盘位旗舰 NAS，搭载英特尔 N5095 四核四线程处理器，最高核频 2.9GHz，功率 15W，内置 Intel AES-NI 加密引擎与内置 GPU 能明显加速影片转码。性能强悍，比上代 J4125 处理性能强 30%，集显性能强了 4 倍。玩 Docker、玩虚拟机、家庭影音都不在话下。和上代 J4125 处理器对比，N5095 不管是单核、还是多核都有 30% 性能提升。</p>
+<p>TS-464C2 供了 2 个 M.2 NVMe SSD 插槽，8GB 可拓展内存，满足绝大多数 Docker、轻量虚拟机玩家需求，双内存槽可以轻松扩充到 32G 内存，多容器、多虚拟机运行更流畅。</p>
+<p>接口丰富，提供 HDMI 2.0、USB 3.2、双 2.5G 网口，无论是虚拟机、<a class="link"   target="_blank" rel="noopener" href="https://www.key-iot.com/news/12654.html" >软路由 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>、Docker、HTPC 家庭影院都能轻松驾驭，可以说是一步到位的机型，可以轻松满足日常存储乃至小型服务器需求。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/bc535b74e4c2962bf0c73084c6ecd961.jpeg"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>之前用的威联通的NAS，同品牌的数据迁移，十分简单，只要按照顺序装好硬盘就可以了。</p>
+<p>使用 QNAP 提供的 Qfinder Pro 桌面管理工具，在局域网中可以看到这台新的NAS。安装硬盘一定要记住硬盘的顺序，如果硬盘raid状态下错序放入，通电后基本上数据就没救了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0ad6c6ecd3118a47ae5bf894de12571b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>输入原来的账号、密码，登陆：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/caf25b683c1bfc3871aaa1a53130f0b1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>看到熟悉的 NAS 主页了，更新的固件，完美移机。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/cfba9f5553d907a5a6404afc518abe8f.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<h2 id="二、全平台协同，知识库管理"><a href="#二、全平台协同，知识库管理" class="headerlink" title="二、全平台协同，知识库管理"></a>二、全平台协同，知识库管理</h2><p>威联通（QNAP）NAS 在团队写作方面的功能十分出色，为多人合作提供了一系列专业的解决方案和强大的软件支持，如 Notes Station 3.0 等，这些都使得文档编辑、文件分享和数据同步变得异常便捷。威联通 NAS 为在线办公提供了稳定、安全的数据中心，从而确保团队成员即使身处不同地点，也能高效、流畅地进行合作。其先进的权限管理、文件版本控制和备份功能进一步确保了数据的完整性和安全性。</p>
+<p>1.Notes Station 3.0私有网络笔记本</p>
+<p>威联通软件中心提供的Notes Station 3.0 是一款私有网络笔记应用，轻松完成工作流程中的所有步骤，配备了图像编辑器、笔记共享、数据加密、版本控制和快照备份，用户可以使用它在 QNAP NAS 上创建、编辑和存储笔记，用户可以使用一个安全、私有的笔记空间，避免将个人或商业信息存储在公共云中。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/2f29eeba2840e790366019a8a795033c.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在Google Chrome浏览器安装 QNAP Notes Station 3 Clipper拓展，便可轻松将网页、文章及图片等内容撷取到 Notes Station 3，将 Internet 上的内容直接保存到 Notes Station 3 中的笔记中。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/7a247b3345d3231cf4d43240957d2f8a.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>安装后可以直接使用NAS登录，本地登录和远程登录都可以。NAS 设备支持 Docker，用户可以在 NAS 上运行各种容器化的应用，如 Trilium Notes、思源笔记、为知笔记等。这样，用户不仅可以集中管理数据，还可以使用自己喜欢的笔记软件进行编辑和整理。通过工具如 frp，用户可以轻松实现外网访问 NAS 上的这些应用，进一步提高数据的可访问性和工作的灵活性。最重要的是，“数据在手”—— 所有的笔记和文件都存储在自己的 NAS 上，用户完全掌控自己的数据，既保证了数据的私密性，又避免了依赖第三方服务的风险。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0af6bce846d01e83c64f51206ef98621.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>2.内嵌 Office 套件</p>
+<p>威联通QNAP还提供了Qoffice套件，包括文档、表格和幻灯片三个应用，可以创建、编辑和分享文档。此外，与其他云办公套件相比，Qoffice 的优势在于它运行在你自己的QNAP NAS上。使用者可在 File Station 中右键点选 Office 文件并选择「以 Office Online 编辑」即可直接在网页浏览器中编辑 Microsoft Office 文件，免去先前必须下载文件进行编辑后再上传的不便与耗时。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/85749a34bf59e45dc70307ea1ec292e1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在线使用的感觉比较流畅，用来轻办公完全没有问题。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/2a596d73a1630c4e16e37a7d61da8532.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<h2 id="三、网盘同步，随时随地备份同步"><a href="#三、网盘同步，随时随地备份同步" class="headerlink" title="三、网盘同步，随时随地备份同步"></a>三、网盘同步，随时随地备份同步</h2><p>对视频、图片创作者而言，NAS 不仅优化了文件管理与分享，还为团队带来了高效、协同的工作氛围。鉴于视频文件常常较大，NAS 为其提供了集中、大容量的存储，简化管理与访问。通过 NAS，审核者可在线查看视频，免去下载环节。团队成员能实时通过NAS轻松访问、编辑或下载内容。没有 NAS 的时候就手动将文件上传到网盘或者是下班的时候用 U 盘带走。有了 NAS 就不一样了，我们可以使用 NAS 自带的工具对文件进行实时同步，下班回家只需要关闭并保存文档，剩下来的事交给 NAS 就好，回家以后就能继续工作。以威联通 NAS 为例，用到的功能就叫 Qsync同步。如果你有多台电脑共同编辑文档的需求，Qsync 是你的不二之选。</p>
+<p>1.Qsync 客户端</p>
+<p>首先在 NAS 中安装 Qsync Central，默认同步的共享文件夹是 Qsync 目录，但实际使用过程中，用自定义的文件夹更加实用。不过由于目前 Qsync Central 尚不支持在自定义的同步文件夹中启用版本控制功能，如何取舍就看你的需求了。对于我来说，由于需要在冷备、热备时备份同步的文件夹，而 Qsync 是不支持被选作源文件夹的，我选择放弃同步过程中的版本控制，需要恢复旧版时可以利用热备方案中保存的版本代替。</p>
+<p>要启用自定义的同步文件夹，可以打开 Qsync Central ，点击左侧「共享文件夹」→搜索需要开启的文件夹名→「勾选允许」→即已开启同步。</p>
+<p>威联通Qsync 能够自动将电脑中指定的文件夹同步到威联通 NAS，并实现实时无缝同步。无论位于局域网内还是公司之外，都可以利用威联通的远程功能进行同步。这对办公非常方便：在公司未完成的文档，在家中也可以继续编辑，一旦有文档更改，便会实时同步到 NAS。第二天在公司取用时，将得到最新版本的文档。此外，该应用支持在所有设备上访问实时数据，并便捷地与工作团队或家庭成员共享。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/33ba972603cb07927bc0121bf37b2644.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在威联通官网下载 Qsync 客户端，目前提供 Windows、Mac、Ubuntu、IOS、安卓端等主流平台客户端，下载并安装即可，安装后同样可以实现取用同步文件夹中的文件。</p>
+<p>登录，选择使用 QID，然后登录威联通账号，选择需要同步的威联通设备，通过这种方式登录后，可以不分内外网直接同步。如果开通了公网IP或者自定义域名内网穿透，可以直接输入IP或者域名直接登录：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/bc5dbfa1b5d1f13e51d69193debd4c77.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>设置电脑中希望实时同步到 NAS 的文件夹并进行编辑。在电脑本地配置一个文档同步专用文件夹，将日常需要多地使用的文档放入该文件夹，同步完成。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0796ecc48106cb11f6cc9f81dbf6c5c0.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>百度网盘这个东西终究是逃不过使用的，这是没办法的事，毕竟好多资源都是通过百度网盘共享的。不充会员又不想让电脑 24 小时开机下载资源，NAS 的作用就发挥出来了。使用网盘备份功能既可以实现双向同步，将重要资料多保存一份在百度网盘，也可以蚂蚁搬家将数据下载下来。</p>
+<p>2.HybridMount云<a class="link"   target="_blank" rel="noopener" href="https://www.key-iot.com/news/85041.html" >网关 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>挂载</p>
+<p>HybridMount 是云网关挂载工具，让云盘可以当作本地磁盘使用。具有两种装载模式，可帮助创建符合需求的混合云环境。文件云网关模式可将的 NAS 变身为云网关，支持装载不同的云存储帐户。不仅可以从 File Station 访问云帐户，还可以访问通过 SMB、NFS、AFP 和 FTP 等网络协议连接的其他设备上的存储。</p>
+<p>为最大化云存储性能并减少迟延，File Station 的装载模式在 QNAP NAS 上直接访问云账户和远程数据，统一公共云和<a class="link"   target="_blank" rel="noopener" href="https://www.key-iot.com/news/26260.html" >私有云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>管理。”云硬盘装载” 支持多种云服务，并结合混合云管理，让 File Station 和 Qfile 方便地同步管理 QNAP NAS、公共云及远程私有服务器。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0d1d425152d29c4c1740c09f6bd93116.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>3.HBS3混合型备份与同步中心</p>
+<p>Hybrid Backup Sync（HBS 3）是将数据备份、复原、同步等功能整合到一个应用里面，用户可以在任何时候、任何地点采用3-2-1 备份法则，保护和访问他们的重要数据。用户可以从 QNAP NAS 备份或同步数据到各种平台。支持的备份方法包括 USB 单键备份、Apple Time Machine 备份、以及实时远程数据复制（RTRR）、Rsync、FTP、CIFS&#x2F;SMB 等。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/c1f6e7f12fcf83a7f061d0c38ebe2a04.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p><strong>简单说一下3-2-1 备份法则：</strong></p>
+<blockquote>
+<p>3 个数据副本：始终为重要数据保留三个副本：原始数据加上两个备份，无论存于服务器、NAS、硬盘、网盘等。这可避免单一故障导致的数据丢失。</p>
+<p>2 种不同的存储介质：保留数据于两种不同存储介质：至少用两种方式保存数据副本，如内部驱动器与外部磁盘或 NAS、云盘。其中一个本地备份应使用映像技术，如苹果的 Time Machine，备份整体系统以便于恢复到特定时点。不同介质降低相同故障风险。故障模式，而这就保证了不会有一样的故障模式。</p>
+<p>1 个异地备份：异地存储至少一份备份，可防止火灾、水灾或盗窃等物理灾害。确保原始数据完整，避免所有备份副本都有同样缺陷。若数据分散多处，需确保文件一致性。使用重复数据删除技术避免冗余，加密提高安全，而分类编目及索引加速检索。</p>
+</blockquote>
+<p><strong>备份方法：</strong></p>
+<p>在 HBS3 里面打开存储空间点击创建，选择伴要同步备份的云盘，在列表内可以看到远程NAS、远程服务器、云服务器多种选项：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/df80de0884db1f6721e9099d5f77b6fa.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在云服务器内可以看到，目前支持的网盘和服务器已经很多了，我们以百度网盘为例，喜欢玩 Google Drive 和 OneDrive或者其他网盘的，也可以按照相同的办法来操作。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/3776c70d23494e8743410edae690e43d.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>点击创建，选择百度网盘。这一步会跳转到网页登录百度网盘账号，登录好自己的账号，选择 “创建” 即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/5b91b3baeae3aaf7d105de53f22fae8b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>创建成功，可以看到云服务器选项多了一个百度网盘云服务器：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/9481a8c2ed3f63b59159faa032f52520.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>完成之后，这个空间就可以进行备份同步作业了。选择左侧第二项备份和回复，点击创建 “新备份作业”。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/fbea96858c20196a57b75738c73be513.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择需要备份的 “本地文件夹”。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/a94f1264bc2143e904828ca64ad6b24f.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>比如我要将平时码文的图库备份到百度网盘，这里选择百度网盘，可以看到刚才我们添加的百度网盘用户，选择进行下一步：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/a83164273bc4312f7225af51b5e72f11.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择备份路径，这里我在百度网盘下，新建一个文件夹，</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/85034b2290e0e92e4b28b65581208a09.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/9771bee78e76338eb4c74b0d9c17226a.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>最后查看一下路径，没问题就可以点击下一步。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0405e9df240771fdba79c2d926dccd0b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>备份计划这一步可以设置备份的频率，比如是每天一次，每个月一次，还是每个小时一次。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/e79c8cc0072899dbb3e7c3b4bfbcde11.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>接下来是筛选器，这一步可以设置是否压缩数据来提升效率，或者使用 QuDedup 技术删除重复数据。个人觉得这个需要看个人需求来选择是否勾上。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/573a8a1a58dad3ba8c2c910c1248694f.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>最后检查一遍，没问题点击创建。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/a97d6234a91f3bee5b38aa42bb01c2a3.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>接下来，看下同步速度，也还不错。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/c47e803609c26851cfa02c78be9d4ee4.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>此外也可以创建双向同步任务，上面的方式是将文件备份到网盘，而这个双向同步大家都明白，也就是说网盘和NAS之间实时同步，保持文件一致。</p>
+<h2 id="四、Container-Station（Docker）"><a href="#四、Container-Station（Docker）" class="headerlink" title="四、Container Station（Docker）"></a>四、Container Station（Docker）</h2><p>1.页面概览</p>
+<p>威联通的 Docker 功能是众多 NAS 品牌中的佼佼者。Container Station是一个软件容器工作站，融合了 LXC 和 Docker 这两种轻量级虚拟技术。威联通 Container Station 容器工作站界面简洁、UI 结构清晰，无论新手或资深用户都能迅速获取所需信息并理解各功能和选项</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/33619bc452df9f80aacb0ce00f0db5e2.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>2.映像拉取</p>
+<p>在Container Station镜像内，可以安装来自 Docker Hub 的各种软件。尽管 docker.hub 有时不稳定，但通过威联通的容器映像界面直接输入容器名可非常流畅的拉取镜像。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/db77afd452d758ecc1dc1adf1cb07512.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>3.Docker Compose</p>
+<p>自从更新到威联通 QTS 5.1 系统后，Docker 功能进一步完善。Container Station容器工作站在创建 Docker 容器的时候支持 Docker Compose，也是第一个兼容 Docker Compose的系统。通过使用docker-compose.yml的形式去部署容器项目，可用于定义服务、网络和数据卷，也可以通过编排的形式进行多个容器的配置以及拉取，极大地提高容器部署的效率。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/80abd1ed649c06559a4da6f638864caa.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>4.配置文件获取</p>
+<p>在Docker Hub可以获取Docker Compose 配置文件</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/01ec51224618a1961d2db8778777463b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>5.Compose部署Transmission</p>
+<p>打开 Docker Hub 官网直接搜索我们需要的镜像并回车。以Transmission为例。选择影像尽量选择下载次数多的和收藏次数多的。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/2da398f3dd199a6d4ef4e7446e95bfc3.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>打开后，页面中即展示了该镜像的配置代码。该镜像提供了 docker-compose 代码和 docker 命令代码。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/6960cb7000073f810493cef53eeecffc.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>将上面的代码复制到命令框内，自己可以调整一下端口或者文件位置，配置好以后粘贴到威联通的 Docker Compose 配置页面，先验证一遍，没问题的话，直接在上方输入应用程序名称，设置 weburl 端口以及资源分配后便可以直接创建程序了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/911afa1f449d7edbd81432c0b668154f.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>然后可以看到自动创建的页面，稍等一会就能看见创建好的transmission容器了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/ca9dcf02d9621b6548199127641dae6d.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>然后回到 Container Station【应用程序】，点击transmission容器旁边的地址，就能直接登录 qbittorrent 的 WEB 界面了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/59adb249789f508ebb21142654ce163e.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d29116a62aebaf69c74d19d17d35ed47.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<h2 id="五、DOCker部署calibre-web图书管理系统"><a href="#五、DOCker部署calibre-web图书管理系统" class="headerlink" title="五、DOCker部署calibre-web图书管理系统"></a>五、DOCker部署calibre-web图书管理系统</h2><p>CalibrePC版使用了很多年，发现可以突破本地服务的局限，为自己的各种终端提供电子书服务。Calibre-web就是calibre的web版，提供了用户友好的对外网页展示的形式，可以在网上展示，管理，浏览自己的书籍，让书跟着自己走。</p>
+<p>布置一个电子书统一管理平台calibre-web，首先找到镜像：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/32ddabdace5f144a8341d1f68d70b12b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>看一下命令及端口：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d2b2e883204f752f957439ed3d5d6c7b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>为了方便管理，楼主直接将路径配置修改到了共享文件夹的路径：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/a2a630544b369d948e91cbf7706d0d02.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>volumes:</p>
+<p>&#x2F;share&#x2F;CACHEDEV1_DATA&#x2F;Container&#x2F;calibre-web&#x2F;config:&#x2F;config</p>
+<p>&#x2F;share&#x2F;CACHEDEV1_DATA&#x2F;books:&#x2F;books</p>
+<p>将上面的代码复制到命令框内，先验证一遍，上方输入应用程序名称，设置 weburl 端口以及资源分配，点击创建：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/01a3b6c6e0b18a6c2d23d1329a7383bb.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>端口默认或者改成其他未占用的端口：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/a83d66daaf4a75569d9e6d36c4d68c73.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>创建完成直接输入NASIP+端口，访问即可：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/57e71ea7f91f357966c11301d37bd86d.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>如果已经设置了内网穿透，直接通过公网IP或者域名访问也是没问题的。默认账号密码: admin&#x2F;admin123。通过 8083 端口登录后记得进行修改密码。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/1f0f8360da5aa7a1b8e52587c7da7c54.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>用默认账号密码登陆进去，会看到让你选择一个数据库位置。如果直接点击保存的话，会有这样的一个错误提示：DB Location is not Valid, Please Enter Correct Path。因为在初始的数据库文件夹下面缺少数据库文件metadata.db。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/87761a0eccfdc6d413c5f1ab7989daf9.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>数据库文件metadata.db可以通过他初始化电脑版的Calibre，生成metdata.db。</p>
+<p>首先下载电脑版的Calibre</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/bba81200fe8e6b6b0ae57f25678a6707.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择电子书库的地址，记得一会到这里找metdata.db。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/ea6050371e71efa058a0f7b290ed584a.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>打开上面的文件夹，复制metdata.db。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/dc494e29db8b71febfc4faada39ad680.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>打开文件管理，找到books的路径，将metdata.db粘贴，注意粘贴路径：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0f5e6b2f7edd1a154d1cbf5d2381a26b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在初始化界面中，只要设置的 Calibre 数据库位置中存在刚才的metdata.db文件就可以啦。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/1199172903a4052c87989b6d3c295c5f.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/683c2ec86278fb7af944d5d749f8cdb4.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/b6a133fd54608e8e99be4cb4c1189bf2.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>切换为中文的方法确实比较新奇，在编辑用户里面，或者创建一个新的用户，语言环境在选择的时候选择中文即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/81d2a9d5d4583779d5d68c8a7c732529.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在用户编辑页面选择英语环境。保存刷新。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/921fbce17d1a62bdf8601c7149833f51.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>完成语言切换。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d975a8da8fc13aca53035401aba72315.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>进入管理员界面，来开启上传。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/68516fd1df9c0c5c375a88edacde97aa.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>再勾选功能配置的启用上传，就可以将我们本地的电子书上传到服务器中了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/68b41e31359d7c8549652c8d0ec34fd1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>保存后可以看见右上角多出了上传书籍的按钮。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/b18db112cc82006b501838bf5ff72c77.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>建议先用电脑版的Calibre整理下然后将电子书批量拷贝进去，这样也会省事不少。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/b3fe54ddc7f581e32546d712e1e0f37b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>拷贝的话这几个数据库文件也一起拷贝进去。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/5392c46c985fabec860e7d3e8530d602.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>再按照上面的方法开启下端口映射，就可以随时随地观看电子书了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d4d0b157cc8dc6de240f428e39ac87a8.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/cef33eeadaeb2e7e037989cb91f0dab7.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>此外Calibre-web内的电子书可以再支持 opds 的阅读器阅读：</p>
+<p>像iOS的kyBook、marvin，Android下的Bookari、静读天下、FBReader、Aldiko、Moon+ Reader等。</p>
+<p>我们以iOS的kyBook为例，搜索下载：</p>
+<p>①在页面上右滑，选择Libraries，进入到图书书库添加地址页面。</p>
+<p>②点右下角的加号，然后选择OPDS Catalog</p>
+<p>③弹出的页面搜索Calibre-web书库的地址。</p>
+<p>书库地址还是比较简单，书库地址，地址后面加&#x2F;opds。如果做了外网映射后，比如我们的公网IP或者域名：8083&#x2F;opds。</p>
+<p>比如IP地址198.226.253.12，那搜索的地址就是198.226.253.12:8083&#x2F;opds</p>
+<p>如果绑定的域名是http:&#x2F;&#x2F; zbfs.top，则搜索http:&#x2F;&#x2F; zbfs.top:8083&#x2F;opds</p>
+<p>④弹出的书库地址输入一个名字可以自定义，检查是不是我们的书库地址。</p>
+<p>⑤输入书库的账号和密码，点击登录。</p>
+<p>可以看到在书库内有我们添加的书库了，点击就可以阅读自己添加的电子书了。阅读效果非常不错。</p>
+<p>利用这两个软件，明显感受到 Docker Compose 在容器管理方面的优势，不仅简化了容器部署的过程，还为用户提供了一个清晰、组织有序的方式来配置和管理容器。特别是在处理多容器应用时，Docker Compose 的流程化和模块化能力显著减少了手动操作的复杂性，让容器化的工作流程更为高效。</p>
+<h2 id="六、Virtualization-Station虚拟化工作站"><a href="#六、Virtualization-Station虚拟化工作站" class="headerlink" title="六、Virtualization Station虚拟化工作站"></a>六、Virtualization Station虚拟化工作站</h2><p>1.虚拟化工作站概览</p>
+<p>就拿Virtualization Stationlan来说，整个界面的 UI 设计以及虚拟机的管理上都做的很不错是所有NAS平台虚拟机功能做的最好的，也是最简单的。TS-464C2 具备出色的性能，能同时运行多个虚拟机支持 HD Station、Ubuntu Linux Station、Virtualization Station，并配备了专门的虚拟机备份工具 HDP（Hyper Data Protector）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/c20cfafe1966167701dc3bad96ae3068.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>2.安装win10虚拟机</p>
+<p>N5095 处理器性能表现良好，日常使用中表现流畅。除了 Windows 之外，大多数常见的 linux 系统也都可部署。像Generic、Android、Linux、UNIX、Windows等，支持的虚拟机种类非常完善。</p>
+<p>这里说一下虚拟机支持的镜像格式，包括.ova、.ovf、.qvm 或者.ios 文件。此外，威联通还支持导入进行转换的映像是*.vmdk 和*.vdi 格式的，几乎涵盖了市面上常见的所有格式。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/c968c4374e958ff37e59217e170c1ad8.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>首先在威联通虚拟机应用上安装了一个 Windows 系统，并配合 todesk 等远程桌面方面，特别适用于需要经常出差或在家办公的用户，它们可以随时进入虚拟机桌面，访问文件、应用程序或进行各种设置。</p>
+<p>配置就按照下图设置即可，设置分配 cpu 核心数、内存以及存储空间。也可以为虚拟机设置远程访问密码，当然自己用也可以不设置。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/8d188aa88337027aaf293b8bcdcadc8e.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>稍作等待，系统安装初始化。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/cddcabb601b4a5277b28c7df7da7b2e2.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>到此威联通下，虚拟机安装 win11的教程就完成了，在网页端访问通过虚拟机搭建的Windows11统主机了，日常使用上和一般PC无异。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/b8fed39e8e81619d7a24c298e922799b.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>看下系统资源占有还是比较高的，楼主这次使用的是原版的镜像，CPU占有率在75%左右，能够稳定顺畅的运行，建议还是找一些精简版的windows镜像来做虚拟机使用。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/232396f696932ff62225fff19cd91a78.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>3.部署<a class="link"   target="_blank" rel="noopener" href="https://www.key-iot.com/news/92080.html" >openwrt <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>①img 格式转换成 vmdk</p>
+<p>准备好 Openwrt 软路由的固件，一般下载的格式都是img格式的，虚拟机支持的.vmdk 结尾的固件，使用 StarWind V2V Converter 这款软件可以方便的将 img 格式转换成 vmdk 格式。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/63227d0df608f86c4b8fc4410d02acc1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>打开 StarWind V2V Converter 软件，选择本地文件选项 ，点击下一步</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d700a58dc917b4a20537797f9bb51fbc.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择需要转换的文件，点击下一步：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/fac75530405df100645251a4e387babf.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择 vmdk 并点击下一步：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/947eefd17bb9e36358758fb7ee75dcc1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择 “VMware Workstation growable image” 并点击下一步</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/f4421831bcec279f228335dc583aced4.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择文件路径并点击转换。将下载好的 Openwrt 固件上传到 NAS 任意文件夹，使用虚拟机直接读取 vmdk 文件即可安装了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/14ce8b961714a6a41096e21894971d11.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>②创建虚拟机</p>
+<p>打开威联通 Virtualization station 虚拟机软件，右上角选择导入 -&gt; 映像转换器</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/25ef54479226663f7b653da725378651.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>选择刚刚上传的.vmdk 镜像，再选择存储到自定义的某一个文件夹</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/b35d6604f9c4aaf7a0a5a1c23fdd1b73.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>接下来点击建立虚拟机，首先填写虚拟机的名称，然后选择操作系统：Linux，版本：Ubuntu15.10，磁盘位置这里选择现有映像，选择刚刚转换的文件即可</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/bb1fa15773c164a419047e6e5775b734.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>接下来进入到虚拟机设置，在存储空间 – 界面这里选择 SATA 后，点击套用</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/af6c531fd33b8d070fe4dedb161819e1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>打开虚拟机即可运行安装了：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/3187397ab6d2f74959e6936bf3bdb7e7.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>安装完成：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/a0afca6ee05b3b791c5d48457233c95d.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>③设置IP地址</p>
+<p>设置一下 Openwrt 旁路由的 ip 地址，输入命令， vi etc&#x2F;config&#x2F;network 。找到 option ipaddr 一栏，按下 i 进行编辑，改成和主路由下同一网段的任意 ip 即可，这里我的网段是 192.168.50.xx, 所以改成 192.168.50.211。修改好后，按下 Esc 键退出编辑模式</p>
+<p>按下 Esc 键退出编辑模式，再按 Shift+：唤醒末行模式，然后输入 wq 命令保存退出文件编辑，继续输入命令 reboot 进行重启:</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/9109ab8c06c735eba7c1677417e1b0df.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>输入密码，下载镜像的时候一般都会有密码，比如我这个镜像的用户名就是root，密码为password。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/04f26691e9cc9e637d56db4e03aba336.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>opwrt的设置这里就不多说了，楼主原来有文章专门介绍软路由的设置，需要的可以去翻一下。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/7ba446dc9444cea18b3fa152b33d00a7.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>看一下系统的占用情况，开启之后，大约cpu在20%，内存占用34%，运行起来毫无压力，对于没有折腾软路由的朋友，通过威联通的虚拟机，可以快速部署op旁路由，部署下来感觉比别的平台部署要简单太多了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/93bc1d90e6efc39a5249cd244230cd48.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<h2 id="七、Browser-Station-浏览器工作站"><a href="#七、Browser-Station-浏览器工作站" class="headerlink" title="七、Browser Station 浏览器工作站"></a>七、Browser Station 浏览器工作站</h2><p>用户可以使用 Browser Station 在 QNAP NAS 快速创建虚拟浏览器，不要任何设置，几秒钟就可以创建一个虚拟的浏览器。因为浏览器是在NAS上运行的，也就是说我们即使在外面也可以通过浏览器直接访问内网设备，这样的话不需要配置虚拟机就可以获得一个内网调试环境。笔者常利用 NAS 进行家庭网络配置，如访问<a class="link"   target="_blank" rel="noopener" href="https://www.key-iot.com/news/14497.html" >光猫 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>设置端口转发或进入<a class="link"   target="_blank" rel="noopener" href="https://www.key-iot.com/" >路由器 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>进行端口映射等操作，使用起来还是非常方便的。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/6c5aee958b445db060d800a229069858.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在偏好设定内可以看到，虚拟浏览器使用的Chrome 115 版本，用户还可以调整浏览器分辨率和指定下载路径。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/482c4fbab4ca55592242298f5c7520a2.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>添加一个浏览页面，有一个加载过程，加载完毕就能看到 Chrome 常规主页了，在外网环境下我输入路由器的 IP 可以看到是可以访问内网的。这对于出门在外管理内网设备很友好，且可以通过该浏览器直接下载想要的东西到威联通 NAS 中，这一点也是很方便。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/aa9ff1c40c34ab1ce4d045a1577be4aa.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<h2 id="八、Ubuntu-Linux工作站"><a href="#八、Ubuntu-Linux工作站" class="headerlink" title="八、Ubuntu Linux工作站"></a>八、Ubuntu Linux工作站</h2><p>Ubuntu Linux Station 是为 QNAP 设备设计的 Ubuntu Linux 安装工具，对于 Linux 系统爱好者，威联通 NAS 通过其 HDMI 接口为调试和使用提供了便利。在 App Center, 用户可以轻松安装 Ubuntu Linux 工作站应用，目前威联通提供了三个版本的 Ubuntu 直接安装，点开详细信息也能看到安装的进程信息，这一点比起虚拟机需要自行下载镜像再去手动安装系统方便很多，并且可以访问内置的虚拟网络计算 (VNC) 远程桌面功能，对比 Virtualization Station 它更加省心。</p>
+<p>目前支持的系统有 Ubuntu 22.04&#x2F;20.04&#x2F;18.04三个版本，直接选择最新的 Ubuntu 22.04 版本安装不需要任何设置，直接点击 “安装” 按钮即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/32e5014c2515c649747321bf52f7a5da.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>系统安装好之后便会看工作界面了，可以直接连接显示器，当做Linux使用，当然也可以通过远程桌面地址当做虚拟机使用。只要勾选 “启用远程桌面”，复制链接到浏览器，或者直接点击上面的快捷图标就可以使用Ubuntu系统了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/5ca836d5e2fc9b24d79707dbbf055193.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>登录的默认的密码和 NAS 的密码一致。如果开通了内网穿透，那么我们就可以通过浏览器方便的外部访问了。系统默认为英文，可以通过设置去更改。</p>
+<p>威联通的 Ubuntu Linux Station 提供的 Ubuntu 是一个完整的操作系统。与 NAS 上的其他虚拟 Linux 系统不同，此版本使 NAS 可以作为日常使用的主机，满足日常办公、娱乐或搭建 HTPC 的需求。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/934371cbdf1b2b2628dc42e7617ffad1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<h2 id="九、lsky-pro图床部署"><a href="#九、lsky-pro图床部署" class="headerlink" title="九、lsky-pro图床部署"></a>九、lsky-pro图床部署</h2><p>图床：主要是配合 typora、WordPress 写博客或者发自媒体的时候来使用，家里有NAS的话，自己建立图床还是非常好用且稳定的，图床首先需要的就是稳定，其次是方便也大幅度降低使用成本，而且不用担心图床挂掉的问题了。</p>
+<p>图床的上传软件配合 PicGO 是目前最好用且稳定的方式，支持很多常见的图床，而且还是全免费，可以将插入到typora中的图片自动上传到图床，然后自动生成markdown的图片连接，写图文的时候非常方便。</p>
+<p>1.创建容器</p>
+<p>在Container Station页面选择应用程序，点击浏览，搜索lsky，使用镜像：halcyonazure&#x2F;lsky-pro，镜像的github地址<a class="link"   target="_blank" rel="noopener" href="https://github.com/HalcyonAzure/lsky-pro-docker" >https://github.com/HalcyonAzure/lsky-pro-docker <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这个版本是每天时时更新的，每天会自动拉取最新代码构建 Docker 镜像，目前该容器只有一个环境变量WEB_PORT，用于指定容器内的 Apache监听的端口，默认为 8089。也就是我们安装的时候就设置一个端口就可以了，非常简单。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/21ae19a36a31349d9b439c695c87a9a6.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>版本选择latest，点击下一步：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/8a111f74a1536c05fcf7cb8805eba6a2.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>创建 docker时默认的是使用NAT 模式，先不用管，等创建好了修改成Bridge模式就可以了。输入个端口号，我这里使用的8089，点先一步：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/fbfa3c2a8215c2172ead7b8712eeca9e.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>确认信息，点下一步等待创建完成。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/88eabc1ab93c28de5765f6970ff5c83d.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>安装完成后点击后面的小齿轮，选择编辑，进入编辑页面。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/bd35ddac3a9bc6b9f37e3e24a4a9a32d.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>2.设置网络</p>
+<p>弹出的页面，选择网络，添加，网络模式选择Bridge，勾选使用静态IP地址，IP地址选择一个不冲突的即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/5791a7fc6fcdd98e846ec29d76155116.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>然后删掉原来的NAT网络即可：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d0b6fe8d2e346c2dfe1148be3b5c0663.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>3.映射内外端口8089</p>
+<p>平时使用肯定需要外网访问，需要对8089端口做一下映射，还是在路由器里做一下映射。因为楼主使用的是ikuai主路由+旁路由，且威联通先到旁路由的设置。所以要做两层映射：</p>
+<p>首先在ikuai内将IP映射到OP(192.168.50.2)：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/88b9f49f52929ff68b54af6fc2345701.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>然后在Openwrt内将8089端口映射到刚才lskypro桥接的IP（192.168.50.12）。如果只有一层路由器映射一次即可：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/feeefcb577de4bf90ace7c3eb6f08ccb.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>4.配置图床网站web端</p>
+<p>下一步，进入web端进行安装，打开浏览器：</p>
+<p>本地访问的话输入：192.168.50.12:8089</p>
+<p>外部访问输入：公网IP或者外部域名访问+8089</p>
+<p>可以成功进入Lsky Pro管理页面。第一步检测一下运行环境，可以看到运行环境都已经安装好了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/31d48213ff75d6a0c908d506da3dffd7.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>打开后，数据库类型直接选择本地 SQLite 数据库，数据库路径留空即可，安装程序将自动在服务根目录的 database目录下创建 database.sqlite文件。同时需要设定管理员邮箱和登录密码。</p>
+<p>可以看到需要下面这些信息：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/1a70d55f368696e0f7e621fff0c51dfb.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>安装成功，点击【这里】，即可访问图床：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/138c0b26d8645a13d21b13bc86cd3116.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>进入lskypro首页，使用刚才的账号密码登录：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0f08d44c6775dfd97e5f04ffb5bb9b2c.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>进入后台可以进行一些设置，这个就不多说了，自己按照需求设置就行了：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/0b0a81ea85769099b3d5f9dda80de630.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在系统设置内记得将游客上传关闭：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/3388087854152733a56588fcc52bc264.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>5.配置 PicGo 接入 Lsky Pro①安装PicGo 应用</p>
+<p>图片上传软件采用PicGo来管理，软件直接去[官网](<a class="link"   target="_blank" rel="noopener" href="http://molunerfinn.com/PicGo%E4%B8%8B%E8%BD%BD%E5%8D%B3%E5%8F%AF%EF%BC%8C%E8%BF%99%E4%B8%AA%E8%BD%AF%E4%BB%B6%E6%94%AF%E6%8C%81typora%E7%AD%89%E8%BD%AF%E4%BB%B6%E5%BF%AB%E9%80%9F%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E8%BF%94%E5%9B%9Emarkdown%E8%AF%AD%E8%A8%80%EF%BC%8C%E5%AE%8C%E6%88%90%E7%9A%84%E6%95%88%E6%9E%9C%E5%B0%B1%E6%98%AF%E7%9B%B4%E6%8E%A5%E5%B0%86%E5%9B%BE%E7%89%87%E6%8B%96%E5%88%B0typora%E4%B9%A6%E5%86%99%E6%A1%86%E5%B0%B1%E8%A1%8C%E4%BA%86%E3%80%82" >http://molunerfinn.com/PicGo下载即可，这个软件支持typora等软件快速上传图片并返回markdown语言，完成的效果就是直接将图片拖到typora书写框就行了。 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/206c691e4beabd4593ebb58f391c092f.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>②安装 Lsky-Uploader</p>
+<p>安装完成后，打开 PicGo 应用，点击【插件设置】下载【 lskypro】插件。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/27579bbd07f84c334724afda3ee4c36f.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>③获取Token 和 URL</p>
+<p>下载完毕后重启 PicGo。这时我们就可以在图床设置中找到 Lsky-Uploader。可以看到设置需要服务器域名和Token</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/8a1d905a965e7225ae45034338460273.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p><strong>服务器域名</strong>为 Lsky pro 的地址，就是我们这个http:&#x2F;&#x2F;域名&#x2F;公网IP:8089</p>
+<p>免费版的lskypro不再显示token了，要自己获取一下 token。打开lskypro，选择接口选项，将接口URL复制出来，大概的格式就是：http:&#x2F;&#x2F;域名&#x2F;公网IP:8089&#x2F;api&#x2F;v1，加上后缀&#x2F;tokens。</p>
+<p>即http:&#x2F;&#x2F;域名&#x2F;公网IP:8089&#x2F;api&#x2F;v1&#x2F;tokens</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/ce0cd5b113de31a9cdc46a5ff4ae85fd.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>打开在线API调试工具<a class="link"   target="_blank" rel="noopener" href="https://www.sojson.com/httpRequest/%EF%BC%8C%E7%AC%AC%E4%B8%80%E8%A1%8C%E8%BE%93%E5%85%A5%E4%B8%8A%E9%9D%A2%E7%9A%84%E9%93%BE%E6%8E%A5%EF%BC%9Ahttp://%E5%9F%9F%E5%90%8D/%E5%85%AC%E7%BD%91IP:8089/api/v1/tokens" >https://www.sojson.com/httpRequest/，第一行输入上面的链接：http://域名/公网IP:8089/api/v1/tokens <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>添加两个参数：</p>
+<p>email：这个是我们上面配置web端时候的账号</p>
+<p>password：这个是我们上面配置web端时候的密码</p>
+<p>点击发送请求，下方即可看到对应的tokens，将产生的tokens复制出来：1|9D1HmX8EtXXXXXXXXXXXXXXXXXXXXXQIhbRCmGI8K0k</p>
+<p>然后在复制出来的tokens前方加上前缀：</p>
+<p>Bearer 1|9D1HmX8EtXXXXXXXXXXXXXXXXXXXXXQIhbRCmGI8K0k。</p>
+<p>到这里tokens获取完毕：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/40b62b2911114e898dae1862d24cdc17.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>将我们上一步获取的 URL 和 Token 填入点击设置为默认图床即可。到这一步我们就能使用 PicGo 免密码将图片上传到 Lsky Pro 对接的对象存储了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/9fe2192d6ba25bb920808ff4ee23583e.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>6.设置 Typora 实现图片自动上传</p>
+<p>打开 Typora 点击 文件&gt;&gt; 偏好设置：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/c03f2324d4f166f9b5ded3d2deb0ecba.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在偏好设置选择图像，上传服务选择picgo app，路径选择picgo安装路径，验证图片上传选项：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/3503ed11d039672736ad6f7e253034ad.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>上传成功：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/122403c2f7e26dd9d4e930b6bafe6d2d.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>在图床页面内可以看到刚才上传的图片：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/dde5bfaa282bac12c86fb9f9bec85619.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>下面我们找张图片测试一下，将图片拖到Typora书写框自动上传：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/241d5cd4bf2f445704f464c8da55b784.jpeg"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>上传完成后返回的markdown语言：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/73926cea9bf0400c2824d71b01950aa5.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>图库内出现了这个图片：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/99e8c66a604e894c9131dfd8f23bcca4.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<p>使用浏览器访问也是没问题的，到这里个人图床打造完毕，使用起来还是非常方便的。文章写作过程已经大大简化，无需再同时打开多个网页。在 Typora 编辑器中，我们可以轻松实现图片上传到图库。完成文章编写后，只需简单复制粘贴，就可以直接发布到自媒体平台。使用 Typora 来写文章还有一个额外的优点，那就是可以在本地保存一份备份，即使服务器出现崩溃，我们的文章也能得到保障。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/f52311677c4785890646e42945c7e3f1.png"
+                      alt="无线路由器-网关-dtu"
+                ></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>NAS 作为一款生产力工具，TS-464C2 绝对是行业中的佼佼者，NAS 的核心价值在于其功能，而不仅仅是硬件或系统本身。存在的意义是为了简化我们的日常工作和娱乐，帮助我们更高效地完成任务。使用威联通 NAS 这么长时间，其稳定性和多功能性给我的生活带来了很大的便利，无论是存储数据、备份照片、运行小型服务器还是作为家庭影院。</p>
+<p>引用原文：<a class="link"   target="_blank" rel="noopener" href="https://www.key-iot.com/news/99817.html" >威联通NAS设置方法（威联通详细教程） (key-iot.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 威联通NAS设置方法(含兰空图床)</li>
+        <li><strong>作者:</strong> Xiao.Hei.Ge</li>
+        <li><strong>创建于
+                :</strong> 2024-01-27 11:26:07</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-01-28 01:26:19
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://cool.xiaohei.us/2024/01/27/威联通NAS设置方法/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Hexo%E6%90%AD%E5%BB%BA/">#Hexo搭建</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E5%9B%BE%E5%BA%8A/">#图床</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Nas/">#Nas</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E5%A8%81%E8%81%94%E9%80%9A/">#威联通</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Lsky-Pro/">#Lsky Pro</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/01/27/%E3%80%8E%E5%A4%A9%E9%A9%AC%E3%80%8F%E5%85%A8%E8%83%BD%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%95%B4%E5%90%88%E5%8C%85/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">『天马』全能模拟器整合包</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/01/25/Backblaze%E4%BA%91%E5%AD%98%E5%82%A8-Cloudflare%E6%90%AD%E5%BB%BA%E9%AB%98%E9%80%9F%E5%AE%89%E5%85%A8%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Backblaze云存储+Cloudflare搭建高速安全的免费图床</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'walxhg.xiaohei.us',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          requiredMeta: ['nick', 'mail'],
+          emoji: ['//unpkg.com/@waline/emojis@1.2.0/bmoji'],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">威联通NAS设置方法(含兰空图床)</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81TS-464C2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E6%97%A0%E6%8D%9F%E8%BF%81%E7%A7%BB"><span class="nav-text">一、TS-464C2介绍及无损迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%A8%E5%B9%B3%E5%8F%B0%E5%8D%8F%E5%90%8C%EF%BC%8C%E7%9F%A5%E8%AF%86%E5%BA%93%E7%AE%A1%E7%90%86"><span class="nav-text">二、全平台协同，知识库管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BD%91%E7%9B%98%E5%90%8C%E6%AD%A5%EF%BC%8C%E9%9A%8F%E6%97%B6%E9%9A%8F%E5%9C%B0%E5%A4%87%E4%BB%BD%E5%90%8C%E6%AD%A5"><span class="nav-text">三、网盘同步，随时随地备份同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Container-Station%EF%BC%88Docker%EF%BC%89"><span class="nav-text">四、Container Station（Docker）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81DOCker%E9%83%A8%E7%BD%B2calibre-web%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-text">五、DOCker部署calibre-web图书管理系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81Virtualization-Station%E8%99%9A%E6%8B%9F%E5%8C%96%E5%B7%A5%E4%BD%9C%E7%AB%99"><span class="nav-text">六、Virtualization Station虚拟化工作站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81Browser-Station-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%AB%99"><span class="nav-text">七、Browser Station 浏览器工作站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81Ubuntu-Linux%E5%B7%A5%E4%BD%9C%E7%AB%99"><span class="nav-text">八、Ubuntu Linux工作站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81lsky-pro%E5%9B%BE%E5%BA%8A%E9%83%A8%E7%BD%B2"><span class="nav-text">九、lsky-pro图床部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Xiao.Hei.Ge</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共 14 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.1</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<!--����-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+  <div id="player" class="aplayer aplayer-withlist aplayer-fixed" data-id="48831359" data-server="netease" data-type="playlist" data-order="random" data-fixed="true" data-listfolded="true" data-theme="#2D8CF0"></div>
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>

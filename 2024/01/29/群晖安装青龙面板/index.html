@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="博客,技术分享,教程,生活">
+    
+    <meta name="author" content="Xiao.Hei.Ge">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://cool.xiaohei.us/2024/01/29/群晖安装青龙面板/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="1、新建青龙挂载文件夹​      群晖中安装Docker套件，这个就不详细说了。 ​      装好Docker套件，在File Station中找到Docker文件夹，并在文件夹中新建一  ​      个“qinglong”文件夹用来存储青龙面板的文件   在“qinglong”文件夹下建立若干目录，文件夹结果如下：  2、下载青龙镜像​      在Docker里搜索青龙面板镜像，找到如图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖安装青龙面板">
+<meta property="og:url" content="https://cool.xiaohei.us/2024/01/29/%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/index.html">
+<meta property="og:site_name" content="一只特立独行的猪">
+<meta property="og:description" content="1、新建青龙挂载文件夹​      群晖中安装Docker套件，这个就不详细说了。 ​      装好Docker套件，在File Station中找到Docker文件夹，并在文件夹中新建一  ​      个“qinglong”文件夹用来存储青龙面板的文件   在“qinglong”文件夹下建立若干目录，文件夹结果如下：  2、下载青龙镜像​      在Docker里搜索青龙面板镜像，找到如图">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/10377cca959d8befda7c555f5832d112.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/75a0be74d9fe88bba4b74b0b03e55337.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d63f8605566f1874fe070ad9feb67782.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d2cf5f43266031fdb057cbdaf3a9102a.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/da126626ced9978f364c807ebbe330a5.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/2ae4b06a072a03396621a6b9be8b3891.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/89b9dd86fede76f9975989e462936e63.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9b85d54a205999c6e3a00e336c5688c8.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1c2a5900725d2b8ef34565626df70f77.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/575103b1128269b5553377b305244c06.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ae44bfb30395c79c7ef50ced4f793898.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/fd53a9e2b94ce8dcb0c00b7933be6920.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b1f568c23c64c5db9d07cbc3df119212.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/8dd219531335681c1bb3fe081925697d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/429fbdb2a8ee0dd9e72b8e6d2762d95e.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5881a9dffec841d6ef900b71896960f9.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1ede27b027f348e3610e807a4027737d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/127c8649bbef809376d775a6dab682c8.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/e0796aeb269704fa8df7e634261befc0.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/58776fa9ae6ecce6e1095222e412ad58.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/73131342abca3e72e855f2709fa8fac1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/19fa0fdbf6584ccbc3d7283d2b08efb4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/296bd4ffd10b25142b0e18c97ec3f081.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ef966a01451b8262be60ba7b357f207a.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/621b875ab21df058de08f48ce86fe210.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/42a8d9578172fe8d10feac28e90f8cdf.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/80e03fc24947ff9f1e36d5a8d72ae391.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/4dcca1d0409e951544b08995d038ebc9.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/96718ce6b54d30e43f057d372c4c28a3.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/6dfdae4c76e497afc1adbae25f5bfb65.png">
+<meta property="article:published_time" content="2024-01-29T03:51:30.000Z">
+<meta property="article:modified_time" content="2024-01-29T15:13:21.889Z">
+<meta property="article:author" content="Bboy">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="青龙面板">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img01.xiaohei.us/2024/01/10377cca959d8befda7c555f5832d112.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            群晖安装青龙面板 -
+        
+        一只特立独行的猪
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        一只特立独行的猪
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"cool.xiaohei.us","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"睡着、醒着、不停地走着......","subtitle":{"text":["每天都在期望着，明天或许会有不同"],"hitokoto":{"enable":true,"api":"https://v1.hitokoto.cn/?c=k"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"path":"/categories","icon":"fa-regular fa-folder-open","submenus":{"学习笔记":"/categories/学习笔记","游戏相关":"/categories/游戏相关","NAS应用":"/categories/NAS应用","翻山越岭":"/categories/翻山越岭","杂七杂八":"/categories/杂七杂八"}},"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tag"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"念念不忘，必有回响","show_on_mobile":true,"links":{"分类":{"path":"/categories","icon":"fa-regular fa-folder-open","submenus":{"学习笔记":"/categories/学习笔记","游戏相关":"/categories/游戏相关","NAS应用":"/categories/NAS应用","杂七杂八":"/categories/杂七杂八"}},"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tag"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                一只特立独行的猪
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-folder-open fa-fw"></i>
+                                    分类
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                                    学习笔记
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3">
+                                                    游戏相关
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/NAS%E5%BA%94%E7%94%A8">
+                                                    NAS应用
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD">
+                                                    翻山越岭
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB">
+                                                    杂七杂八
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tag fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-分类"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-分类">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3">游戏相关</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/NAS%E5%BA%94%E7%94%A8">NAS应用</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD">翻山越岭</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB">杂七杂八</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tag fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">22</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">14</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="https://img01.xiaohei.us/2024/01/f5dcccd5e95b69dca09c29b82c4bea20.png" alt="群晖安装青龙面板" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">群晖安装青龙面板</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Xiao.Hei.Ge</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-01-29 11:51:30</span>
+        <span class="mobile">2024-01-29 11:51:30</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-01-29 23:13:21</span>
+            <span class="mobile">2024-01-29 23:13:21</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        <li>
+                            | <a href="/categories/NAS%E5%BA%94%E7%94%A8/">NAS应用</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/NAS/">NAS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">青龙面板</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h3 id="1、新建青龙挂载文件夹"><a href="#1、新建青龙挂载文件夹" class="headerlink" title="1、新建青龙挂载文件夹"></a>1、新建青龙挂载文件夹</h3><p>​      群晖中安装<font size=5><code>Docker套件</code></font>，这个就不详细说了。</p>
+<p>​      装好<font size=5><code>Docker套件</code></font>，在<font size=5><code>File Station</code></font>中找到<font size=5><code>Docker文件夹</code></font>，并在文件夹中新建一 </p>
+<p>​      个<font size=5><code>“qinglong”</code></font>文件夹用来存储青龙面板的文件</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/10377cca959d8befda7c555f5832d112.png"
+                      alt="image-20240129115456321"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/75a0be74d9fe88bba4b74b0b03e55337.png"
+                      alt="image-20240129115644885"
+                ></p>
+<p>在<font size=5><code>“qinglong”</code></font>文件夹下建立若干目录，文件夹结果如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d63f8605566f1874fe070ad9feb67782.png"
+                      alt="image-20240129120439953"
+                ></p>
+<h3 id="2、下载青龙镜像"><a href="#2、下载青龙镜像" class="headerlink" title="2、下载青龙镜像"></a>2、下载青龙镜像</h3><p>​      在Docker里搜索青龙面板镜像，找到如图镜像文件<font size=5><code>&quot;whyour/qinglong&quot;</code></font>并下载，如果搜不到东西就自己挂一个代理或者增加国内镜像源。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d2cf5f43266031fdb057cbdaf3a9102a.png"
+                      alt="image-20240129115954866"
+                ></p>
+<h3 id="3、安装青龙面板"><a href="#3、安装青龙面板" class="headerlink" title="3、安装青龙面板"></a>3、安装青龙面板</h3><p>然后在<font size=5><strong><code>Docker</code></strong></font>中选择<font size=5><strong><code>映像</code></strong></font>，找到刚刚下好的青龙面板映像，选择启动，进入<font size=5><strong><code>高级设置</code></strong></font></p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/da126626ced9978f364c807ebbe330a5.png"
+                      alt="image-20240129120602899" 
+                >
+
+<h4 id="3-1-高级设置"><a href="#3-1-高级设置" class="headerlink" title="3.1 高级设置"></a>3.1 高级设置</h4><p>设置开机自动启动</p>
+<center>
+     <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/2ae4b06a072a03396621a6b9be8b3891.png"
+                      
+          style="zoom: 100%;" 
+                >
+     <br>
+     <div style="color: #999; padding: 2px;">
+    设置开机自动启动   
+    </div>
+</center>
+
+
+
+<h4 id="3-2-存储空间设置"><a href="#3-2-存储空间设置" class="headerlink" title="3.2 存储空间设置"></a>3.2 存储空间设置</h4><p>在<font size=5><strong><code>“存储空间”</code></strong></font>中，点击“添加文件夹”，并按下图配置：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/89b9dd86fede76f9975989e462936e63.png"
+                      alt="image-20240129130053608"
+                ></p>
+<h4 id="3-3-装载路径设置"><a href="#3-3-装载路径设置" class="headerlink" title="3.3 装载路径设置"></a>3.3 装载路径设置</h4><p>装载路径按图填写</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/9b85d54a205999c6e3a00e336c5688c8.png"
+                      alt="image-20240129130317817"
+                ></p>
+<h4 id="3-4-端口设置"><a href="#3-4-端口设置" class="headerlink" title="3.4 端口设置"></a>3.4 端口设置</h4><p>修改访问端口</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/1c2a5900725d2b8ef34565626df70f77.png"
+                      alt="image-20240129130513798"
+                ></p>
+<p>设置好后完成安装。</p>
+<h3 id="4、登录运行安装依赖"><a href="#4、登录运行安装依赖" class="headerlink" title="4、登录运行安装依赖"></a>4、<strong>登录运行安装依赖</strong></h3><p>根据自己的群晖ip端口5700访问http:&#x2F;&#x2F;群晖IP:5700，通知服务可以跳过，建立自己的用户名和密码，登录即可使用。</p>
+<p>安装方法：点击依赖管理——点击新建依赖——依赖类型选择NodeJs——自动拆分选择是——名称把对应的依赖全部复制，然后粘贴过来。</p>
+<p>NodeJs 依赖</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">request</span><br><span class="line">canvas</span><br><span class="line">cheerio</span><br><span class="line">js-base64</span><br><span class="line">dotenv</span><br><span class="line">magic</span><br><span class="line">tough-cookie</span><br><span class="line">ws@7.4.3</span><br><span class="line">require</span><br><span class="line">requests</span><br><span class="line">date-fns</span><br><span class="line">ts-md5</span><br><span class="line">typescript</span><br><span class="line">json5</span><br><span class="line">axios@v0.27.2</span><br><span class="line">crypto-js</span><br><span class="line">@types/node</span><br><span class="line">png-js</span><br><span class="line">node-telegram-bot-api</span><br><span class="line">fs</span><br><span class="line">jsdom</span><br><span class="line">form-data</span><br><span class="line">jieba</span><br><span class="line">tslib</span><br><span class="line">ds</span><br><span class="line">jsdom -g</span><br><span class="line">prettytable</span><br><span class="line">ql</span><br><span class="line">common</span><br><span class="line">node-jsencrypt</span><br><span class="line">juejin-helper</span><br><span class="line">moment</span><br><span class="line">global-agent</span><br></pre></td></tr></table></figure></div>
+
+<p>Python3 依赖</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bs4</span><br><span class="line">telethon</span><br><span class="line">cacheout</span><br><span class="line">jieba</span><br><span class="line">PyExecJS</span><br><span class="line">ping3</span><br><span class="line">canvas</span><br><span class="line">Crypto</span><br><span class="line">ds</span><br><span class="line">requests</span><br><span class="line">pycryptodome</span><br></pre></td></tr></table></figure></div>
+
+<p>Linux 依赖</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bizCode</span><br><span class="line">bizMsg</span><br><span class="line">lxml</span><br><span class="line">libc-dev</span><br><span class="line">gcc</span><br><span class="line">g++</span><br><span class="line">libffi-dev</span><br><span class="line">python3-dev</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<hr>
+<h3 id="5、阿里云盘签到"><a href="#5、阿里云盘签到" class="headerlink" title="5、阿里云盘签到"></a>5、阿里云盘签到</h3><p>在青龙面板点击定时任务 -&gt; 点击创建任务</p>
+<p>命令 &#x2F; 脚本填</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/mrabit/aliyundriveDailyCheck.git &quot;autoSignin&quot; &quot;&quot; &quot;qlApi&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>定时规则填</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 0 * * *</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/575103b1128269b5553377b305244c06.png"
+                      alt="img"
+                ></p>
+<p>点击确定 -&gt; 点击运行</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/ae44bfb30395c79c7ef50ced4f793898.png"
+                      alt="img"
+                ></p>
+<p>运行完成会出现 autosignin.js</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/fd53a9e2b94ce8dcb0c00b7933be6920.png"
+                      alt="img"
+                ></p>
+<h4 id="5-1-安装依赖"><a href="#5-1-安装依赖" class="headerlink" title="5.1 安装依赖"></a>5.1 安装依赖</h4><p>点击依赖管理 -&gt; 点击创建依赖</p>
+<p>名称：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/b1f568c23c64c5db9d07cbc3df119212.png"
+                      alt="img"
+                ></p>
+<p>点击确定，等待安装完成</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/8dd219531335681c1bb3fe081925697d.png"
+                      alt="img"
+                ></p>
+<h4 id="5-2-refreshToken-获取"><a href="#5-2-refreshToken-获取" class="headerlink" title="5.2 refreshToken 获取"></a>5.2 refreshToken 获取</h4><p>打开阿里云盘网页登录之后按 F12 打开开发者模式，按顺序找到 refresh_token 复制出来</p>
+<p>或者在控制台输入“JSON.parse(localStorage.token).refresh_token” 直接获取。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/429fbdb2a8ee0dd9e72b8e6d2762d95e.png"
+                      alt="img"
+                ></p>
+<p>在青龙面板点击环境变量 -&gt; 点击创建变量</p>
+<p>名称输入 refreshToken</p>
+<p>值输入刚才复制出来的 refresh_token</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/5881a9dffec841d6ef900b71896960f9.png"
+                      alt="img"
+                ></p>
+<p>到此配置完成</p>
+<h4 id="5-3-开始运行"><a href="#5-3-开始运行" class="headerlink" title="5.3 开始运行"></a>5.3 开始运行</h4><p>点击定时任务 - 点击运行 autosignin.js</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/1ede27b027f348e3610e807a4027737d.png"
+                      alt="img"
+                ></p>
+<p>点击日志可以查看运行情况</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/127c8649bbef809376d775a6dab682c8.png"
+                      alt="img"
+                ></p>
+<h3 id="6、青龙面板京东脚本库汇总"><a href="#6、青龙面板京东脚本库汇总" class="headerlink" title="6、青龙面板京东脚本库汇总"></a>6、青龙面板京东脚本库汇总</h3><p>&#x3D;&#x3D;（拉库之前确认网络可以连接GitHub）&#x3D;&#x3D;</p>
+<blockquote>
+<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/shufflewzc/faker2.git" >Faker2 助力池版 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p>星标 1700+ 脚本 300+</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://git.metauniverse-cn.com/https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic|depend|h5sts&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/shufflewzc/faker2.git</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/shufflewzc/faker3.git" >Faker3 纯净版 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p>星标 900+ 脚本 300+</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://git.metauniverse-cn.com/https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic|depend|h5sts&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/shufflewzc/faker3.git</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/gys619/Absinthe.git" >gys619 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p>星标 1200+ 脚本 300+</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/gys619/Absinthe.git &quot;jd_|jx_|jddj_|gua_|getJDCookie|wskey&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_|sign_graphics_validate|jddj_cookie|function|ql|magic|JDJR|JD&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/gys619/Absinthe.git</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/Akali5/jd-depot.git" >Akali5 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>星标 100+ 脚本 300+</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/Akali5/jd-depot.git &quot;jd_|jx_|jddj_|gua_|getJDCookie|wskey&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_|sign_graphics_validate|jddj_cookie|function|ql|magic|JDJR|sendNotify|depend|h5|jdspider&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/Akali5/jd-depot.git</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/6dylan6/jdpro.git" >6dylan6 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p>星标 900+ 脚本 90+</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/6dylan6/jdpro.git &quot;jd_|jx_|jddj_&quot; &quot;backUp&quot; &quot;^jd[^_]|USER|JD|function|sendNotify&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/6dylan6/jdpro.git</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/zero205/JD_tencent_scf.git" >zero205 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p>星标 600+ 脚本 80+</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/zero205/JD_tencent_scf.git &quot;jd_|jx_|jdCookie&quot;  &quot;backUp|icon&quot; &quot;^jd[^_]|USER|sendNotify|sign_graphics_validate|JDJR|JDSign|ql&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/zero205/JD_tencent_scf.git</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/ccwav/QLScript2.git" >ccwav 通知增强版和CK检测 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p>星标 500+</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">不包含sendNotify:</span><br><span class="line">ql repo https://github.com/ccwav/QLScript2.git &quot;jd_&quot; &quot;NoUsed&quot; &quot;ql|utils|USER_AGENTS|jdCookie|JS_USER_AGENTS&quot;</span><br><span class="line"></span><br><span class="line">包含sendNotify:</span><br><span class="line">ql repo https://github.com/ccwav/QLScript2.git &quot;jd_&quot; &quot;NoUsed&quot; &quot;ql|sendNotify|utils|USER_AGENTS|jdCookie|JS_USER_AGENTS&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/ccwav/QLScript2.git</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7、新版青龙面板拉库步骤如下图所示"><a href="#7、新版青龙面板拉库步骤如下图所示" class="headerlink" title="7、新版青龙面板拉库步骤如下图所示"></a>7、新版青龙面板拉库步骤如下图所示</h3><hr>
+<p>新版青龙面板可以在 <strong>订阅管理</strong> 中添加京东仓库</p>
+<p>如下图所示</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/e0796aeb269704fa8df7e634261befc0.png"
+                      alt="img"
+                ></p>
+<p><strong>新建订阅</strong> 中，只需要手动填写 <strong>名称 链接 定时规则</strong></p>
+<p>剩余的选项会自动跟随 <strong>链接</strong> 进行自动切分填写</p>
+<p>如下图所示</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/58776fa9ae6ecce6e1095222e412ad58.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/73131342abca3e72e855f2709fa8fac1.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/19fa0fdbf6584ccbc3d7283d2b08efb4.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/296bd4ffd10b25142b0e18c97ec3f081.png"
+                      alt="img"
+                ></p>
+<p><strong>订阅管理</strong> 中可以添加多个京东仓库</p>
+<p>但尽量不要同时运行</p>
+<p>一般只运行一个仓库就好了</p>
+<p>禁用其他仓库</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/ef966a01451b8262be60ba7b357f207a.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/621b875ab21df058de08f48ce86fe210.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/42a8d9578172fe8d10feac28e90f8cdf.png"
+                      alt="img"
+                ></p>
+<p><strong>常用定时规则cron表达式</strong></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">（1）0 0 2 1 * ?   表示在每月的1日的凌晨2点调整任务</span><br><span class="line"></span><br><span class="line">  （2）0 15 10 ? * MON-FRI   表示周一到周五每天上午10:15执行作业</span><br><span class="line"></span><br><span class="line">  （3）0 15 10 ? 6L 2002-2006   表示2002-2006年的每个月的最后一个星期五上午10:15执行作</span><br><span class="line"></span><br><span class="line">  （4）0 0 10,14,16 * * ?   每天上午10点，下午2点，4点 </span><br><span class="line"></span><br><span class="line">  （5）0 0/30 9-17 * * ?   朝九晚五工作时间内每半小时 </span><br><span class="line"></span><br><span class="line">  （6）0 0 12 ? * WED    表示每个星期三中午12点 </span><br><span class="line"></span><br><span class="line">  （7）0 0 12 * * ?   每天中午12点触发 </span><br><span class="line"></span><br><span class="line">  （8）0 15 10 ? * *    每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （9）0 15 10 * * ?     每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （10）0 15 10 * * ?    每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （11）0 15 10 * * ? 2005    2005年的每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （12）0 * 14 * * ?     在每天下午2点到下午2:59期间的每1分钟触发 </span><br><span class="line"></span><br><span class="line">  （13）0 0/5 14 * * ?    在每天下午2点到下午2:55期间的每5分钟触发 </span><br><span class="line"></span><br><span class="line">  （14）0 0/5 14,18 * * ?     在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 </span><br><span class="line"></span><br><span class="line">  （15）0 0-5 14 * * ?    在每天下午2点到下午2:05期间的每1分钟触发 </span><br><span class="line"></span><br><span class="line">  （16）0 10,44 14 ? 3 WED    每年三月的星期三的下午2:10和2:44触发 </span><br><span class="line"></span><br><span class="line">  （17）0 15 10 ? * MON-FRI    周一至周五的上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （18）0 15 10 15 * ?    每月15日上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （19）0 15 10 L * ?    每月最后一日的上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （20）0 15 10 ? * 6L    每月的最后一个星期五上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （21）0 15 10 ? * 6L 2002-2005   2002年至2005年的每月的最后一个星期五上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （22）0 15 10 ? * 6#3   每月的第三个星期五上午10:15触发</span><br></pre></td></tr></table></figure></div>
+
+<p>&#x3D;&#x3D;引用：<a class="link"   target="_blank" rel="noopener" href="https://conveniencespace.com/index.php/2022/05/03/2022%E6%9C%80%E6%96%B0%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E4%BA%AC%E4%B8%9C%E8%84%9A%E6%9C%AC%E5%BA%93%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" >2024最新青龙面板京东脚本库（1月9日，持续更新中） – 便利空间 (conveniencespace.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>&#x3D;&#x3D;</p>
+<h3 id="8、京东定时任务库"><a href="#8、京东定时任务库" class="headerlink" title="8、京东定时任务库"></a>8、京东定时任务库</h3><p>下方缙哥哥整理 GitHub 上的一些任务库，通过添加任务，并设置定时规则，使其自动拉取、更新羊毛任务。</p>
+<p>这个库是不是会更新，如果你有所需要，可以<strong>评论留言</strong>，将会接收到<strong>邮件提醒</strong>。</p>
+<p><strong>2024.1.2</strong>：目前仅保留一个库，更新及时。</p>
+<p><strong>6dylan6&#x2F;jdpro（集合库）</strong>任务定时建议<code>50 7-23/2 * * *</code></p>
+<p><em></em>复制</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/6dylan6/jdpro.git &quot;jd_|jx_|jddj_&quot; &quot;backUp&quot; &quot;^jd[^_]|USER|JD|function|sendNotify&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>咱们为了防止漏掉某些羊毛，<strong>上方所有的库</strong>新建定时任务拉取，里面有重复脚本禁用脚本，重复的内容会被禁用的。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/80e03fc24947ff9f1e36d5a8d72ae391.png"
+                      alt="img"
+                ></p>
+<h4 id="定时规则"><a href="#定时规则" class="headerlink" title="定时规则"></a>定时规则</h4><p>这里的定时规则如下：</p>
+<p><em></em>复制</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">秒 分 时 天 月 周</span><br></pre></td></tr></table></figure></div>
+
+<p>各个单位之间分别以空格分割，假设该任务需要每天12:23:45执行一次。那么则应该这么设置：</p>
+<p><em></em>复制</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">45 23 12 * * *</span><br></pre></td></tr></table></figure></div>
+
+<p>拉完之后记得运行，不运行的话要等到你设置好的时间才会自动执行。运行后会自动拉去一些执行活动的脚本。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/4dcca1d0409e951544b08995d038ebc9.png"
+                      alt="img"
+                ></p>
+<h4 id="获取京东-Cookie"><a href="#获取京东-Cookie" class="headerlink" title="获取京东 Cookie"></a>获取京东 Cookie</h4><p>使用 Chrome 内核浏览器（比如 Google 浏览器、Edge 浏览器、360 极速浏览器……），打开开发者模式（快捷键：F12），打开 Network（网络）标签，浏览器当前页面访问京东移动端登录地址<code>m.jd.com</code>，按照提示登录你的京东账号，复制你的京东账号 Cookie，也就是下图所示内容：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/96718ce6b54d30e43f057d372c4c28a3.png"
+                      alt="img"
+                ></p>
+<p>然后打开青龙面板，选择<code>环境变量</code>→<code>添加变量</code>，名称为<code>JD_COOKIE</code>，值为刚复制的京东账号<code>Cookie</code>，备注自己填方便识别，别的不需要动。添加后点<code>确定</code>就可以，如果需要添加多个账号，只需要获取多个Cookie添加上去就可以了，名称仍然为<code>JD_COOKIE</code>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/6dfdae4c76e497afc1adbae25f5bfb65.png"
+                      alt="img"
+                ></p>
+<p>添加好京东账号 Cookie 之后就可以去执行脚本了，如果等不及想尝试，可以自己触发脚本运行，否则就会在相应的时间执行。</p>
+<p>顺带一说，Cookie 值并不需要这么多，只需要里面的<code>pt_key</code>与<code>pt_pin</code>两个就行了，懂的人自行提取，不懂的人全部复制粘贴上去。</p>
+<p><strong>温馨提醒：</strong>不要频繁的去执行，避免黑号。还有就是建议京东账号绑定微信，有个活动抽奖抽到微信红包会自动提现到微信钱包。</p>
+<p>&#x3D;&#x3D;原文：<a class="link"   target="_blank" rel="noopener" href="https://www.dujin.org/18884.html" >青龙面板自动领京东京豆，做农场浇水、萌宠、种豆、签到等任务-缙哥哥 (dujin.org) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>&#x3D;&#x3D;</p>
+<p>参考资料：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44774198/article/details/133268930?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-5-133268930-blog-133563159.235%5Ev43%5Epc_blog_bottom_relevance_base2&spm=1001.2101.3001.4242.4&utm_relevant_index=8" >青龙脚本分享（不断更新完善）-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>​                   <a class="link"   target="_blank" rel="noopener" href="https://conveniencespace.com/index.php/2022/05/03/2022%E6%9C%80%E6%96%B0%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E4%BA%AC%E4%B8%9C%E8%84%9A%E6%9C%AC%E5%BA%93%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" >2024最新青龙面板京东脚本库（1月9日，持续更新中） – 便利空间 (conveniencespace.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>​                   <a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/664671254" >利用拾光坞开启青龙面板薅羊毛（保姆级教程） - 知乎 (zhihu.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 群晖安装青龙面板</li>
+        <li><strong>作者:</strong> Xiao.Hei.Ge</li>
+        <li><strong>创建于
+                :</strong> 2024-01-29 11:51:30</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-01-29 23:13:21
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://cool.xiaohei.us/2024/01/29/群晖安装青龙面板/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/NAS/">#NAS</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">#青龙面板</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/02/06/%E5%A4%A9%E7%BF%BC%E7%BD%91%E5%85%B3%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">天翼网关超级管理员账号密码获取</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/01/27/%E3%80%90Markdown%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E3%80%91/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">【Markdown基础用法】</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'walxhg.xiaohei.us',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          requiredMeta: ['nick', 'mail'],
+          emoji: ['//unpkg.com/@waline/emojis@1.2.0/bmoji'],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">群晖安装青龙面板</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%96%B0%E5%BB%BA%E9%9D%92%E9%BE%99%E6%8C%82%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">1、新建青龙挂载文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%B8%8B%E8%BD%BD%E9%9D%92%E9%BE%99%E9%95%9C%E5%83%8F"><span class="nav-text">2、下载青龙镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF"><span class="nav-text">3、安装青龙面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E7%99%BB%E5%BD%95%E8%BF%90%E8%A1%8C%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-text">4、登录运行安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E7%AD%BE%E5%88%B0"><span class="nav-text">5、阿里云盘签到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E4%BA%AC%E4%B8%9C%E8%84%9A%E6%9C%AC%E5%BA%93%E6%B1%87%E6%80%BB"><span class="nav-text">6、青龙面板京东脚本库汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E6%96%B0%E7%89%88%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%8B%89%E5%BA%93%E6%AD%A5%E9%AA%A4%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA"><span class="nav-text">7、新版青龙面板拉库步骤如下图所示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E4%BA%AC%E4%B8%9C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%BA%93"><span class="nav-text">8、京东定时任务库</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Xiao.Hei.Ge</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共 14 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.1</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<!--����-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+  <div id="player" class="aplayer aplayer-withlist aplayer-fixed" data-id="48831359" data-server="netease" data-type="playlist" data-order="random" data-fixed="true" data-listfolded="true" data-theme="#2D8CF0"></div>
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>

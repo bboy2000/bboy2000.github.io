@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="博客,技术分享,教程,生活">
+    
+    <meta name="author" content="Xiao.Hei.Ge">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://cool.xiaohei.us/2024/01/27/【markdown基础用法】/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="推荐一个教程： &#x3D;&#x3D;Typora 保姆级教程_typora序列号-CSDN博客 &#x3D;&#x3D; 包括 tyrora的使用安装、Picgo的安装等，很详细. 也可以查看Typora官方的 Typora 中的 HTML 支持 （一）标题介绍1.1、用 Markdown 语法创建标题 相信大家都用过标题，office 和 wps  都有。那 typora 中的标题有什么不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Markdown基础用法】">
+<meta property="og:url" content="https://cool.xiaohei.us/2024/01/27/%E3%80%90Markdown%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E3%80%91/index.html">
+<meta property="og:site_name" content="一只特立独行的猪">
+<meta property="og:description" content="推荐一个教程： &#x3D;&#x3D;Typora 保姆级教程_typora序列号-CSDN博客 &#x3D;&#x3D; 包括 tyrora的使用安装、Picgo的安装等，很详细. 也可以查看Typora官方的 Typora 中的 HTML 支持 （一）标题介绍1.1、用 Markdown 语法创建标题 相信大家都用过标题，office 和 wps  都有。那 typora 中的标题有什么不同">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a8a68920cf445e5c4f1d944a869366c1.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/84121dee99e934ea6b8f6ee337fa6579.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/4cc797fae4079f6bc92ac80ce5256760.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d09664f85f0b005a4c0a0ea8d3591c6c.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/60dcb322bdd2de576b76953927ad5200.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/6a37c574a1ca53b2aeba2d26412fe117.gif">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/821b80952d474722c69162f4d350a85d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9a81570ff3f766a931942655a63c3831.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/2353c2149bc8f67eb41ac599180fc6ad.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/4b7a4fa114fc09c260aaa05a80bef7c3.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/fc84fa485201d5d758eed854c3a1d509.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/f377de4fcf7407bb8068ec4fc16a10d6.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/01/f377de4fcf7407bb8068ec4fc16a10d6.png">
+<meta property="article:published_time" content="2024-01-27T12:54:03.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:54:48.495Z">
+<meta property="article:author" content="Bboy">
+<meta property="article:tag" content="Typora">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img01.xiaohei.us/2024/01/a8a68920cf445e5c4f1d944a869366c1.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            【Markdown基础用法】 -
+        
+        一只特立独行的猪
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        一只特立独行的猪
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"cool.xiaohei.us","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"睡着、醒着、不停地走着......","subtitle":{"text":["每天都在期望着，明天或许会有不同"],"hitokoto":{"enable":true,"api":"https://v1.hitokoto.cn/?c=k"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"分类":{"path":"/categories","icon":"fa-regular fa-folder-open","submenus":{"学习笔记":"/categories/学习笔记","游戏相关":"/categories/游戏相关","NAS应用":"/categories/NAS应用","翻山越岭":"/categories/翻山越岭","杂七杂八":"/categories/杂七杂八"}},"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tag"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"念念不忘，必有回响","show_on_mobile":true,"links":{"分类":{"path":"/categories","icon":"fa-regular fa-folder-open","submenus":{"学习笔记":"/categories/学习笔记","游戏相关":"/categories/游戏相关","NAS应用":"/categories/NAS应用","杂七杂八":"/categories/杂七杂八"}},"归档":{"path":"/archives","icon":"fa-regular fa-archive"},"标签":{"path":"/tags","icon":"fa-regular fa-tag"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                一只特立独行的猪
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-folder-open fa-fw"></i>
+                                    分类
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                                    学习笔记
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3">
+                                                    游戏相关
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/NAS%E5%BA%94%E7%94%A8">
+                                                    NAS应用
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD">
+                                                    翻山越岭
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB">
+                                                    杂七杂八
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tag fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-分类"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-分类">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E6%B8%B8%E6%88%8F%E7%9B%B8%E5%85%B3">游戏相关</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/NAS%E5%BA%94%E7%94%A8">NAS应用</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD">翻山越岭</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB">杂七杂八</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tag fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">22</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">14</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="https://img01.xiaohei.us/2024/01/b605bf7c0abf96b2389140839df53b84.png" alt="【Markdown基础用法】" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">【Markdown基础用法】</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Xiao.Hei.Ge</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-01-27 20:54:03</span>
+        <span class="mobile">2024-01-27 20:54:03</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-01-29 20:54:48</span>
+            <span class="mobile">2024-01-29 20:54:48</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Typora/">Typora</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Markdown/">Markdown</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <p>推荐一个教程：</p>
+<p><font size=6>&#x3D;&#x3D;<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_66345100/article/details/124660186" >Typora 保姆级教程_typora序列号-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>&#x3D;&#x3D;</font></p>
+<p>包括 tyrora的使用安装、Picgo的安装等，很详细.</p>
+<p>也可以查看Typora官方的</p>
+<p><a target="_blank" rel="noopener" href="https://support.typora.io/HTML"><font size=5 color="red">Typora 中的 HTML 支持</font></a></p>
+<h2 id="（一）标题介绍"><a href="#（一）标题介绍" class="headerlink" title="（一）标题介绍"></a>（一）标题介绍</h2><h3 id="1-1、用-Markdown-语法创建标题"><a href="#1-1、用-Markdown-语法创建标题" class="headerlink" title="1.1、用 Markdown 语法创建标题"></a>1.1、用 Markdown 语法创建标题</h3><p> 相信大家都用过标题，office 和 <a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=wps&spm=1001.2101.3001.7020" >wps <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 都有。那 typora 中的标题有什么不同？—&gt; 快捷</p>
+<blockquote>
+<ul>
+<li><p>Markdown 语法：直接输入# 标题名 然后回车，就是一级标题</p>
+</li>
+<li><p>几级标题就用几个#</p>
+</li>
+<li><p>例如：</p>
+</li>
+</ul>
+<p> <code># 标题介绍</code></p>
+<ul>
+<li><strong>注意中间有空格</strong></li>
+</ul>
+</blockquote>
+<p> 注意：<strong>Typora 总共有六个标题</strong></p>
+<p> 什么，还有空格，好像不方便。那就还有更方便的方法。就是关闭严格模式。</p>
+<h3 id="1-2、取消严格模式（偏好设置）创建标题"><a href="#1-2、取消严格模式（偏好设置）创建标题" class="headerlink" title="1.2、取消严格模式（偏好设置）创建标题"></a>1.2、取消严格模式（偏好设置）创建标题</h3><blockquote>
+<p>只要关掉严格模式就不用严格的遵循 Markdown 的语法了。（好似那庄周带净化）</p>
+</blockquote>
+<ol>
+<li><p>严格模式的位置：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/a8a68920cf445e5c4f1d944a869366c1.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/84121dee99e934ea6b8f6ee337fa6579.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/4cc797fae4079f6bc92ac80ce5256760.png"
+                      alt="img"
+                ></p>
+</li>
+<li><p>下拉寻找</p>
+<img  style="border-radius: 20px;" 
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/d09664f85f0b005a4c0a0ea8d3591c6c.png"
+                      alt="img"  
+                ></li>
+</ol>
+<p> 什么还不简单？还要语法？那就：</p>
+<h3 id="1-3、究极快捷键创建标题"><a href="#1-3、究极快捷键创建标题" class="headerlink" title="1.3、究极快捷键创建标题"></a>1.3、究极快捷键创建标题</h3><blockquote>
+<p>一句话，想用几级标题，Ctrl + 数字几 </p>
+</blockquote>
+<p>&#x3D;&#x3D;注意：小键盘数字键的不太行&#x3D;&#x3D;</p>
+<h2 id="（二）文字格式"><a href="#（二）文字格式" class="headerlink" title="（二）文字格式"></a>（二）文字格式</h2><p> 好了，标题到此结束。那你的加粗和高亮是咋来的？</p>
+<h3 id="2-1、加粗"><a href="#2-1、加粗" class="headerlink" title="2.1、加粗"></a>2.1、加粗</h3><p>Markdown 语法：用四个 * 把字框在中间</p>
+<p>例子：</p>
+<p><strong>加粗</strong></p>
+<p>快捷键：Ctrl+B</p>
+<h3 id="2-2、-高亮"><a href="#2-2、-高亮" class="headerlink" title="2.2、&#x3D;&#x3D;高亮&#x3D;&#x3D;"></a>2.2、&#x3D;&#x3D;高亮&#x3D;&#x3D;</h3><ol>
+<li>高亮需要在偏好设置中进行设置，上面有 [偏好设置](# 严格模式（偏好设置）)</li>
+<li>有没有疑问这个连接哪来的？下面有 [内部链接](# 内部链接)<ol>
+<li>点击不能跳转就按住 Ctrl 再点击。</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>Markdown 语法：用四个 &#x3D; 把字框在中间</p>
+<p>例子</p>
+</blockquote>
+<p>&#x3D;&#x3D;高亮&#x3D;&#x3D;</p>
+<h3 id="2-3、删除线"><a href="#2-3、删除线" class="headerlink" title="2.3、删除线"></a>2.3、删除线</h3><blockquote>
+<p>Markdown 语法：用四个~ 把字括在中间</p>
+<p>例子</p>
+</blockquote>
+<p>&#x3D;&#x3D;<del>删除线</del>&#x3D;&#x3D;</p>
+<h3 id="2-4、斜体"><a href="#2-4、斜体" class="headerlink" title="2.4、斜体"></a>2.4、<em>斜体</em></h3><blockquote>
+<p>Markdown 语法：用两个 * 把字括在中间</p>
+<p>例子：</p>
+</blockquote>
+<p>&#x3D;&#x3D;<em>斜体</em>&#x3D;&#x3D;</p>
+<h3 id="2-5、下划"><a href="#2-5、下划" class="headerlink" title="2.5、下划"></a>2.5、下划</h3><ul>
+<li>下划线使用的是 HTML 语法 (会使用方式就好)：</li>
+</ul>
+<blockquote>
+<p>Markdown 语法（HTML 语法）：用把字框在中间</p>
+<p>例子：</p>
+</blockquote>
+<p>&#x3D;&#x3D;<u>下划线</u>&#x3D;&#x3D;</p>
+<blockquote>
+<p>快捷键：</p>
+<p>Ctrl+u</p>
+</blockquote>
+<h3 id="2-6、斜体-加粗"><a href="#2-6、斜体-加粗" class="headerlink" title="2.6、斜体 + 加粗"></a>2.6、斜体 + 加粗</h3><ul>
+<li>没错，就是–套娃。</li>
+<li>这里举一个例子，其他的自己尝试着去套吧。</li>
+</ul>
+<blockquote>
+<p>Markdown 语法：用六个 * 把字框在中间</p>
+<p>例如：</p>
+</blockquote>
+<p>&#x3D;&#x3D;<em><strong>斜体+加粗</strong></em>&#x3D;&#x3D;</p>
+<h3 id="2-7、下标-需要进行偏好设置"><a href="#2-7、下标-需要进行偏好设置" class="headerlink" title="2.7、下标 需要进行偏好设置"></a>2.7、下标 <del>需要进行偏好设置</del></h3><ul>
+<li><p>需要在偏好设置中进行设置，上面有 [偏好设置](# 严格模式（偏好设置）)</p>
+</li>
+<li><p>不能跳转就按住 Ctrl 再点击</p>
+</li>
+</ul>
+<blockquote>
+<p>Markdown 语法：用两个~ 把需要编程下标的框起来</p>
+<p>例子：</p>
+</blockquote>
+<p>&#x3D;&#x3D;下标<del>需要进行偏好设置</del>&#x3D;&#x3D;</p>
+<h3 id="2-8、上标需要进行偏好设置"><a href="#2-8、上标需要进行偏好设置" class="headerlink" title="2.8、上标需要进行偏好设置"></a>2.8、上标需要进行偏好设置</h3><ol>
+<li>需要在偏好设置中进行设置，上面有 [偏好设置](# 严格模式（偏好设置）)<ol>
+<li>点击不能跳转就按住 Ctrl 再点击</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>Markdown 语法：用两个 ^ 把需要编程下标的框起来</p>
+<p>例子：</p>
+</blockquote>
+<p>&#x3D;&#x3D;上标^需要进行偏好设置^&#x3D;&#x3D;</p>
+<h3 id="2-9、表情包"><a href="#2-9、表情包" class="headerlink" title="2.9、表情包"></a>2.9、表情包</h3><ul>
+<li>:smile—–&gt;😄</li>
+<li>:laughing—–&gt;😆</li>
+<li>:dizzy—–&gt;💫等等</li>
+<li>打冒号加部分单词会有提示😄</li>
+</ul>
+<h2 id="（三）引用"><a href="#（三）引用" class="headerlink" title="（三）引用"></a>（三）引用</h2><blockquote>
+<p>可以发现我上面用了大量的这种灰色的框</p>
+<p>没错现在也在用着，那这个是怎么来的呢？</p>
+<blockquote>
+<p>Markdown 语法：&gt; 加回车</p>
+<p>发现了吗？没错还可以套娃</p>
+</blockquote>
+</blockquote>
+<h2 id="（四）代码块"><a href="#（四）代码块" class="headerlink" title="（四）代码块"></a>（四）代码块</h2><blockquote>
+<p>有没有发现，Markdown 的语法包含很多字符，那问题来了，我就是想输入<code>==高亮==</code>，还不想变高亮，怎么办？</p>
+</blockquote>
+<h3 id="4-1、行内代码块"><a href="#4-1、行内代码块" class="headerlink" title="4.1、行内代码块"></a>4.1、行内代码块</h3><p><code>==高亮==</code>，没错，这东西就是行内代码块，可以写进字里行间。</p>
+<p><code>==行内代码块==</code></p>
+<blockquote>
+<p>Markdown 语法：用两个 &#96; 将代码块框起来</p>
+<p>例子：</p>
+</blockquote>
+<p><code>这个就是行内代码块</code></p>
+<ul>
+<li>注意：&#x3D;&#x3D;<strong>&#96;</strong> 是英文字符&#x3D;&#x3D;，在键盘左上角找。</li>
+</ul>
+<h3 id="4-2、代码块"><a href="#4-2、代码块" class="headerlink" title="4.2、代码块"></a>4.2、代码块</h3><p> 我要写的代码有点多怎么办，显然行内代码块不合适</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">那你看这个怎么样</span><br><span class="line">想写几行写几行</span><br><span class="line">怎么来的呢？</span><br></pre></td></tr></table></figure></div>
+
+<p> 可以发现代码块中有行号，这个也是要到 [偏好设置](# 严格模式（偏好设置）) 中进行设置</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/60dcb322bdd2de576b76953927ad5200.png"
+                      alt="img"
+                ></p>
+<blockquote>
+<p>Markdown 语法：&#96;&#96;&#96; 加回车</p>
+<p> 或者 &#96;&#96;&#96; 加代码语言加回车</p>
+<p>例子：</p>
+<p>`&#96;&#96;java   回车，生成的就是 java 的代码块</p>
+</blockquote>
+<h2 id="（五）列表"><a href="#（五）列表" class="headerlink" title="（五）列表"></a>（五）列表</h2><blockquote>
+<p>代码块中有了行号，那文本内容中肯定也少不了</p>
+</blockquote>
+<h3 id="5-1、有序列表"><a href="#5-1、有序列表" class="headerlink" title="5.1、有序列表"></a>5.1、有序列表</h3><ol>
+<li>就像这样直接用数字加. 加空格就可以了<ol>
+<li>tab 可以缩进</li>
+</ol>
+</li>
+<li>shift+tab 回退</li>
+</ol>
+<h3 id="5-2、无序列表"><a href="#5-2、无序列表" class="headerlink" title="5.2、无序列表"></a>5.2、无序列表</h3><ul>
+<li><p>效果就是这样的</p>
+<ul>
+<li><p>可以缩进</p>
+<ul>
+<li><blockquote>
+<p>Markdown 语法：* 加空格</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>shift+tab 回退</p>
+</li>
+</ul>
+<h2 id="（六）图片"><a href="#（六）图片" class="headerlink" title="（六）图片"></a>（六）图片</h2><p>通常记笔记的时候直接截图复制就好了。</p>
+<blockquote>
+<p>Markdown 语法的话：</p>
+<p>格式：<code>！[图片名字](图片网络地址或者本地存储路径)</code>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/6a37c574a1ca53b2aeba2d26412fe117.gif"
+                      alt="img"
+                ></p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![随便了](Typora使用.assets/1607762200.gif)</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="6-1、图片存储路径"><a href="#6-1、图片存储路径" class="headerlink" title="6.1、图片存储路径"></a>6.1、图片存储路径</h3><blockquote>
+<p>图片的存储路径在偏好设置更改，建议改成我这样的设置：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/821b80952d474722c69162f4d350a85d.png"
+                      alt="img"
+                ></p>
+<p>这样图片会和笔记保存在一起，这里是本地存储的样子：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/9a81570ff3f766a931942655a63c3831.png"
+                      alt="img"
+                ></p>
+<p>图片就在上面的文件夹中，在分享笔记的时候一起发送，别人才能看见你笔记中的图片。</p>
+</blockquote>
+<h2 id="（七）链接"><a href="#（七）链接" class="headerlink" title="（七）链接"></a>（七）链接</h2><h3 id="7-1、内部链接"><a href="#7-1、内部链接" class="headerlink" title="7.1、内部链接"></a>7.1、内部链接</h3><blockquote>
+<ul>
+<li><p>Markdown 语法：&#x3D;&#x3D;<code>[link text](#要去的目的地--标题)</code>&#x3D;&#x3D;</p>
+</li>
+<li><p>例子：</p>
+</li>
+</ul>
+<p>​      <code>  ==[偏好设置](# 严&#39;这个就是行内代码块&#39;格模式（偏好设置）)==</code></p>
+<ul>
+<li>效果：</li>
+</ul>
+<p>​    <code> ==[偏好设置](# 严格模式（偏好设置）)==</code></p>
+<ul>
+<li>注意：按住 Ctrl + 单击，才能实现跳转，<strong>只能调到标题部分</strong></li>
+</ul>
+</blockquote>
+<h3 id="8-1、外部链接"><a href="#8-1、外部链接" class="headerlink" title="8.1、外部链接"></a>8.1、外部链接</h3><blockquote>
+<ul>
+<li><p>直接复制过来就是连接形式</p>
+</li>
+<li><p>Markdown 语法：<code>[跳转的提示]（网址）</code></p>
+</li>
+<li><p>例子：</p>
+</li>
+</ul>
+<p> <code>[哔哩哔哩 (゜-゜)つロ 干杯~-bilibili](https://www.bilibili.com/)</code></p>
+<ul>
+<li>效果：</li>
+</ul>
+<p> <a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/" >哔哩哔哩 (゜ - ゜) つロ 干杯~-bilibili <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<ul>
+<li>注意：按住 Ctrl + 单击，才能实现跳转</li>
+</ul>
+</blockquote>
+<h3 id="9-1、手动链接"><a href="#9-1、手动链接" class="headerlink" title="9.1、手动链接"></a>9.1、手动链接</h3><p>用<code>&lt;&gt;</code>括起来的地方都会自动变成超链接形式</p>
+<ul>
+<li><p>Markdown 语法：<code>&lt;https://www.baidu.com&gt;</code></p>
+</li>
+<li><p>效果</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.baidu.com/" >https://www.baidu.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+<li><p>注意：按住 Ctrl + 单击，才能实现跳转</p>
+</li>
+</ul>
+<h2 id="（八）表格"><a href="#（八）表格" class="headerlink" title="（八）表格"></a>（八）表格</h2><blockquote>
+<p>快捷键：Ctrl+Tab+T</p>
+</blockquote>
+<h2 id="（九）分割线"><a href="#（九）分割线" class="headerlink" title="（九）分割线"></a>（九）分割线</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以用***加回车</span><br><span class="line">可以用---加回车</span><br><span class="line">可以用___加回车</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<hr>
+<hr>
+<h2 id="（十）开发者模式"><a href="#（十）开发者模式" class="headerlink" title="（十）开发者模式"></a>（十）开发者模式</h2><blockquote>
+<p>开发者模式需要去 [偏好设置](# 严格模式（偏好设置）) 里面进行设置，码农当然要打开开发者模式了😃，尤其是学 web 方向的码农</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/2353c2149bc8f67eb41ac599180fc6ad.png"
+                      alt="img"
+                ></p>
+<blockquote>
+<p>使用开发者模式</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/4b7a4fa114fc09c260aaa05a80bef7c3.png"
+                      alt="img"
+                ></p>
+<blockquote>
+<p>效果：</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/fc84fa485201d5d758eed854c3a1d509.png"
+                      alt="img"
+                ></p>
+<blockquote>
+<p>到这里还需要说其他的吗？会的就是会的，不会的得学 web 代码。</p>
+</blockquote>
+<p>&#x3D;&#x3D;引用原文：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45454503/article/details/125460723" >Markdown基础语法（Typora使用）_markdown typroa-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>&#x3D;&#x3D;</p>
+<h2 id="补充-1、Typora与HTML"><a href="#补充-1、Typora与HTML" class="headerlink" title="补充 1、Typora与HTML"></a>补充 1、<strong>Typora与HTML</strong></h2><h3 id="1-1-改变字体颜色及大小"><a href="#1-1-改变字体颜色及大小" class="headerlink" title="1.1 改变字体颜色及大小"></a><strong>1.1 改变字体颜色及大小</strong></h3><p>改变字体的颜色及大小，如：</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;font size=3 color=&quot;red&quot;&gt;红色，大小为3&lt;/font&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><font size=3 color="red">红色，大小为3</font></p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;font size=6 color=&quot;blue&quot;&gt;蓝色，大小为6&lt;/font&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><font size=6 color="blue">蓝色，大小为6</font></p>
+<h3 id="1-2-改变对齐方式"><a href="#1-2-改变对齐方式" class="headerlink" title="1.2 改变对齐方式"></a><strong>1.2 改变对齐方式</strong></h3><p>我们可以改变字体的对齐方式，用标签<p> </p>加上属性align，如：</p>
+<p>左对齐<br>中间对齐<br>右对齐</p>
+<h3 id="1-3-图片链接套用html"><a href="#1-3-图片链接套用html" class="headerlink" title="1.3 图片链接套用html"></a>1.3 图片链接套用html</h3><ol>
+<li>右击图片，选择缩放图片后，语法格式将变成<code>&lt;img src=&quot;Typora.assets/32.jpg&quot; alt=&quot;32&quot; style=&quot;zoom: 20%;&quot; /&gt;</code>，<code>20%</code>可自行调整</li>
+<li>通过HTML调节，格式如下：</li>
+</ol>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;</span><br><span class="line">    &lt;img style=&quot;border-radius: 20px;&quot;</span><br><span class="line">         src=&quot;Typora.assets/baymax.jpg&quot; </span><br><span class="line">         alt=&quot;baymax&quot;</span><br><span class="line">         width=&quot;688&quot; &gt;</span><br><span class="line">&lt;/center&gt;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>&lt;center&gt;</code>标签设置图片居中对齐</li>
+<li><code>border-radius</code>设置圆角</li>
+<li><code>src</code>放置图片路径（本地路径或网络路径）</li>
+<li><code>alt</code>放置图片链接失效后的显示文字</li>
+<li><code>width</code>设置图片宽度（<code>witdh</code>和<code>height</code>只设置一个即可，等比例缩放）</li>
+</ul>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/f377de4fcf7407bb8068ec4fc16a10d6.png"
+                      alt="图片" style="zoom:80%;" 
+                >
+
+<p>你也可以通过如下代码为图片添加图注：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;</span><br><span class="line">    &lt;img style=&quot;border-radius: 20px;zoom: 80%;&quot;</span><br><span class="line">         src=&quot;&quot; </span><br><span class="line">         alt=&quot;&quot; &gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;div style=&quot;color: #999; padding: 2px;&quot;&gt;</span><br><span class="line">        图注</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/center&gt;</span><br></pre></td></tr></table></figure></div>
+
+<center>
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/01/f377de4fcf7407bb8068ec4fc16a10d6.png"
+                      
+         alt="图片" 
+         style="border-radius: 20px;zoom: 60%;" 
+          
+                >
+    <br>
+    <div style="color: #999; padding: 2px;">
+        图注：这张是大白
+    </div>
+</center>
+
+<h5 id="在Typora中书写MarkDown"><a href="#在Typora中书写MarkDown" class="headerlink" title="在Typora中书写MarkDown"></a>在Typora中书写MarkDown</h5><table>
+<thead>
+<tr>
+<th></th>
+<th>Markdown语法</th>
+<th>Typora快捷键</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一级标题</td>
+<td><code>#</code></td>
+<td>ctrl+1</td>
+</tr>
+<tr>
+<td>二级标题</td>
+<td><code>##</code></td>
+<td>ctrl+2</td>
+</tr>
+<tr>
+<td>三级标题</td>
+<td><code>###</code></td>
+<td>ctrl+3</td>
+</tr>
+<tr>
+<td>四级标题</td>
+<td><code>####</code></td>
+<td>ctrl+4</td>
+</tr>
+<tr>
+<td>五级标题</td>
+<td><code>#####</code></td>
+<td>ctrl+5</td>
+</tr>
+<tr>
+<td>六级标题</td>
+<td><code>######</code></td>
+<td>ctrl+6</td>
+</tr>
+<tr>
+<td>加粗</td>
+<td><code>**粗体**</code></td>
+<td>ctrl+B</td>
+</tr>
+<tr>
+<td>斜体</td>
+<td><code>*斜体*</code></td>
+<td>ctrl+I</td>
+</tr>
+<tr>
+<td>下划线</td>
+<td><code>&lt;u&gt;下划线&lt;/u&gt;</code></td>
+<td>ctrl+U</td>
+</tr>
+<tr>
+<td>删除线</td>
+<td><code>~~删除线~~</code></td>
+<td>alt+shift+5</td>
+</tr>
+<tr>
+<td>创建表格</td>
+<td></td>
+<td>ctrl+T</td>
+</tr>
+<tr>
+<td>创建超链接</td>
+<td><code>[超链接名](超链接地址)</code></td>
+<td>ctrl+K</td>
+</tr>
+<tr>
+<td>插入图片</td>
+<td><code>![alt](图片地址)</code></td>
+<td>ctrl+shift+I</td>
+</tr>
+<tr>
+<td>插入公式块</td>
+<td><code>$$公式$$</code></td>
+<td>ctrl+shift+M</td>
+</tr>
+<tr>
+<td>添加引用</td>
+<td><code>&gt;内容</code></td>
+<td>ctrl+shift+Q</td>
+</tr>
+<tr>
+<td>无序列表</td>
+<td><code>+ 内容</code></td>
+<td>ctrl+shift+]</td>
+</tr>
+<tr>
+<td>有序列表</td>
+<td><code>1. 内容</code></td>
+<td>ctrl+shift+[</td>
+</tr>
+<tr>
+<td>粘贴为纯文本</td>
+<td></td>
+<td>ctrl+shift+V</td>
+</tr>
+<tr>
+<td>返回Typora顶部</td>
+<td></td>
+<td>ctrl+Home</td>
+</tr>
+<tr>
+<td>返回Typora底部</td>
+<td></td>
+<td>ctrl+End</td>
+</tr>
+<tr>
+<td>启用&#x2F;退出 源代码模式</td>
+<td></td>
+<td>ctrl+&#x2F;</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td></td>
+<td>ctrl+F</td>
+</tr>
+<tr>
+<td>搜索并替换</td>
+<td></td>
+<td>ctrl+H</td>
+</tr>
+<tr>
+<td>选中光标所在行</td>
+<td></td>
+<td>ctrl+L</td>
+</tr>
+<tr>
+<td>生成文档目录</td>
+<td></td>
+<td><code>[toc]</code>+Enter</td>
+</tr>
+<tr>
+<td>快速打开最新文档</td>
+<td></td>
+<td>ctrl+P</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>TOC从文档中提取所有标题，其内容将自动更新。</p>
+</blockquote>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 【Markdown基础用法】</li>
+        <li><strong>作者:</strong> Xiao.Hei.Ge</li>
+        <li><strong>创建于
+                :</strong> 2024-01-27 20:54:03</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-01-29 20:54:48
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://cool.xiaohei.us/2024/01/27/【Markdown基础用法】/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Typora/">#Typora</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Markdown/">#Markdown</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/01/29/%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">群晖安装青龙面板</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/01/27/%E3%80%8E%E5%A4%A9%E9%A9%AC%E3%80%8F%E5%85%A8%E8%83%BD%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%95%B4%E5%90%88%E5%8C%85/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">『天马』全能模拟器整合包</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'walxhg.xiaohei.us',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          requiredMeta: ['nick', 'mail'],
+          emoji: ['//unpkg.com/@waline/emojis@1.2.0/bmoji'],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">【Markdown基础用法】</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%A0%87%E9%A2%98%E4%BB%8B%E7%BB%8D"><span class="nav-text">（一）标题介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E3%80%81%E7%94%A8-Markdown-%E8%AF%AD%E6%B3%95%E5%88%9B%E5%BB%BA%E6%A0%87%E9%A2%98"><span class="nav-text">1.1、用 Markdown 语法创建标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E3%80%81%E5%8F%96%E6%B6%88%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE%EF%BC%89%E5%88%9B%E5%BB%BA%E6%A0%87%E9%A2%98"><span class="nav-text">1.2、取消严格模式（偏好设置）创建标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3%E3%80%81%E7%A9%B6%E6%9E%81%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%88%9B%E5%BB%BA%E6%A0%87%E9%A2%98"><span class="nav-text">1.3、究极快捷键创建标题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%96%87%E5%AD%97%E6%A0%BC%E5%BC%8F"><span class="nav-text">（二）文字格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1%E3%80%81%E5%8A%A0%E7%B2%97"><span class="nav-text">2.1、加粗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E3%80%81-%E9%AB%98%E4%BA%AE"><span class="nav-text">2.2、&#x3D;&#x3D;高亮&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3%E3%80%81%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="nav-text">2.3、删除线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4%E3%80%81%E6%96%9C%E4%BD%93"><span class="nav-text">2.4、斜体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5%E3%80%81%E4%B8%8B%E5%88%92"><span class="nav-text">2.5、下划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6%E3%80%81%E6%96%9C%E4%BD%93-%E5%8A%A0%E7%B2%97"><span class="nav-text">2.6、斜体 + 加粗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7%E3%80%81%E4%B8%8B%E6%A0%87-%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE"><span class="nav-text">2.7、下标 需要进行偏好设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8%E3%80%81%E4%B8%8A%E6%A0%87%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE"><span class="nav-text">2.8、上标需要进行偏好设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9%E3%80%81%E8%A1%A8%E6%83%85%E5%8C%85"><span class="nav-text">2.9、表情包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%BC%95%E7%94%A8"><span class="nav-text">（三）引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">（四）代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E3%80%81%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">4.1、行内代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">4.2、代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E5%88%97%E8%A1%A8"><span class="nav-text">（五）列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1%E3%80%81%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-text">5.1、有序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2%E3%80%81%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="nav-text">5.2、无序列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%85%AD%EF%BC%89%E5%9B%BE%E7%89%87"><span class="nav-text">（六）图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1%E3%80%81%E5%9B%BE%E7%89%87%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84"><span class="nav-text">6.1、图片存储路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B8%83%EF%BC%89%E9%93%BE%E6%8E%A5"><span class="nav-text">（七）链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1%E3%80%81%E5%86%85%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-text">7.1、内部链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1%E3%80%81%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-text">8.1、外部链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1%E3%80%81%E6%89%8B%E5%8A%A8%E9%93%BE%E6%8E%A5"><span class="nav-text">9.1、手动链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%85%AB%EF%BC%89%E8%A1%A8%E6%A0%BC"><span class="nav-text">（八）表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B9%9D%EF%BC%89%E5%88%86%E5%89%B2%E7%BA%BF"><span class="nav-text">（九）分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%8D%81%EF%BC%89%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-text">（十）开发者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85-1%E3%80%81Typora%E4%B8%8EHTML"><span class="nav-text">补充 1、Typora与HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%94%B9%E5%8F%98%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E5%8F%8A%E5%A4%A7%E5%B0%8F"><span class="nav-text">1.1 改变字体颜色及大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%94%B9%E5%8F%98%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F"><span class="nav-text">1.2 改变对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5%E5%A5%97%E7%94%A8html"><span class="nav-text">1.3 图片链接套用html</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Xiao.Hei.Ge</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共 14 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.1</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<!--����-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+  <div id="player" class="aplayer aplayer-withlist aplayer-fixed" data-id="48831359" data-server="netease" data-type="playlist" data-order="random" data-fixed="true" data-listfolded="true" data-theme="#2D8CF0"></div>
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
