@@ -19,27 +19,31 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://cool.xiaohei.us/2024/02/08/docker常规操作-启动、停止、重启/"/>
+    <link rel="canonical" href="https://cool.xiaohei.us/2024/03/03/linux学习-linux中crontab（定时任务）命令详解及使用教程/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="一、启动一个已经停止的容器实例docker start 容器 ID 或容器名  先查看已经暂停的容器实例信息 通过 docker start 59ec 启动容器 通过 docker ps 查看当前启动的容器  具体操作如下图  docker start 还有两个参数-i: 以 交互模式启动 -t: 以 附加进程方式启动 二、停止一个正在运行的容器1、docker stop 此方式常常被翻译为优雅的">
+        <meta name="description" content="Crontab介绍：Linux crontab是用来crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρ?νο?)，原意是时间。通常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker常规操作-启动、停止、重启">
-<meta property="og:url" content="https://cool.xiaohei.us/2024/02/08/Docker%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C-%E5%90%AF%E5%8A%A8%E3%80%81%E5%81%9C%E6%AD%A2%E3%80%81%E9%87%8D%E5%90%AF/index.html">
+<meta property="og:title" content="(Linux学习)Linux中Crontab（定时任务）命令详解及使用教程">
+<meta property="og:url" content="https://cool.xiaohei.us/2024/03/03/Linux%E5%AD%A6%E4%B9%A0-Linux%E4%B8%ADCrontab%EF%BC%88%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%89%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="一只特立独行的猪">
-<meta property="og:description" content="一、启动一个已经停止的容器实例docker start 容器 ID 或容器名  先查看已经暂停的容器实例信息 通过 docker start 59ec 启动容器 通过 docker ps 查看当前启动的容器  具体操作如下图  docker start 还有两个参数-i: 以 交互模式启动 -t: 以 附加进程方式启动 二、停止一个正在运行的容器1、docker stop 此方式常常被翻译为优雅的">
+<meta property="og:description" content="Crontab介绍：Linux crontab是用来crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρ?νο?)，原意是时间。通常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/02/c5b93fb7a9007a888c77dd3bf8903e0c.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/02/438acd3895243b05c8deb4259ffb3ef6.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/02/a35e1edae45c2aea4a27e01a384bc9a4.png">
-<meta property="article:published_time" content="2024-02-08T12:14:06.000Z">
-<meta property="article:modified_time" content="2024-02-08T14:23:38.954Z">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/893db77cd2d4acb8fe858d7fbf66cb53.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/11e9146837fedf1ec4cef3998a713226.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/23d484220b7d0cdbd073b3db9741ec41.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/57d681fa220dae75464d556b493e0f6c.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/760c1dad7b04ea21f209a6c969e80523.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/03/c96ef6f59915c0770715c8be22f4826b.png">
+<meta property="article:published_time" content="2024-03-03T15:34:26.000Z">
+<meta property="article:modified_time" content="2024-03-03T15:50:21.251Z">
 <meta property="article:author" content="Bboy">
-<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Linux学习">
+<meta property="article:tag" content="Crontab">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img01.xiaohei.us/2024/02/c5b93fb7a9007a888c77dd3bf8903e0c.png">
+<meta name="twitter:image" content="https://img01.xiaohei.us/2024/03/893db77cd2d4acb8fe858d7fbf66cb53.png">
     
     
     <!--- Icon Part-->
@@ -51,7 +55,7 @@
     
     <title>
         
-            Docker常规操作-启动、停止、重启 -
+            (Linux学习)Linux中Crontab（定时任务）命令详解及使用教程 -
         
         一只特立独行的猪
     </title>
@@ -584,10 +588,10 @@
             
                 
                 
-                <img src="https://img01.xiaohei.us/2024/02/cbaebb974a8a5a742445f3b5064e83aa.png" alt="Docker常规操作-启动、停止、重启" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                <img src="https://img01.xiaohei.us/2024/03/fcc7252fc37e90257d63c545821dfdd8.png" alt="(Linux学习)Linux中Crontab（定时任务）命令详解及使用教程" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
                 
                 <div class="w-full flex items-center absolute bottom-0 justify-start">
-                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">Docker常规操作-启动、停止、重启</h1>
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">(Linux学习)Linux中Crontab（定时任务）命令详解及使用教程</h1>
                 </div>
             
             </div>
@@ -608,15 +612,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-02-08 20:14:06</span>
-        <span class="mobile">2024-02-08 20:14:06</span>
+        <span class="desktop">2024-03-03 23:34:26</span>
+        <span class="mobile">2024-03-03 23:34:26</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-02-08 22:23:38</span>
-            <span class="mobile">2024-02-08 22:23:38</span>
+            <span class="desktop">2024-03-03 23:50:21</span>
+            <span class="mobile">2024-03-03 23:50:21</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -644,7 +648,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Docker/">Docker</a>&nbsp;
+                        <a href="/tags/Linux%E5%AD%A6%E4%B9%A0/">Linux学习</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Crontab/">Crontab</a>&nbsp;
                     </li>
                 
             </ul>
@@ -670,52 +678,111 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h3 id="一、启动一个已经停止的容器实例"><a href="#一、启动一个已经停止的容器实例" class="headerlink" title="一、启动一个已经停止的容器实例"></a>一、启动一个已经停止的容器实例</h3><p>docker start 容器 ID 或容器名</p>
+            <h4 id="Crontab介绍："><a href="#Crontab介绍：" class="headerlink" title="Crontab介绍："></a><strong>Crontab介绍：</strong></h4><p>Linux crontab是用来crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρ?νο?)，原意是时间。通常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。当安装完成操作系统之后，默认便会启动此任务调度命令。crond 命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
+<p>注意：新创建的 cron 任务，不会马上执行，至少要过 2 分钟后才可以，当然你可以重启 cron 来马上执行。</p>
+<h5 id="1-使用yum命令安装Crontab："><a href="#1-使用yum命令安装Crontab：" class="headerlink" title="1.使用yum命令安装Crontab："></a>1.使用yum命令安装Crontab：</h5><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum install vixie-cron </span><br><span class="line">yum install crontabs</span><br><span class="line">注：vixie-cron软件包是cron的主程序；</span><br><span class="line">crontabs软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</span><br><span class="line">cron是linux的内置服务，但它不自动起来，可以用以下的方法启动、关闭这个服务：</span><br><span class="line">/sbin/service crond start #启动服务</span><br><span class="line">/sbin/service crond stop #关闭服务</span><br><span class="line">/sbin/service crond restart #重启服务</span><br><span class="line">/sbin/service crond reload #重新载入配置</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="2-查看Crontab状态："><a href="#2-查看Crontab状态：" class="headerlink" title="2.查看Crontab状态："></a>2.查看Crontab状态：</h5><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service crond status</span><br><span class="line">ntsysv #查看crontab服务是否已设置为开机启动</span><br><span class="line">chkconfig –level <span class="number">35</span> crond on #加入开机自动启动</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/893db77cd2d4acb8fe858d7fbf66cb53.png"
+                      alt="img"
+                ></p>
+<h5 id="3-添加定时任务："><a href="#3-添加定时任务：" class="headerlink" title="3.添加定时任务："></a>3.添加定时任务：</h5><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">crontab -e #编辑cron任务模式</span><br><span class="line">i #默认文字编辑器为vim，按i字母键即可添加cron任务</span><br><span class="line"><span class="number">30</span> <span class="number">3</span> * * * <span class="regexp">/usr/</span>local/etc/rc.<span class="property">d</span>/lighttpd restart #将命令代码放入，此命令意义为每天的<span class="number">03</span>:<span class="number">30</span> 重启apache</span><br><span class="line"><span class="variable constant_">ESC</span> #按<span class="variable constant_">ESC</span>键退出编辑模式</span><br><span class="line">:wq #键入:wq保存</span><br><span class="line">service crond restart #重启crontab服务</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="4-查看任务列表："><a href="#4-查看任务列表：" class="headerlink" title="4.查看任务列表："></a>4.查看任务列表：</h5><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="5-Crontab相关命令："><a href="#5-Crontab相关命令：" class="headerlink" title="5.Crontab相关命令："></a>5.Crontab相关命令：</h5><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）语　　法：</span><br><span class="line">crontab [-u &lt;用户名称&gt;][配置文件] 或 crontab &#123; -l | -r | -e &#125;</span><br><span class="line">-u   #&lt;用户名称&gt; 是指设定指定&lt;用户名称&gt;的定时任务，这个前提是你必须要有其权限(比如说是 root)才能够指定他人的时程表。如果不使用 -u user 的话，就是表示设定自己的定时任务。</span><br><span class="line">-l 　#列出该用户的定时任务设置。</span><br><span class="line">-r 　#删除该用户的定时任务设置。</span><br><span class="line">-e 　#编辑该用户的定时任务设置。</span><br><span class="line"></span><br><span class="line">（<span class="number">2</span>）命令时间格式 :</span><br><span class="line">*     * 　  *　  *　  *　　command</span><br><span class="line">分　  时　  日　  月　 周　  命令</span><br><span class="line">第<span class="number">1</span>列表示分钟<span class="number">1</span>～<span class="number">59</span> 每分钟用*或者 */<span class="number">1</span>表示</span><br><span class="line">第<span class="number">2</span>列表示小时<span class="number">1</span>～<span class="number">23</span>（<span class="number">0</span>表示<span class="number">0</span>点）</span><br><span class="line">第<span class="number">3</span>列表示日期<span class="number">1</span>～<span class="number">31</span></span><br><span class="line">第<span class="number">4</span>列表示月份<span class="number">1</span>～<span class="number">12</span></span><br><span class="line">第<span class="number">5</span>列标识号星期<span class="number">0</span>～<span class="number">6</span>（<span class="number">0</span>表示星期天）</span><br><span class="line">第<span class="number">6</span>列要运行的命令</span><br><span class="line"></span><br><span class="line">（<span class="number">3</span>）一些<span class="title class_">Crontab</span>定时任务例子：</span><br><span class="line"><span class="number">30</span> <span class="number">21</span> * * * <span class="regexp">/usr/</span>local/etc/rc.<span class="property">d</span>/lighttpd restart  #每晚的<span class="number">21</span>:<span class="number">30</span> 重启apache</span><br><span class="line"><span class="number">45</span> <span class="number">4</span> <span class="number">1</span>,<span class="number">10</span>,<span class="number">22</span> * * <span class="regexp">/usr/</span>local/etc/rc.<span class="property">d</span>/lighttpd restart  #每月<span class="number">1</span>、<span class="number">10</span>、<span class="number">22</span>日的<span class="number">4</span> : <span class="number">45</span>重启apache</span><br><span class="line"><span class="number">10</span> <span class="number">1</span> * * <span class="number">6</span>,<span class="number">0</span> /usr/local/etc/rc.<span class="property">d</span>/lighttpd restart  #每周六、周日的<span class="number">1</span> : <span class="number">10</span>重启apache</span><br><span class="line"><span class="number">0</span>,<span class="number">30</span> <span class="number">18</span>-<span class="number">23</span> * * * <span class="regexp">/usr/</span>local/etc/rc.<span class="property">d</span>/lighttpd restart  #每天<span class="number">18</span> : <span class="number">00</span>至<span class="number">23</span> : <span class="number">00</span>之间每隔<span class="number">30</span>分钟重启apache</span><br><span class="line"><span class="number">0</span> <span class="number">23</span> * * <span class="number">6</span> /usr/local/etc/rc.<span class="property">d</span>/lighttpd restart  #每星期六的<span class="number">11</span> : <span class="number">00</span> pm重启apache</span><br><span class="line">* <span class="number">23</span>-<span class="number">7</span>/<span class="number">1</span> * * * <span class="regexp">/usr/</span>local/etc/rc.<span class="property">d</span>/lighttpd restart  #晚上<span class="number">11</span>点到早上<span class="number">7</span>点之间，每隔一小时重启apache</span><br><span class="line">* *<span class="regexp">/1 * * * /u</span>sr/local/etc/rc.<span class="property">d</span>/lighttpd restart  #每一小时重启apache</span><br><span class="line"><span class="number">0</span> <span class="number">11</span> <span class="number">4</span> * mon-wed /usr/local/etc/rc.<span class="property">d</span>/lighttpd restart  #每月的<span class="number">4</span>号与每周一到周三的<span class="number">11</span>点重启apache</span><br><span class="line"><span class="number">0</span> <span class="number">4</span> <span class="number">1</span> jan * <span class="regexp">/usr/</span>local/etc/rc.<span class="property">d</span>/lighttpd restart  #一月一号的<span class="number">4</span>点重启apache</span><br><span class="line"></span><br><span class="line">*<span class="regexp">/30 * * * * /u</span>sr/sbin/ntpdate cn.<span class="property">pool</span>.<span class="property">ntp</span>.<span class="property">org</span>  #每半小时同步一下时间</span><br><span class="line"><span class="number">0</span> *<span class="regexp">/2 * * * /</span>sbin/service httpd restart  #每两个小时重启一次apache </span><br><span class="line"><span class="number">50</span> <span class="number">7</span> * * * <span class="regexp">/sbin/</span>service sshd start  #每天<span class="number">7</span>：<span class="number">50</span>开启ssh服务 </span><br><span class="line"><span class="number">50</span> <span class="number">22</span> * * * <span class="regexp">/sbin/</span>service sshd stop  #每天<span class="number">22</span>：<span class="number">50</span>关闭ssh服务 </span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span>,<span class="number">15</span> * * fsck /home  #每月<span class="number">1</span>号和<span class="number">15</span>号检查/home 磁盘 </span><br><span class="line"><span class="number">1</span> * * * * <span class="regexp">/home/</span>bruce/backup  #每小时的第一分执行 /home/bruce/backup这个文件 </span><br><span class="line"><span class="number">00</span> <span class="number">03</span> * * <span class="number">1</span>-<span class="number">5</span> find /home <span class="string">&quot;*.xxx&quot;</span> -mtime +<span class="number">4</span> -exec rm &#123;&#125; \;  #每周一至周五<span class="number">3</span>点钟，在目录/home中，查找文件名为*.<span class="property">xxx</span>的文件，并删除<span class="number">4</span>天前的文件。</span><br><span class="line"><span class="number">30</span> <span class="number">6</span> */<span class="number">10</span> * * ls  #每月的<span class="number">1</span>、<span class="number">11</span>、<span class="number">21</span>、<span class="number">31</span>日是的<span class="number">6</span>：<span class="number">30</span>执行一次ls命令</span><br><span class="line"></span><br><span class="line"><span class="title class_">End</span>...</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="6-部分脚本无法执行问题："><a href="#6-部分脚本无法执行问题：" class="headerlink" title="6.部分脚本无法执行问题："></a>6.部分脚本无法执行问题：</h5><p>如果我们使用 crontab 来定时执行脚本，无法执行，但是如果直接通过命令（如：.&#x2F;test.sh)又可以正常执行，这主要是因为无法读取环境变量的原因。</p>
+<p>解决方法：</p>
+<p>（1）所有命令需要写成绝对路径形式，如: &#x2F;usr&#x2F;local&#x2F;bin&#x2F;<a class="link"   target="_blank" rel="noopener" href="https://cloud.tencent.com/product/tke?from_column=20065&from=20065" >docker <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</p>
+<p> （2）在 shell 脚本开头使用以下代码：</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!<span class="regexp">/bin/</span>sh</span><br><span class="line"></span><br><span class="line">. /etc/profile</span><br><span class="line">. ~/.<span class="property">bash_profile</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>（3）在 &#x2F;etc&#x2F;crontab 中添加环境变量，在可执行命令之前添加命令 . &#x2F;etc&#x2F;profile;&#x2F;bin&#x2F;sh，使得环境变量生效，例如：</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">20</span> <span class="number">03</span> * * * . /etc/profile;<span class="regexp">/bin/</span>sh /<span class="keyword">var</span>/www/wwwroot/test.<span class="property">sh</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h5 id="7-Crontab默认调度任务："><a href="#7-Crontab默认调度任务：" class="headerlink" title="7.Crontab默认调度任务："></a>7.Crontab默认调度任务：</h5><p>cron默认配置了调度任务，分别为：hourly、daily、weekly、mouthly，默认配置文件为&#x2F;etc&#x2F;anacrontab</p>
+<p>将需要执行的脚本放到相应的目录下即可，目录分别为：</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/etc/cron.<span class="property">hourly</span></span><br><span class="line">/etc/cron.<span class="property">daily</span></span><br><span class="line">/etc/cron.<span class="property">weekly</span></span><br><span class="line">/ect/cron.<span class="property">mouthly</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h5 id="8-注意清理系统用户的邮件日志："><a href="#8-注意清理系统用户的邮件日志：" class="headerlink" title="8.注意清理系统用户的邮件日志："></a>8.注意清理系统用户的邮件日志：</h5><p>每条任务调度执行完毕，系统都会将任务输出信息通过电子邮件的形式发送给当前系统用户，这样日积月累，日志信息会非常大，可能会影响系统的正常运行，因此，将每条任务进行重定向处理非常重要。</p>
+<p>例如，可以在crontab文件中设置如下形式，忽略日志输出：</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> *<span class="regexp">/3 * * * /u</span>sr/local/apache2/apachectl restart &gt;<span class="regexp">/dev/</span><span class="literal">null</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>“&#x2F;dev&#x2F;null 2&gt;&amp;1”表示先将标准输出重定向到&#x2F;dev&#x2F;null，然后将标准错误重定向到标准输出，由于标准输出已经重定向到了&#x2F;dev&#x2F;null，因此标准错误也会重定向到&#x2F;dev&#x2F;null，这样日志输出问题就解决了。</p>
+<h5 id="9-Crontab日志路径："><a href="#9-Crontab日志路径：" class="headerlink" title="9.Crontab日志路径："></a>9.Crontab日志路径：</h5><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll /<span class="keyword">var</span>/log/cron* #/<span class="keyword">var</span>/log/cron只会记录是否执行了某些计划的脚本，但是具体执行是否正确以及脚本执行过程中的一些信息则linux会每次都发邮件到该用户下。</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/11e9146837fedf1ec4cef3998a713226.png"
+                      alt="img"
+                ></p>
+<h5 id="10-Crontab命令在线验证工具："><a href="#10-Crontab命令在线验证工具：" class="headerlink" title="10.Crontab命令在线验证工具："></a>10.Crontab命令在线验证工具：</h5><p><a class="link"   href="https://cloud.tencent.com/developer/tools/blog-entry?target=https://tool.lu/crontab&source=article&objectId=2359335" >https://tool.lu/crontab <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/23d484220b7d0cdbd073b3db9741ec41.png"
+                      alt="img"
+                ></p>
+<p>原文：<a class="link"   target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2359335?areaId=106001" >Linux中Crontab（定时任务）命令详解及使用教程-腾讯云开发者社区-腾讯云 (tencent.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="一些简单实例"><a href="#一些简单实例" class="headerlink" title="一些简单实例"></a><strong>一些简单实例</strong></h2><p>每天凌晨：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * *</span><br></pre></td></tr></table></figure></div>
+
+<p>每天23点59分：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">59 23 * * *</span><br></pre></td></tr></table></figure></div>
+
+<p>每小时00分：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 */1 * * *</span><br></pre></td></tr></table></figure></div>
+
+<p>每30分钟：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/30 * * * *</span><br></pre></td></tr></table></figure></div>
+
+<p>每两天：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 */2 * * </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="crontab-guru-的使用"><a href="#crontab-guru-的使用" class="headerlink" title="crontab.guru 的使用"></a>crontab.guru 的使用</h2><p>官方网址：<a class="link"   target="_blank" rel="noopener" href="https://crontab.guru/" >https://crontab.guru/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <ol>
-<li>先查看已经暂停的容器实例信息</li>
-<li>通过 docker start 59ec 启动容器</li>
-<li>通过 docker ps 查看当前启动的容器</li>
-</ol>
-<p>具体操作如下图</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/02/c5b93fb7a9007a888c77dd3bf8903e0c.png"
-                      alt="img"
-                ></p>
-<p>docker start 还有两个参数<br><strong>-i: 以 交互模式启动</strong></p>
-<p><strong>-t: 以 附加进程方式启动</strong></p>
-<h3 id="二、停止一个正在运行的容器"><a href="#二、停止一个正在运行的容器" class="headerlink" title="二、停止一个正在运行的容器"></a>二、停止一个正在运行的容器</h3><p>1、docker stop 此方式常常被翻译为优雅的停止容器</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器 ID 或容器名</span><br></pre></td></tr></table></figure></div>
-
-<p>参数 -t：关闭容器的限时，如果超时未能关闭则用 kill 强制关闭，默认值 10s，这个时间用于容器的自己保存状态</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop -t=60 容器 ID 或容器名</span><br></pre></td></tr></table></figure></div>
-
-<p>2、docker kill</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker kill 容器 ID 或容器名 : 直接关闭容器</span><br></pre></td></tr></table></figure></div>
-
-<p><font size=5>由此可见 stop 和 kill 的主要区别: stop 给与一定的关闭时间交由容器自己保存状态，kill 直接关闭容器</font></p>
-<p>想更进一步了解处理机制的可以看下面这篇文章，比较详细但是需要其他方面的<br><a class="link"   target="_blank" rel="noopener" href="https://www.jb51.net/article/96617.htm" >https://www.jb51.net/article/96617.htm <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="三、重启一个容器"><a href="#三、重启一个容器" class="headerlink" title="三、重启一个容器"></a>三、重启一个容器</h3><p>docker restart 容器 ID 或容器名 ：不管容器是否启动，直接重启容器</p>
-<ol>
-<li>首先 docker ps 查看正在运行的容器信息，显示 2 分钟前启动运行</li>
-<li>docker restart 59ec 重启容器</li>
-<li>再次 docker ps 查看容器信息 显示 2 秒前启动运行</li>
+<li>crontab 5个参数位及其意义：</li>
 </ol>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/02/438acd3895243b05c8deb4259ffb3ef6.png"
+                     data-src="https://img01.xiaohei.us/2024/03/57d681fa220dae75464d556b493e0f6c.png"
                       alt="img"
                 ></p>
-<p>docker restart 参数<br>-t：关闭容器的限时，如果超时未能关闭则用 kill 强制关闭，默认值 10s，这个时间用于容器的自己保存状态</p>
+<ol start="2">
+<li>手动修改参数，实时反馈结果：</li>
+</ol>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/02/a35e1edae45c2aea4a27e01a384bc9a4.png"
+                     data-src="https://img01.xiaohei.us/2024/03/760c1dad7b04ea21f209a6c969e80523.png"
                       alt="img"
                 ></p>
-<p>原文：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/Michel4Liu/article/details/80889977" >docker常规操作——启动、停止、重启容器实例-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<ol start="3">
+<li>直观预览任务的实际运行时间：</li>
+</ol>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/03/c96ef6f59915c0770715c8be22f4826b.png"
+                      alt="img"
+                ></p>
 
         </div>
 
@@ -723,18 +790,18 @@
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> Docker常规操作-启动、停止、重启</li>
+        <li><strong>标题:</strong> (Linux学习)Linux中Crontab（定时任务）命令详解及使用教程</li>
         <li><strong>作者:</strong> Xiao.Hei.Ge</li>
         <li><strong>创建于
-                :</strong> 2024-02-08 20:14:06</li>
+                :</strong> 2024-03-03 23:34:26</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-02-08 22:23:38
+                    :</strong> 2024-03-03 23:50:21
             </li>
         
         <li>
-            <strong>链接:</strong> https://cool.xiaohei.us/2024/02/08/Docker常规操作-启动、停止、重启/
+            <strong>链接:</strong> https://cool.xiaohei.us/2024/03/03/Linux学习-Linux中Crontab（定时任务）命令详解及使用教程/
         </li>
         <li>
             <strong>
@@ -756,7 +823,11 @@
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/Docker/">#Docker</a>&nbsp;
+                        <a href="/tags/Linux%E5%AD%A6%E4%B9%A0/">#Linux学习</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Crontab/">#Crontab</a>&nbsp;
                     </li>
                 
             </ul>
@@ -767,29 +838,14 @@
         
             <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
                 
-                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2024/02/08/Docker%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C-%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8%E5%AE%9E%E4%BE%8B%E3%80%81%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">Docker常规操作--删除容器实例、删除镜像</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/02/06/%E5%A4%A9%E7%BF%BC%E7%BD%91%E5%85%B3%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/"
+                        href="/2024/03/03/%E9%80%9A%E8%BF%87Cloudflare%E7%9A%84Workers%E7%9B%B4%E6%8E%A5CDN%E9%83%A8%E7%BD%B2%E9%AB%98%E9%80%9F%E8%8A%82%E7%82%B9/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">天翼网关超级管理员账号密码获取</span>
+                                <span class="post-nav-title-item">通过Cloudflare的Workers直接CDN部署高速节点</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -852,8 +908,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">Docker常规操作-启动、停止、重启</div>
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E5%B7%B2%E7%BB%8F%E5%81%9C%E6%AD%A2%E7%9A%84%E5%AE%B9%E5%99%A8%E5%AE%9E%E4%BE%8B"><span class="nav-text">一、启动一个已经停止的容器实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%81%9C%E6%AD%A2%E4%B8%80%E4%B8%AA%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-text">二、停止一个正在运行的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%87%8D%E5%90%AF%E4%B8%80%E4%B8%AA%E5%AE%B9%E5%99%A8"><span class="nav-text">三、重启一个容器</span></a></li></ol>
+        <div class="page-title">(Linux学习)Linux中Crontab（定时任务）命令详解及使用教程</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B"><span class="nav-text">一些简单实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#crontab-guru-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">crontab.guru 的使用</span></a></li></ol>
 
     </div>
 </div>
