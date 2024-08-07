@@ -19,55 +19,46 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://cool.xiaohei.us/2024/01/29/群晖安装青龙面板/"/>
+    <link rel="canonical" href="https://cool.xiaohei.us/2024/08/07/docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）dockerfile/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="1、新建青龙挂载文件夹​      群晖中安装Docker套件，这个就不详细说了。 ​      装好Docker套件，在File Station中找到Docker文件夹，并在文件夹中新建一  ​      个“qinglong”文件夹用来存储青龙面板的文件   在“qinglong”文件夹下建立若干目录，文件夹结果如下：  2、下载青龙镜像​      在Docker里搜索青龙面板镜像，找到如图">
+        <meta name="description" content="在docker里的参数可以分开写，也可以连写，比如。 1sudo docker run -i -t -d 492093d32df02 &#x2F;bin&#x2F;bash  等价于 1sudo docker run -itd 492093d32df02 &#x2F;bin&#x2F;bash  windows11现已支持Docker，SSH以及部分的Linux命令（ls，cd，pwd等等）也可以通过鼠标滚轮缩放字体，推荐升级 1.基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="群晖安装青龙面板">
-<meta property="og:url" content="https://cool.xiaohei.us/2024/01/29/%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/index.html">
+<meta property="og:title" content="Docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）Dockerfile">
+<meta property="og:url" content="https://cool.xiaohei.us/2024/08/07/Docker%E7%BB%88%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E5%88%A0%E9%99%A4%EF%BC%8C%E5%88%9B%E5%BB%BA%EF%BC%8C%E6%96%B0%E5%BB%BA%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E5%81%9C%E6%AD%A2%EF%BC%8C%E6%8E%A8%E9%80%81%EF%BC%8C%E6%8F%90%E4%BA%A4%EF%BC%89Dockerfile/index.html">
 <meta property="og:site_name" content="一只特立独行的猪">
-<meta property="og:description" content="1、新建青龙挂载文件夹​      群晖中安装Docker套件，这个就不详细说了。 ​      装好Docker套件，在File Station中找到Docker文件夹，并在文件夹中新建一  ​      个“qinglong”文件夹用来存储青龙面板的文件   在“qinglong”文件夹下建立若干目录，文件夹结果如下：  2、下载青龙镜像​      在Docker里搜索青龙面板镜像，找到如图">
+<meta property="og:description" content="在docker里的参数可以分开写，也可以连写，比如。 1sudo docker run -i -t -d 492093d32df02 &#x2F;bin&#x2F;bash  等价于 1sudo docker run -itd 492093d32df02 &#x2F;bin&#x2F;bash  windows11现已支持Docker，SSH以及部分的Linux命令（ls，cd，pwd等等）也可以通过鼠标滚轮缩放字体，推荐升级 1.基础">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/10377cca959d8befda7c555f5832d112.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/75a0be74d9fe88bba4b74b0b03e55337.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d63f8605566f1874fe070ad9feb67782.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/d2cf5f43266031fdb057cbdaf3a9102a.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/da126626ced9978f364c807ebbe330a5.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/2ae4b06a072a03396621a6b9be8b3891.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/89b9dd86fede76f9975989e462936e63.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9b85d54a205999c6e3a00e336c5688c8.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1c2a5900725d2b8ef34565626df70f77.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/575103b1128269b5553377b305244c06.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ae44bfb30395c79c7ef50ced4f793898.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/fd53a9e2b94ce8dcb0c00b7933be6920.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b1f568c23c64c5db9d07cbc3df119212.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/8dd219531335681c1bb3fe081925697d.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/429fbdb2a8ee0dd9e72b8e6d2762d95e.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5881a9dffec841d6ef900b71896960f9.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1ede27b027f348e3610e807a4027737d.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/127c8649bbef809376d775a6dab682c8.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/e0796aeb269704fa8df7e634261befc0.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/58776fa9ae6ecce6e1095222e412ad58.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/73131342abca3e72e855f2709fa8fac1.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/19fa0fdbf6584ccbc3d7283d2b08efb4.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/296bd4ffd10b25142b0e18c97ec3f081.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ef966a01451b8262be60ba7b357f207a.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/621b875ab21df058de08f48ce86fe210.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/42a8d9578172fe8d10feac28e90f8cdf.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/80e03fc24947ff9f1e36d5a8d72ae391.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/4dcca1d0409e951544b08995d038ebc9.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/96718ce6b54d30e43f057d372c4c28a3.png">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/6dfdae4c76e497afc1adbae25f5bfb65.png">
-<meta property="article:published_time" content="2024-01-29T03:51:30.000Z">
-<meta property="article:modified_time" content="2024-01-29T15:13:21.889Z">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/d2235c7fe7d5bb81a2807d81ffa91832.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/1ff4e48722c5b2728d272ba82f000c66.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/996dd0474c729fe24c25e49c6f142bee.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/60981dc93e626ae77fba209e8f0d01e4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/ba454549e1dca564042db40d0febee0a.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/4a1026199887a6ab1ab87d879e9b1da9.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/e91bdec454eaf8d120aaab9db4d4661e.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/67191f06fa2a98565f3c39a70566f53f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/2a809f5a0955d7086e1308b0f3cc21c2.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/b6bb08e4acc21ab12c0c45918a481c54.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/290ce65618a47a1accd9d592fb255124.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/6876397d85f31713d05e34dedd80aaf6.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/fb0c0b6268394994492fb7bbd4176df2.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/e3e2e9be7410f7baa02498f60676c358.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/d66349463e43c59addaf30b13983621c.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/c3c81b486618b3ddfa30381b22c2fe4f.jpeg">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/ce1b255caecca7a0629cdead2913971d.jpeg">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/399698543a4c7e067db1a2754fc5ecdc.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/b422b410a23aba2e44246aa277be70b4.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/8bb4a6457215512c340aa22b6b7709ab.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/d89818fe242027261500fe042d25170f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/08/600305e300febf58a23b176fa743aa86.png">
+<meta property="article:published_time" content="2024-08-07T06:28:54.000Z">
+<meta property="article:modified_time" content="2024-08-07T06:56:02.912Z">
 <meta property="article:author" content="Bboy">
-<meta property="article:tag" content="NAS">
-<meta property="article:tag" content="青龙面板">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img01.xiaohei.us/2024/01/10377cca959d8befda7c555f5832d112.png">
+<meta name="twitter:image" content="https://img01.xiaohei.us/2024/08/d2235c7fe7d5bb81a2807d81ffa91832.png">
     
     
     <!--- Icon Part-->
@@ -79,7 +70,7 @@
     
     <title>
         
-            群晖安装青龙面板 -
+            Docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）Dockerfile -
         
         一只特立独行的猪
     </title>
@@ -594,10 +585,10 @@
             
                 
                 
-                <img src="https://img01.xiaohei.us/2024/01/f5dcccd5e95b69dca09c29b82c4bea20.png" alt="群晖安装青龙面板" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                <img src="https://img01.xiaohei.us/2024/02/cbaebb974a8a5a742445f3b5064e83aa.png" alt="Docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）Dockerfile" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
                 
                 <div class="w-full flex items-center absolute bottom-0 justify-start">
-                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">群晖安装青龙面板</h1>
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">Docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）Dockerfile</h1>
                 </div>
             
             </div>
@@ -618,15 +609,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-01-29 11:51:30</span>
-        <span class="mobile">2024-01-29 11:51:30</span>
+        <span class="desktop">2024-08-07 14:28:54</span>
+        <span class="mobile">2024-08-07 14:28:54</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-01-29 23:13:21</span>
-            <span class="mobile">2024-01-29 23:13:21</span>
+            <span class="desktop">2024-08-07 14:56:02</span>
+            <span class="mobile">2024-08-07 14:56:02</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -645,13 +636,6 @@
                     
                     
                 
-                    
-                        <li>
-                            | <a href="/categories/NAS%E5%BA%94%E7%94%A8/">NAS应用</a>&nbsp;
-                        </li>
-                    
-                    
-                
             </ul>
         </span>
     
@@ -661,11 +645,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/NAS/">NAS</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">青龙面板</a>&nbsp;
+                        <a href="/tags/Docker/">Docker</a>&nbsp;
                     </li>
                 
             </ul>
@@ -691,326 +671,312 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h3 id="1、新建青龙挂载文件夹"><a href="#1、新建青龙挂载文件夹" class="headerlink" title="1、新建青龙挂载文件夹"></a>1、新建青龙挂载文件夹</h3><p>​      群晖中安装<font size=5><code>Docker套件</code></font>，这个就不详细说了。</p>
-<p>​      装好<font size=5><code>Docker套件</code></font>，在<font size=5><code>File Station</code></font>中找到<font size=5><code>Docker文件夹</code></font>，并在文件夹中新建一 </p>
-<p>​      个<font size=5><code>“qinglong”</code></font>文件夹用来存储青龙面板的文件</p>
+            <p>在docker里的参数可以分开写，也可以连写，比如。</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -i -t -d 492093d32df02 /bin/bash</span><br></pre></td></tr></table></figure></div>
+
+<p>等价于</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -itd 492093d32df02 /bin/bash</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>windows11现已支持Docker，SSH以及部分的Linux命令（ls，cd，pwd等等）也可以通过鼠标滚轮缩放字体，推荐升级</strong></p>
+<h2 id="1-基础命令"><a href="#1-基础命令" class="headerlink" title="1.基础命令"></a>1.基础命令</h2><h3 id="1-镜像获取"><a href="#1-镜像获取" class="headerlink" title="1.镜像获取"></a>1.镜像获取</h3><p>如果要从网上获取一个镜像，我们通常需要网上的存储库地址以及要获取镜像的标签</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull XXX存储库地址XXXX:XXX存储库的镜像TAGXXXXXXX</span><br></pre></td></tr></table></figure></div>
+
+<p>比如有：</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/10377cca959d8befda7c555f5832d112.png"
-                      alt="image-20240129115456321"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/75a0be74d9fe88bba4b74b0b03e55337.png"
-                      alt="image-20240129115644885"
-                ></p>
-<p>在<font size=5><code>“qinglong”</code></font>文件夹下建立若干目录，文件夹结果如下：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/d63f8605566f1874fe070ad9feb67782.png"
-                      alt="image-20240129120439953"
-                ></p>
-<h3 id="2、下载青龙镜像"><a href="#2、下载青龙镜像" class="headerlink" title="2、下载青龙镜像"></a>2、下载青龙镜像</h3><p>​      在Docker里搜索青龙面板镜像，找到如图镜像文件<font size=5><code>&quot;whyour/qinglong&quot;</code></font>并下载，如果搜不到东西就自己挂一个代理或者增加国内镜像源。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/d2cf5f43266031fdb057cbdaf3a9102a.png"
-                      alt="image-20240129115954866"
-                ></p>
-<h3 id="3、安装青龙面板"><a href="#3、安装青龙面板" class="headerlink" title="3、安装青龙面板"></a>3、安装青龙面板</h3><p>然后在<font size=5><strong><code>Docker</code></strong></font>中选择<font size=5><strong><code>映像</code></strong></font>，找到刚刚下好的青龙面板映像，选择启动，进入<font size=5><strong><code>高级设置</code></strong></font></p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/da126626ced9978f364c807ebbe330a5.png"
-                      alt="image-20240129120602899" 
-                >
-
-<h4 id="3-1-高级设置"><a href="#3-1-高级设置" class="headerlink" title="3.1 高级设置"></a>3.1 高级设置</h4><p>设置开机自动启动</p>
-<center>
-     <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/2ae4b06a072a03396621a6b9be8b3891.png"
-                      
-          style="zoom: 100%;" 
-                >
-     <br>
-     <div style="color: #999; padding: 2px;">
-    设置开机自动启动   
-    </div>
-</center>
-
-
-
-<h4 id="3-2-存储空间设置"><a href="#3-2-存储空间设置" class="headerlink" title="3.2 存储空间设置"></a>3.2 存储空间设置</h4><p>在<font size=5><strong><code>“存储空间”</code></strong></font>中，点击“添加文件夹”，并按下图配置：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/89b9dd86fede76f9975989e462936e63.png"
-                      alt="image-20240129130053608"
-                ></p>
-<h4 id="3-3-装载路径设置"><a href="#3-3-装载路径设置" class="headerlink" title="3.3 装载路径设置"></a>3.3 装载路径设置</h4><p>装载路径按图填写</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/9b85d54a205999c6e3a00e336c5688c8.png"
-                      alt="image-20240129130317817"
-                ></p>
-<h4 id="3-4-端口设置"><a href="#3-4-端口设置" class="headerlink" title="3.4 端口设置"></a>3.4 端口设置</h4><p>修改访问端口</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/1c2a5900725d2b8ef34565626df70f77.png"
-                      alt="image-20240129130513798"
-                ></p>
-<p>设置好后完成安装。</p>
-<h3 id="4、登录运行安装依赖"><a href="#4、登录运行安装依赖" class="headerlink" title="4、登录运行安装依赖"></a>4、<strong>登录运行安装依赖</strong></h3><p>根据自己的群晖ip端口5700访问http:&#x2F;&#x2F;群晖IP:5700，通知服务可以跳过，建立自己的用户名和密码，登录即可使用。</p>
-<p>安装方法：点击依赖管理——点击新建依赖——依赖类型选择NodeJs——自动拆分选择是——名称把对应的依赖全部复制，然后粘贴过来。</p>
-<p>NodeJs 依赖</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">request</span><br><span class="line">canvas</span><br><span class="line">cheerio</span><br><span class="line">js-base64</span><br><span class="line">dotenv</span><br><span class="line">magic</span><br><span class="line">tough-cookie</span><br><span class="line">ws@7.4.3</span><br><span class="line">require</span><br><span class="line">requests</span><br><span class="line">date-fns</span><br><span class="line">ts-md5</span><br><span class="line">typescript</span><br><span class="line">json5</span><br><span class="line">axios@v0.27.2</span><br><span class="line">crypto-js</span><br><span class="line">@types/node</span><br><span class="line">png-js</span><br><span class="line">node-telegram-bot-api</span><br><span class="line">fs</span><br><span class="line">jsdom</span><br><span class="line">form-data</span><br><span class="line">jieba</span><br><span class="line">tslib</span><br><span class="line">ds</span><br><span class="line">jsdom -g</span><br><span class="line">prettytable</span><br><span class="line">ql</span><br><span class="line">common</span><br><span class="line">node-jsencrypt</span><br><span class="line">juejin-helper</span><br><span class="line">moment</span><br><span class="line">global-agent</span><br></pre></td></tr></table></figure></div>
-
-<p>Python3 依赖</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bs4</span><br><span class="line">telethon</span><br><span class="line">cacheout</span><br><span class="line">jieba</span><br><span class="line">PyExecJS</span><br><span class="line">ping3</span><br><span class="line">canvas</span><br><span class="line">Crypto</span><br><span class="line">ds</span><br><span class="line">requests</span><br><span class="line">pycryptodome</span><br></pre></td></tr></table></figure></div>
-
-<p>Linux 依赖</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bizCode</span><br><span class="line">bizMsg</span><br><span class="line">lxml</span><br><span class="line">libc-dev</span><br><span class="line">gcc</span><br><span class="line">g++</span><br><span class="line">libffi-dev</span><br><span class="line">python3-dev</span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<hr>
-<h3 id="5、阿里云盘签到"><a href="#5、阿里云盘签到" class="headerlink" title="5、阿里云盘签到"></a>5、阿里云盘签到</h3><p>在青龙面板点击定时任务 -&gt; 点击创建任务</p>
-<p>命令 &#x2F; 脚本填</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/mrabit/aliyundriveDailyCheck.git &quot;autoSignin&quot; &quot;&quot; &quot;qlApi&quot;</span><br></pre></td></tr></table></figure></div>
-
-<p>定时规则填</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 0 * * *</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/575103b1128269b5553377b305244c06.png"
+                     data-src="https://img01.xiaohei.us/2024/08/d2235c7fe7d5bb81a2807d81ffa91832.png"
                       alt="img"
                 ></p>
-<p>点击确定 -&gt; 点击运行</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/ae44bfb30395c79c7ef50ced4f793898.png"
-                      alt="img"
-                ></p>
-<p>运行完成会出现 autosignin.js</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/fd53a9e2b94ce8dcb0c00b7933be6920.png"
-                      alt="img"
-                ></p>
-<h4 id="5-1-安装依赖"><a href="#5-1-安装依赖" class="headerlink" title="5.1 安装依赖"></a>5.1 安装依赖</h4><p>点击依赖管理 -&gt; 点击创建依赖</p>
-<p>名称：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios</span><br></pre></td></tr></table></figure></div>
+<p>获取到了镜像后，就可以利用下面的命令，查看我们刚刚pull下来的镜像了。</p>
+<h3 id="2-查看本地系统的所有docker镜像。"><a href="#2-查看本地系统的所有docker镜像。" class="headerlink" title="2.查看本地系统的所有docker镜像。"></a>2.查看本地系统的所有docker镜像。</h3><div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></div>
 
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/b1f568c23c64c5db9d07cbc3df119212.png"
+                     data-src="https://img01.xiaohei.us/2024/08/1ff4e48722c5b2728d272ba82f000c66.png"
                       alt="img"
                 ></p>
-<p>点击确定，等待安装完成</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/8dd219531335681c1bb3fe081925697d.png"
-                      alt="img"
-                ></p>
-<h4 id="5-2-refreshToken-获取"><a href="#5-2-refreshToken-获取" class="headerlink" title="5.2 refreshToken 获取"></a>5.2 refreshToken 获取</h4><p>打开阿里云盘网页登录之后按 F12 打开开发者模式，按顺序找到 refresh_token 复制出来</p>
-<p>或者在控制台输入“JSON.parse(localStorage.token).refresh_token” 直接获取。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/429fbdb2a8ee0dd9e72b8e6d2762d95e.png"
-                      alt="img"
-                ></p>
-<p>在青龙面板点击环境变量 -&gt; 点击创建变量</p>
-<p>名称输入 refreshToken</p>
-<p>值输入刚才复制出来的 refresh_token</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/5881a9dffec841d6ef900b71896960f9.png"
-                      alt="img"
-                ></p>
-<p>到此配置完成</p>
-<h4 id="5-3-开始运行"><a href="#5-3-开始运行" class="headerlink" title="5.3 开始运行"></a>5.3 开始运行</h4><p>点击定时任务 - 点击运行 autosignin.js</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/1ede27b027f348e3610e807a4027737d.png"
-                      alt="img"
-                ></p>
-<p>点击日志可以查看运行情况</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/127c8649bbef809376d775a6dab682c8.png"
-                      alt="img"
-                ></p>
-<h3 id="6、青龙面板京东脚本库汇总"><a href="#6、青龙面板京东脚本库汇总" class="headerlink" title="6、青龙面板京东脚本库汇总"></a>6、青龙面板京东脚本库汇总</h3><p>&#x3D;&#x3D;（拉库之前确认网络可以连接GitHub）&#x3D;&#x3D;</p>
+<p>上面的第一行标签依次是：</p>
 <blockquote>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/shufflewzc/faker2.git" >Faker2 助力池版 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<p>星标 1700+ 脚本 300+</p>
+<p>REPOSITORY:表示镜像的仓库源，同一个仓库源，可能有多个镜像的标签<br>TAG:存储库镜像的标签<br>IMAGE ID:镜像的ID号<br>CREATED:镜像的创建时间<br>SIZE：镜像的大小</p>
 </blockquote>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://git.metauniverse-cn.com/https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic|depend|h5sts&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/shufflewzc/faker2.git</span><br></pre></td></tr></table></figure></div>
+<h3 id="3-使用交互式的终端创建并启动一个容器"><a href="#3-使用交互式的终端创建并启动一个容器" class="headerlink" title="3.使用交互式的终端创建并启动一个容器"></a>3.使用交互式的终端创建并启动一个容器</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t XXX镜像IDXXX --name XXX XXX:XXX2 /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment">#比如</span></span><br><span class="line">docker run -itd --gpus all --name zhangzhe -v /zhangzhe/:/zhangzhe/ --<span class="built_in">env</span> LANG=C.UTF-8 -p 8990:8990 -p 8991:8991 -p 8992:8992 -p 8993:8993 -p 8994:8994 -p 8995:8995 -p 8996:8996 -p 8997:8997 -p 8998:8998 -p 8999:8999 XXX:v1.0.0 /bin/bash</span><br></pre></td></tr></table></figure></div>
 
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/996dd0474c729fe24c25e49c6f142bee.png"
+                      alt="img"
+                ></p>
+<p>其中,常用的有如下可选参数：</p>
 <blockquote>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/shufflewzc/faker3.git" >Faker3 纯净版 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<p>星标 900+ 脚本 300+</p>
+<p>-i：表示交互式操作<br>-t：表示终端<br>–name：容器名<br>XXX:XXX2第一个表示镜像的所在库名，可以使用docker images查看，后面表示对应的镜像TAG<br>&#x2F;bin&#x2F;bash：表示终端从哪里打开<br>–runtime&#x3D;nvidia表示容器里的运行使用nvidia硬件<br>-p：表示宿主机上的端口和容器实例化的端口的映射，以后想在外部调用容器内的22端口时，就可以使用12662来代替。（这个命令可以用多次，从而映射好多个端口号）<br>-v：用法为 -v &#x2F;root&#x2F;data:&#x2F;home&#x2F;data 表示把宿主机上的&#x2F;root&#x2F;&#x2F;data目录映射到容器的&#x2F;home&#x2F;data下从而实现两个目录的文件的同步更新。</p>
 </blockquote>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://git.metauniverse-cn.com/https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator|magic|depend|h5sts&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/shufflewzc/faker3.git</span><br></pre></td></tr></table></figure></div>
+<p>这样我们就运行了这个容器</p>
+<h3 id="4-退出当前的容器的终端"><a href="#4-退出当前的容器的终端" class="headerlink" title="4.退出当前的容器的终端"></a>4.退出当前的容器的终端</h3><div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure></div>
 
+<p>在打开的docker终端下，执行exit即可</p>
+<h3 id="5-查看历史容器信息"><a href="#5-查看历史容器信息" class="headerlink" title="5.查看历史容器信息"></a>5.查看历史容器信息</h3><div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></div>
+
+<p>这个命令用来查看历史推出过的容器，以及当前正在运行的容器，也即是能看到容器的状态</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/60981dc93e626ae77fba209e8f0d01e4.png"
+                      alt="img"
+                ></p>
+<p>这里看到我们启动过两个容器，状态都是退出的。上面的标签信息意义为：</p>
 <blockquote>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/gys619/Absinthe.git" >gys619 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<p>星标 1200+ 脚本 300+</p>
+<p>CONTAINER ID：容器的ID，能够根据这个id重启容器<br>IMAGE：容器的镜像信息<br>COMMAN：容器的终端<br>CREATED：容器创建时间<br>STATUS：容器当前的状态（退出状态，运行状态，暂停状态）<br>PORTS：<br>NAMES：容器的字符串名字，在运行的时候可以给容器指定一个名字，如果没有指定，就会随机分配一个名字。</p>
 </blockquote>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/gys619/Absinthe.git &quot;jd_|jx_|jddj_|gua_|getJDCookie|wskey&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_|sign_graphics_validate|jddj_cookie|function|ql|magic|JDJR|JD&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/gys619/Absinthe.git</span><br></pre></td></tr></table></figure></div>
+<h3 id="6-启动已经停止了的容器"><a href="#6-启动已经停止了的容器" class="headerlink" title="6.启动已经停止了的容器"></a>6.启动已经停止了的容器</h3><div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start XX容器的IDXX</span><br></pre></td></tr></table></figure></div>
 
-<blockquote>
-<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/Akali5/jd-depot.git" >Akali5 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>星标 100+ 脚本 300+</p>
-</blockquote>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/Akali5/jd-depot.git &quot;jd_|jx_|jddj_|gua_|getJDCookie|wskey&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_|sign_graphics_validate|jddj_cookie|function|ql|magic|JDJR|sendNotify|depend|h5|jdspider&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/Akali5/jd-depot.git</span><br></pre></td></tr></table></figure></div>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/ba454549e1dca564042db40d0febee0a.png"
+                      alt="img"
+                ></p>
+<p>使用该命令重新启动容器后，容器的状态就变成了运行状态，可以通过</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></div>
 
-<blockquote>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/6dylan6/jdpro.git" >6dylan6 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<p>星标 900+ 脚本 90+</p>
-</blockquote>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/6dylan6/jdpro.git &quot;jd_|jx_|jddj_&quot; &quot;backUp&quot; &quot;^jd[^_]|USER|JD|function|sendNotify&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/6dylan6/jdpro.git</span><br></pre></td></tr></table></figure></div>
+<p>查看当前所有的容器状态。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/4a1026199887a6ab1ab87d879e9b1da9.png"
+                      alt="img"
+                ></p>
+<p>可以看到，容器7ddd880eec75的状态变成了Up。</p>
+<h3 id="7-后台挂起某个容器"><a href="#7-后台挂起某个容器" class="headerlink" title="7.后台挂起某个容器"></a>7.后台挂起某个容器</h3><p>很多情况下，我们希望容器能够在后台挂起，而不是退出，因此可以使用-d参数</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -i -d --name XX为创建的容器命名XX XXX镜像的IDXXXX /bin/bash</span><br></pre></td></tr></table></figure></div>
 
-<blockquote>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/zero205/JD_tencent_scf.git" >zero205 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<p>星标 600+ 脚本 80+</p>
-</blockquote>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">ql repo https://github.com/zero205/JD_tencent_scf.git &quot;jd_|jx_|jdCookie&quot;  &quot;backUp|icon&quot; &quot;^jd[^_]|USER|sendNotify|sign_graphics_validate|JDJR|JDSign|ql&quot; &quot;main&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/zero205/JD_tencent_scf.git</span><br></pre></td></tr></table></figure></div>
+<p>这里的–name表示为新创建的一个容器，指定名字。比如：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/e91bdec454eaf8d120aaab9db4d4661e.png"
+                      alt="img"
+                ></p>
+<p>加入了-d命令后，默认是不启动命令行终端的。这样就将某个镜像的容器实例以后台挂起了。使用</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a </span><br></pre></td></tr></table></figure></div>
 
-<blockquote>
-<p><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/ccwav/QLScript2.git" >ccwav 通知增强版和CK检测 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<p>星标 500+</p>
-</blockquote>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">旧版：</span><br><span class="line">不包含sendNotify:</span><br><span class="line">ql repo https://github.com/ccwav/QLScript2.git &quot;jd_&quot; &quot;NoUsed&quot; &quot;ql|utils|USER_AGENTS|jdCookie|JS_USER_AGENTS&quot;</span><br><span class="line"></span><br><span class="line">包含sendNotify:</span><br><span class="line">ql repo https://github.com/ccwav/QLScript2.git &quot;jd_&quot; &quot;NoUsed&quot; &quot;ql|sendNotify|utils|USER_AGENTS|jdCookie|JS_USER_AGENTS&quot;</span><br><span class="line"></span><br><span class="line">新版：</span><br><span class="line">https://github.com/ccwav/QLScript2.git</span><br></pre></td></tr></table></figure></div>
+<p>可以查看历史的容器状态信息，比如。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/67191f06fa2a98565f3c39a70566f53f.png"
+                      alt="img"
+                ></p>
+<h3 id="8-如何停止一个容器。"><a href="#8-如何停止一个容器。" class="headerlink" title="8.如何停止一个容器。"></a>8.如何停止一个容器。</h3><p>首先使用</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a </span><br></pre></td></tr></table></figure></div>
 
-<h3 id="7、新版青龙面板拉库步骤如下图所示"><a href="#7、新版青龙面板拉库步骤如下图所示" class="headerlink" title="7、新版青龙面板拉库步骤如下图所示"></a>7、新版青龙面板拉库步骤如下图所示</h3><hr>
-<p>新版青龙面板可以在 <strong>订阅管理</strong> 中添加京东仓库</p>
+<p>查看我们当前的容器信息。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/2a809f5a0955d7086e1308b0f3cc21c2.png"
+                      alt="img"
+                ></p>
+<p>可以看到有三个容器的历史信息，其中两个是运行状态Up。我们来使用stop命令来停止第二个容器。</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop XXX容器IDXXX</span><br></pre></td></tr></table></figure></div>
+
+<p>这样我们就停止了这个容器了，使用 sudo docker ps -a 查看当前的容器信息。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/b6bb08e4acc21ab12c0c45918a481c54.png"
+                      alt="img"
+                ></p>
+<h3 id="9-重启一个停止的容器"><a href="#9-重启一个停止的容器" class="headerlink" title="9.重启一个停止的容器"></a>9.重启一个停止的容器</h3><p>使用restart重启停止的容器，比如我们将第8小节停止的容器，重新启动</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart XXX重启的容器IDXXXX</span><br></pre></td></tr></table></figure></div>
+
 <p>如下图所示</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/e0796aeb269704fa8df7e634261befc0.png"
+                     data-src="https://img01.xiaohei.us/2024/08/290ce65618a47a1accd9d592fb255124.png"
                       alt="img"
                 ></p>
-<p><strong>新建订阅</strong> 中，只需要手动填写 <strong>名称 链接 定时规则</strong></p>
-<p>剩余的选项会自动跟随 <strong>链接</strong> 进行自动切分填写</p>
-<p>如下图所示</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/58776fa9ae6ecce6e1095222e412ad58.png"
-                      alt="img"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/73131342abca3e72e855f2709fa8fac1.png"
-                      alt="img"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/19fa0fdbf6584ccbc3d7283d2b08efb4.png"
-                      alt="img"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/296bd4ffd10b25142b0e18c97ec3f081.png"
-                      alt="img"
-                ></p>
-<p><strong>订阅管理</strong> 中可以添加多个京东仓库</p>
-<p>但尽量不要同时运行</p>
-<p>一般只运行一个仓库就好了</p>
-<p>禁用其他仓库</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/ef966a01451b8262be60ba7b357f207a.png"
-                      alt="img"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/621b875ab21df058de08f48ce86fe210.png"
-                      alt="img"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/42a8d9578172fe8d10feac28e90f8cdf.png"
-                      alt="img"
-                ></p>
-<p><strong>常用定时规则cron表达式</strong></p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">（1）0 0 2 1 * ?   表示在每月的1日的凌晨2点调整任务</span><br><span class="line"></span><br><span class="line">  （2）0 15 10 ? * MON-FRI   表示周一到周五每天上午10:15执行作业</span><br><span class="line"></span><br><span class="line">  （3）0 15 10 ? 6L 2002-2006   表示2002-2006年的每个月的最后一个星期五上午10:15执行作</span><br><span class="line"></span><br><span class="line">  （4）0 0 10,14,16 * * ?   每天上午10点，下午2点，4点 </span><br><span class="line"></span><br><span class="line">  （5）0 0/30 9-17 * * ?   朝九晚五工作时间内每半小时 </span><br><span class="line"></span><br><span class="line">  （6）0 0 12 ? * WED    表示每个星期三中午12点 </span><br><span class="line"></span><br><span class="line">  （7）0 0 12 * * ?   每天中午12点触发 </span><br><span class="line"></span><br><span class="line">  （8）0 15 10 ? * *    每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （9）0 15 10 * * ?     每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （10）0 15 10 * * ?    每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （11）0 15 10 * * ? 2005    2005年的每天上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （12）0 * 14 * * ?     在每天下午2点到下午2:59期间的每1分钟触发 </span><br><span class="line"></span><br><span class="line">  （13）0 0/5 14 * * ?    在每天下午2点到下午2:55期间的每5分钟触发 </span><br><span class="line"></span><br><span class="line">  （14）0 0/5 14,18 * * ?     在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 </span><br><span class="line"></span><br><span class="line">  （15）0 0-5 14 * * ?    在每天下午2点到下午2:05期间的每1分钟触发 </span><br><span class="line"></span><br><span class="line">  （16）0 10,44 14 ? 3 WED    每年三月的星期三的下午2:10和2:44触发 </span><br><span class="line"></span><br><span class="line">  （17）0 15 10 ? * MON-FRI    周一至周五的上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （18）0 15 10 15 * ?    每月15日上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （19）0 15 10 L * ?    每月最后一日的上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （20）0 15 10 ? * 6L    每月的最后一个星期五上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （21）0 15 10 ? * 6L 2002-2005   2002年至2005年的每月的最后一个星期五上午10:15触发 </span><br><span class="line"></span><br><span class="line">  （22）0 15 10 ? * 6#3   每月的第三个星期五上午10:15触发</span><br></pre></td></tr></table></figure></div>
+<h3 id="10-查看正在运行着的容器"><a href="#10-查看正在运行着的容器" class="headerlink" title="10.查看正在运行着的容器"></a>10.查看正在运行着的容器</h3><div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps </span><br></pre></td></tr></table></figure></div>
 
-<p>&#x3D;&#x3D;引用：<a class="link"   target="_blank" rel="noopener" href="https://conveniencespace.com/index.php/2022/05/03/2022%E6%9C%80%E6%96%B0%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E4%BA%AC%E4%B8%9C%E8%84%9A%E6%9C%AC%E5%BA%93%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" >2024最新青龙面板京东脚本库（1月9日，持续更新中） – 便利空间 (conveniencespace.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>&#x3D;&#x3D;</p>
-<h3 id="8、京东定时任务库"><a href="#8、京东定时任务库" class="headerlink" title="8、京东定时任务库"></a>8、京东定时任务库</h3><p>下方缙哥哥整理 GitHub 上的一些任务库，通过添加任务，并设置定时规则，使其自动拉取、更新羊毛任务。</p>
-<p>这个库是不是会更新，如果你有所需要，可以<strong>评论留言</strong>，将会接收到<strong>邮件提醒</strong>。</p>
-<p><strong>2024.1.2</strong>：目前仅保留一个库，更新及时。</p>
-<p><strong>6dylan6&#x2F;jdpro（集合库）</strong>任务定时建议<code>50 7-23/2 * * *</code></p>
-<p><em></em>复制</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/6dylan6/jdpro.git &quot;jd_|jx_|jddj_&quot; &quot;backUp&quot; &quot;^jd[^_]|USER|JD|function|sendNotify&quot;</span><br></pre></td></tr></table></figure></div>
+<p>这个命令能够查看哪些容器是运行着的</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/6876397d85f31713d05e34dedd80aaf6.png"
+                      alt="img"
+                ></p>
+<h3 id="11-进入已经挂在后台的容器终端"><a href="#11-进入已经挂在后台的容器终端" class="headerlink" title="11.进入已经挂在后台的容器终端"></a>11.进入已经挂在后台的容器终端</h3><p>上面第7小节使用-d命令将容器挂在后台，但是默认无法以终端模式打开，这里想要进入已经挂在后台的容器的终端，主要有两个命令，这里分别介绍。</p>
+<p><strong>一、使用docker attach</strong></p>
+<p>将当前的控制台连接到正在运行的容器</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker attach XXX要进入终端的容器IDXXXX</span><br></pre></td></tr></table></figure></div>
 
-<p>咱们为了防止漏掉某些羊毛，<strong>上方所有的库</strong>新建定时任务拉取，里面有重复脚本禁用脚本，重复的内容会被禁用的。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/80e03fc24947ff9f1e36d5a8d72ae391.png"
+                     data-src="https://img01.xiaohei.us/2024/08/fb0c0b6268394994492fb7bbd4176df2.png"
                       alt="img"
                 ></p>
-<h4 id="定时规则"><a href="#定时规则" class="headerlink" title="定时规则"></a>定时规则</h4><p>这里的定时规则如下：</p>
-<p><em></em>复制</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">秒 分 时 天 月 周</span><br></pre></td></tr></table></figure></div>
+<p>缺点：使用docker attach进入容器的终端后，如果想要容器继续挂在后台，那么无法使用exit，这会导致容器直接退出，而不是退出终端。</p>
+<p><strong>二、使用docker exec（更推荐）</strong></p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t XXX要进入终端的容器idXXX  /bin/bash</span><br></pre></td></tr></table></figure></div>
 
-<p>各个单位之间分别以空格分割，假设该任务需要每天12:23:45执行一次。那么则应该这么设置：</p>
-<p><em></em>复制</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">45 23 12 * * *</span><br></pre></td></tr></table></figure></div>
+<p>结果如下。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/e3e2e9be7410f7baa02498f60676c358.png"
+                      alt="img"
+                ></p>
+<p>使用这种方法进入容器的终端，在使用exit退出后，容器并不会退出，只是会退出终端。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/d66349463e43c59addaf30b13983621c.png"
+                      alt="img"
+                ></p>
+<h3 id="12-创建空的容器"><a href="#12-创建空的容器" class="headerlink" title="12.创建空的容器"></a>12.创建空的容器</h3><p>以CentOS的linux发行版为例，使用系统镜像创建一个容器</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name my_docker_name -d centos:latest</span><br></pre></td></tr></table></figure></div>
 
-<p>拉完之后记得运行，不运行的话要等到你设置好的时间才会自动执行。运行后会自动拉去一些执行活动的脚本。</p>
+<p>其中，这里的:latest是一个Tag，标签，表示这个镜像是最新的。</p>
+<p>-d 表示以分离模式运行容器，这样在终端不会打印关于容器启动的信息。</p>
+<h3 id="13-在Docker容器中执行命令"><a href="#13-在Docker容器中执行命令" class="headerlink" title="13.在Docker容器中执行命令"></a>13.在Docker容器中执行命令</h3><p>docker exec是Docker的命令，用于在正在运行的容器中执行命令。允许在容器内部执行各种操作，如运行命令、安装软件、调试应用程序等。</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec [OPTIONS] CONTAINER COMMAND [ARG...]</span><br></pre></td></tr></table></figure></div>
+
+<p>-i：以交互模式执行命令，允许输入和输出。</p>
+<p>-t：为容器分配一个伪终端或终端。</p>
+<p>-u：指定要执行命令的用户名或UID。</p>
+<p>比如，如果要在容器中执行ls</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it &lt;container-id&gt; <span class="built_in">ls</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="14-容器日志查看"><a href="#14-容器日志查看" class="headerlink" title="14. 容器日志查看"></a>14. 容器日志查看</h3><h2 id="2-进阶命令"><a href="#2-进阶命令" class="headerlink" title="2.进阶命令"></a>2.进阶命令</h2><h3 id="1-查看帮助信息"><a href="#1-查看帮助信息" class="headerlink" title="1.查看帮助信息"></a>1.查看帮助信息</h3><div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker </span><br></pre></td></tr></table></figure></div>
+
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/4dcca1d0409e951544b08995d038ebc9.png"
+                     data-src="https://img01.xiaohei.us/2024/08/c3c81b486618b3ddfa30381b22c2fe4f.jpeg"
                       alt="img"
                 ></p>
-<h4 id="获取京东-Cookie"><a href="#获取京东-Cookie" class="headerlink" title="获取京东 Cookie"></a>获取京东 Cookie</h4><p>使用 Chrome 内核浏览器（比如 Google 浏览器、Edge 浏览器、360 极速浏览器……），打开开发者模式（快捷键：F12），打开 Network（网络）标签，浏览器当前页面访问京东移动端登录地址<code>m.jd.com</code>，按照提示登录你的京东账号，复制你的京东账号 Cookie，也就是下图所示内容：</p>
+<h3 id="2-查看某个命令的用法"><a href="#2-查看某个命令的用法" class="headerlink" title="2.查看某个命令的用法"></a>2.查看某个命令的用法</h3><div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker XXX要查找的命令XXXX --help</span><br></pre></td></tr></table></figure></div>
+
+<p>也就是在正常的使用前提下，加入–help，比如我们查看run的用法</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/96718ce6b54d30e43f057d372c4c28a3.png"
+                     data-src="https://img01.xiaohei.us/2024/08/ce1b255caecca7a0629cdead2913971d.jpeg"
                       alt="img"
                 ></p>
-<p>然后打开青龙面板，选择<code>环境变量</code>→<code>添加变量</code>，名称为<code>JD_COOKIE</code>，值为刚复制的京东账号<code>Cookie</code>，备注自己填方便识别，别的不需要动。添加后点<code>确定</code>就可以，如果需要添加多个账号，只需要获取多个Cookie添加上去就可以了，名称仍然为<code>JD_COOKIE</code>。</p>
+<h3 id="3-删除某个镜像或容器"><a href="#3-删除某个镜像或容器" class="headerlink" title="3.删除某个镜像或容器"></a>3.删除某个镜像或容器</h3><p>比如用sudo docker images查看当前我的系统里的docker镜像有3个</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/6dfdae4c76e497afc1adbae25f5bfb65.png"
+                     data-src="https://img01.xiaohei.us/2024/08/399698543a4c7e067db1a2754fc5ecdc.png"
                       alt="img"
                 ></p>
-<p>添加好京东账号 Cookie 之后就可以去执行脚本了，如果等不及想尝试，可以自己触发脚本运行，否则就会在相应的时间执行。</p>
-<p>顺带一说，Cookie 值并不需要这么多，只需要里面的<code>pt_key</code>与<code>pt_pin</code>两个就行了，懂的人自行提取，不懂的人全部复制粘贴上去。</p>
-<p><strong>温馨提醒：</strong>不要频繁的去执行，避免黑号。还有就是建议京东账号绑定微信，有个活动抽奖抽到微信红包会自动提现到微信钱包。</p>
-<p>&#x3D;&#x3D;原文：<a class="link"   target="_blank" rel="noopener" href="https://www.dujin.org/18884.html" >青龙面板自动领京东京豆，做农场浇水、萌宠、种豆、签到等任务-缙哥哥 (dujin.org) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>&#x3D;&#x3D;</p>
-<p>参考资料：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44774198/article/details/133268930?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-5-133268930-blog-133563159.235%5Ev43%5Epc_blog_bottom_relevance_base2&spm=1001.2101.3001.4242.4&utm_relevant_index=8" >青龙脚本分享（不断更新完善）-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>​                   <a class="link"   target="_blank" rel="noopener" href="https://conveniencespace.com/index.php/2022/05/03/2022%E6%9C%80%E6%96%B0%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E4%BA%AC%E4%B8%9C%E8%84%9A%E6%9C%AC%E5%BA%93%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" >2024最新青龙面板京东脚本库（1月9日，持续更新中） – 便利空间 (conveniencespace.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>​                   <a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/664671254" >利用拾光坞开启青龙面板薅羊毛（保姆级教程） - 知乎 (zhihu.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>我想要删除第一个IMAGE ID&#x3D;0ebf66ab9e21的镜像，使用命令</p>
+<blockquote>
+<p>注意：要删除某个docker镜像，必须保证该镜像没有容器实例在运行中，且没有容器实例存在。如果有，使用sudo docker stop停止该容器，然后删除该容器实例，然后再执行删除镜像。</p>
+</blockquote>
+<p><strong>删除容器</strong></p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm XXX容器IDXXXX</span><br></pre></td></tr></table></figure></div>
+
+<p>删除后，确保该镜像没有容器实例了，使用sudo docker ps -a查看是否还存在该镜像对应的容器实例。这里我一次性删除了3个容器实例。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/b422b410a23aba2e44246aa277be70b4.png"
+                      alt="img"
+                ></p>
+<p>现在我已经确保了，镜像 ID&#x3D;0ebf66ab9e21已经没有存在的容器实例了（不管这个容器实例是否在什么状态）。</p>
+<p><strong>删除镜像</strong></p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi XXX镜像IDXXX</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/8bb4a6457215512c340aa22b6b7709ab.png"
+                      alt="img"
+                ></p>
+<h3 id="4-互传文件在宿主机和容器"><a href="#4-互传文件在宿主机和容器" class="headerlink" title="4.互传文件在宿主机和容器"></a>4.互传文件在宿主机和容器</h3><p>宿主机 -&gt; 容器</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp 本地文件路径 容器ID或者容器名:保存到容器的目录</span><br></pre></td></tr></table></figure></div>
+
+<p>比如</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/d89818fe242027261500fe042d25170f.png"
+                      alt="img"
+                ></p>
+<p>容器 -&gt; 宿主机</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp 容器ID或者容器名:保存到容器的目录 本地文件路径 </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="5-容器的导出"><a href="#5-容器的导出" class="headerlink" title="5. 容器的导出"></a>5. 容器的导出</h3><p>如果想要将容器实例导出，可以使用命令：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> -o container.tar container_name</span><br></pre></td></tr></table></figure></div>
+
+<p>如果将这个tar包，迁移到别的地方后，想要导出为镜像，可以通过</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker import container.tar my_new_image:latest</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="6-镜像的导出"><a href="#6-镜像的导出" class="headerlink" title="6. 镜像的导出"></a>6. 镜像的导出</h3><p>同理，如果想要把镜像导出来，可以使用命令：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save image_name:imags_tag &gt; image.tar</span><br></pre></td></tr></table></figure></div>
+
+<p>将镜像的tar包，迁移到别的地方后，想要导出为镜像，命令为：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i image.tar</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7-容器打包成镜像"><a href="#7-容器打包成镜像" class="headerlink" title="7. 容器打包成镜像"></a>7. 容器打包成镜像</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</span><br><span class="line"> </span><br><span class="line">Option	功能</span><br><span class="line">-a	指定新镜像作者</span><br><span class="line">-c	使用 Dockerfile 指令来创建镜像</span><br><span class="line">-m	提交生成镜像的说明信息</span><br><span class="line">-p	在 commit 时，将容器暂停|</span><br></pre></td></tr></table></figure></div>
+
+<p>比如，打包名为cluster的镜像</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -a &quot;zhangzhe&quot; -m &quot;这个镜像主要是用于XXX代码&quot; 你的容器名或ID cluster:v2.0</span><br></pre></td></tr></table></figure></div>
+
+<p>结果：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/08/600305e300febf58a23b176fa743aa86.png"
+                      alt="img"
+                ></p>
+<h3 id="7-将镜像推到镜像仓库中"><a href="#7-将镜像推到镜像仓库中" class="headerlink" title="7. 将镜像推到镜像仓库中"></a>7. 将镜像推到镜像仓库中</h3><p>主要是三个步骤。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第一步：使用用户名和密码登录到仓库。</span></span><br><span class="line">docker login</span><br><span class="line"></span><br><span class="line"><span class="comment">#第二步：标记镜像</span></span><br><span class="line">docker tag 镜像名:镜像Tag 仓库地址/镜像名:镜像Tag</span><br><span class="line"></span><br><span class="line"><span class="comment">#第三步：上传镜像</span></span><br><span class="line">docker push 仓库地址/镜像名:镜像Tag</span><br></pre></td></tr></table></figure></div>
+
+<p>第一步的登录也可以直接在命令后面输入用户名和密码。比如：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login -u <span class="string">&quot;your_username&quot;</span> -p <span class="string">&quot;your_password&quot;</span> your_registry_domain</span><br></pre></td></tr></table></figure></div>
+
+<p>后面都是高级用法</p>
+<h2 id="3-Dockerfile构建镜像"><a href="#3-Dockerfile构建镜像" class="headerlink" title="3.Dockerfile构建镜像"></a>3.Dockerfile构建镜像</h2><p>Dockerfile可以理解为，把镜像启动， 运行里面的命令，启动各种服务或者代码，这所有的过程，都写到一个文件里。因此，这里可以类别。makefile，sh脚本。</p>
+<h3 id="1-Docker打包的方式"><a href="#1-Docker打包的方式" class="headerlink" title="1.Docker打包的方式"></a>1.Docker打包的方式</h3><p>使用Docker构建镜像一般有三种方式。</p>
+<ul>
+<li>方式一：通过第二节的6小节的docker save命令，这会打包镜像的所有层。</li>
+<li>方式二：通过第二节的7小节的docker commit命令，这会提交当前容器及其容器所在的镜像，成为一个新的镜像。</li>
+<li>方式三：通过Dockerfile文件进行打包。</li>
+</ul>
+<h3 id="2-一个简单的示例"><a href="#2-一个简单的示例" class="headerlink" title="2.一个简单的示例"></a>2.一个简单的示例</h3><p>下面用一个简单的示例，指示Dockerfile的基础用法</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FROM python38</span><br><span class="line">RUN <span class="built_in">echo</span> <span class="string">&#x27;this is a py38  images&#x27;</span> &gt; /workspace/tmp.log</span><br><span class="line">ENV LANG=C.UTF-8</span><br><span class="line">COPY ./release/ /workspace/</span><br><span class="line">WORKDIR /workspace/</span><br><span class="line">RUN <span class="built_in">chmod</span> +x /workspace/start.sh</span><br><span class="line">ENTRYPOINT [<span class="string">&quot;sh&quot;</span>, <span class="string">&quot;start.sh&quot;</span>]</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>FROM 表示来自哪个基础镜像，这里的基础镜像是python38。</li>
+<li>RUN 表示在镜像内终端运行后面的命令。</li>
+<li>ENV 用来设置环境变量。比如这里设置容器内部的LANG&#x3D;C.UTF-8</li>
+<li>COPY 将当前目录的.&#x2F;release&#x2F;拷贝到镜像里的&#x2F;workspace&#x2F;</li>
+<li>WORKDIR 用来设置后续的指令工作目录</li>
+<li>ENTRYPOINT 用来设置容器在创建时就自动执行的命令，这个内容不可被覆盖。</li>
+</ul>
+<p>因此，上面这个意思是，依据python38基础镜像，向&#x2F;workspace&#x2F;tmp.log写入一行”this is a py38 imaegs’字符；设置环境变量为LANG&#x3D;C.UTF-8；复制本地的release目录到镜像的&#x2F;workspace&#x2F;目录；设置后续的工作目录为&#x2F;workspace；运行命令，为&#x2F;workspace&#x2F;start.sh配置执行权限；设置任何人在创建容器时，就启动sh start.sh命令。</p>
+<blockquote>
+<p>RUN 命令还可以同时运行多个命令。比如：<br>RUN [“.&#x2F;server1.py”, “dev”] 等价于RUN .&#x2F;server1.py dev</p>
+</blockquote>
+<h3 id="3-注意"><a href="#3-注意" class="headerlink" title="3. 注意"></a>3. 注意</h3><p>Dockerfile的每个指令，执行一次，就会在docker的基础镜像上，新建一层，过多的层会导致镜像膨胀过大。许多命令可以合并在一起执行。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM py3810</span><br><span class="line">RUN apt-get install wget</span><br><span class="line">RUN wget -O <span class="string">&quot;http://XXXXX.tar&quot;</span></span><br><span class="line">RUN tar -xvf XXXX.tar</span><br></pre></td></tr></table></figure></div>
+
+<p>上面的这种操作会创建三层，可以改成如下的用&amp;&amp;连接的代码，只创建一层。</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM py3810</span><br><span class="line">RUN apt-get install wget \</span><br><span class="line">&amp;&amp; wget -O <span class="string">&quot;http://XXXXX.tar&quot;</span> \</span><br><span class="line">&amp;&amp; RUN tar -xvf XXXX.tar</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="4-构建镜像"><a href="#4-构建镜像" class="headerlink" title="4. 构建镜像"></a>4. 构建镜像</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Docker build -t py3810:v2.0</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h2 id="4-Docker-Compose构建容器集群"><a href="#4-Docker-Compose构建容器集群" class="headerlink" title="4. Docker-Compose构建容器集群"></a>4. Docker-Compose构建容器集群</h2><h2 id="5-参考来源"><a href="#5-参考来源" class="headerlink" title="5. 参考来源"></a>5. 参考来源</h2><p><a class="link"   href="https://link.zhihu.com/?target=https://www.runoob.com/docker/docker-dockerfile.html" >Docker Dockerfilewww.runoob.com/docker/docker-dockerfile.html
+   <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 
         </div>
 
@@ -1018,18 +984,18 @@
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 群晖安装青龙面板</li>
+        <li><strong>标题:</strong> Docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）Dockerfile</li>
         <li><strong>作者:</strong> Xiao.Hei.Ge</li>
         <li><strong>创建于
-                :</strong> 2024-01-29 11:51:30</li>
+                :</strong> 2024-08-07 14:28:54</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-01-29 23:13:21
+                    :</strong> 2024-08-07 14:56:02
             </li>
         
         <li>
-            <strong>链接:</strong> https://cool.xiaohei.us/2024/01/29/群晖安装青龙面板/
+            <strong>链接:</strong> https://cool.xiaohei.us/2024/08/07/Docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）Dockerfile/
         </li>
         <li>
             <strong>
@@ -1051,11 +1017,7 @@
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/NAS/">#NAS</a>&nbsp;
-                    </li>
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">#青龙面板</a>&nbsp;
+                        <a href="/tags/Docker/">#Docker</a>&nbsp;
                     </li>
                 
             </ul>
@@ -1066,29 +1028,14 @@
         
             <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
                 
-                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2024/02/06/%E5%A4%A9%E7%BF%BC%E7%BD%91%E5%85%B3%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">天翼网关超级管理员账号密码获取</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/01/27/%E3%80%90Markdown%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E3%80%91/"
+                        href="/2024/03/03/Linux%E5%AD%A6%E4%B9%A0-Linux%E4%B8%ADCrontab%EF%BC%88%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%89%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">【Markdown基础用法】</span>
+                                <span class="post-nav-title-item">(Linux学习)Linux中Crontab（定时任务）命令详解及使用教程</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -1151,8 +1098,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">群晖安装青龙面板</div>
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%96%B0%E5%BB%BA%E9%9D%92%E9%BE%99%E6%8C%82%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">1、新建青龙挂载文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%B8%8B%E8%BD%BD%E9%9D%92%E9%BE%99%E9%95%9C%E5%83%8F"><span class="nav-text">2、下载青龙镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF"><span class="nav-text">3、安装青龙面板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E7%99%BB%E5%BD%95%E8%BF%90%E8%A1%8C%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-text">4、登录运行安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E7%AD%BE%E5%88%B0"><span class="nav-text">5、阿里云盘签到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E4%BA%AC%E4%B8%9C%E8%84%9A%E6%9C%AC%E5%BA%93%E6%B1%87%E6%80%BB"><span class="nav-text">6、青龙面板京东脚本库汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E6%96%B0%E7%89%88%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%8B%89%E5%BA%93%E6%AD%A5%E9%AA%A4%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA"><span class="nav-text">7、新版青龙面板拉库步骤如下图所示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E4%BA%AC%E4%B8%9C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%BA%93"><span class="nav-text">8、京东定时任务库</span></a></li></ol>
+        <div class="page-title">Docker终端常用命令（删除，创建，新建，启动，停止，推送，提交）Dockerfile</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-text">1.基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%95%9C%E5%83%8F%E8%8E%B7%E5%8F%96"><span class="nav-text">1.镜像获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%89%80%E6%9C%89docker%E9%95%9C%E5%83%8F%E3%80%82"><span class="nav-text">2.查看本地系统的所有docker镜像。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E7%BB%88%E7%AB%AF%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E5%AE%B9%E5%99%A8"><span class="nav-text">3.使用交互式的终端创建并启动一个容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%80%80%E5%87%BA%E5%BD%93%E5%89%8D%E7%9A%84%E5%AE%B9%E5%99%A8%E7%9A%84%E7%BB%88%E7%AB%AF"><span class="nav-text">4.退出当前的容器的终端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E5%AE%B9%E5%99%A8%E4%BF%A1%E6%81%AF"><span class="nav-text">5.查看历史容器信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%90%AF%E5%8A%A8%E5%B7%B2%E7%BB%8F%E5%81%9C%E6%AD%A2%E4%BA%86%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-text">6.启动已经停止了的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%90%8E%E5%8F%B0%E6%8C%82%E8%B5%B7%E6%9F%90%E4%B8%AA%E5%AE%B9%E5%99%A8"><span class="nav-text">7.后台挂起某个容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E4%B8%80%E4%B8%AA%E5%AE%B9%E5%99%A8%E3%80%82"><span class="nav-text">8.如何停止一个容器。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E9%87%8D%E5%90%AF%E4%B8%80%E4%B8%AA%E5%81%9C%E6%AD%A2%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-text">9.重启一个停止的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E6%9F%A5%E7%9C%8B%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9D%80%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-text">10.查看正在运行着的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E8%BF%9B%E5%85%A5%E5%B7%B2%E7%BB%8F%E6%8C%82%E5%9C%A8%E5%90%8E%E5%8F%B0%E7%9A%84%E5%AE%B9%E5%99%A8%E7%BB%88%E7%AB%AF"><span class="nav-text">11.进入已经挂在后台的容器终端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E5%88%9B%E5%BB%BA%E7%A9%BA%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-text">12.创建空的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E5%9C%A8Docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="nav-text">13.在Docker容器中执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97%E6%9F%A5%E7%9C%8B"><span class="nav-text">14. 容器日志查看</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%9B%E9%98%B6%E5%91%BD%E4%BB%A4"><span class="nav-text">2.进阶命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9F%A5%E7%9C%8B%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF"><span class="nav-text">1.查看帮助信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E5%91%BD%E4%BB%A4%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-text">2.查看某个命令的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%88%A0%E9%99%A4%E6%9F%90%E4%B8%AA%E9%95%9C%E5%83%8F%E6%88%96%E5%AE%B9%E5%99%A8"><span class="nav-text">3.删除某个镜像或容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6%E5%9C%A8%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%92%8C%E5%AE%B9%E5%99%A8"><span class="nav-text">4.互传文件在宿主机和容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%AF%BC%E5%87%BA"><span class="nav-text">5. 容器的导出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E9%95%9C%E5%83%8F%E7%9A%84%E5%AF%BC%E5%87%BA"><span class="nav-text">6. 镜像的导出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%AE%B9%E5%99%A8%E6%89%93%E5%8C%85%E6%88%90%E9%95%9C%E5%83%8F"><span class="nav-text">7. 容器打包成镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E5%B0%86%E9%95%9C%E5%83%8F%E6%8E%A8%E5%88%B0%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E4%B8%AD"><span class="nav-text">7. 将镜像推到镜像仓库中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-text">3.Dockerfile构建镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Docker%E6%89%93%E5%8C%85%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-text">1.Docker打包的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-text">2.一个简单的示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B3%A8%E6%84%8F"><span class="nav-text">3. 注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-text">4. 构建镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Docker-Compose%E6%9E%84%E5%BB%BA%E5%AE%B9%E5%99%A8%E9%9B%86%E7%BE%A4"><span class="nav-text">4. Docker-Compose构建容器集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%8F%82%E8%80%83%E6%9D%A5%E6%BA%90"><span class="nav-text">5. 参考来源</span></a></li></ol>
 
     </div>
 </div>
