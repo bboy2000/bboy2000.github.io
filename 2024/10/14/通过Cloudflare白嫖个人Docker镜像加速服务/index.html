@@ -19,70 +19,39 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://cool.xiaohei.us/2024/01/25/backblaze云存储-cloudflare搭建高速安全的免费图床/"/>
+    <link rel="canonical" href="https://cool.xiaohei.us/2024/10/14/通过cloudflare白嫖个人docker镜像加速服务/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="引用原文：Backblaze云存储+Cloudflare搭建高速安全的免费图床   0.前言搭建个人博客、网站最头疼的莫过于图片存储的问题了吧，上传到免费图床站点就怕它哪天跑路，利用Github当图床访问速度又慢。 最稳妥的方案还是使用大厂的云存储服务，比如我之前用过的腾讯云COS，只不过也并没有想象中那么美好。。。 它的后台界面极其复杂、难用就不说了。我们使用对象存储首先要考虑的就是防坏蛋盗刷流">
+        <meta name="description" content="1、新建 workers在左侧 workers and pages，然后新建，名字随便起。没有过多的配置，直接完成！    2、编辑代码2.1 编辑代码点击右上角的编辑代码，进入  2.2 新建 index.html如果所示，代码里面的docker.xxoo.team请替换成你自己的域名。  12345678910111213141516171819202122232425262728293031">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Backblaze云存储+Cloudflare搭建高速安全的免费图床">
-<meta property="og:url" content="https://cool.xiaohei.us/2024/01/25/Backblaze%E4%BA%91%E5%AD%98%E5%82%A8-Cloudflare%E6%90%AD%E5%BB%BA%E9%AB%98%E9%80%9F%E5%AE%89%E5%85%A8%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/index.html">
+<meta property="og:title" content="通过Cloudflare白嫖个人Docker镜像加速服务">
+<meta property="og:url" content="https://cool.xiaohei.us/2024/10/14/%E9%80%9A%E8%BF%87Cloudflare%E7%99%BD%E5%AB%96%E4%B8%AA%E4%BA%BADocker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E6%9C%8D%E5%8A%A1/index.html">
 <meta property="og:site_name" content="一只特立独行的猪">
-<meta property="og:description" content="引用原文：Backblaze云存储+Cloudflare搭建高速安全的免费图床   0.前言搭建个人博客、网站最头疼的莫过于图片存储的问题了吧，上传到免费图床站点就怕它哪天跑路，利用Github当图床访问速度又慢。 最稳妥的方案还是使用大厂的云存储服务，比如我之前用过的腾讯云COS，只不过也并没有想象中那么美好。。。 它的后台界面极其复杂、难用就不说了。我们使用对象存储首先要考虑的就是防坏蛋盗刷流">
+<meta property="og:description" content="1、新建 workers在左侧 workers and pages，然后新建，名字随便起。没有过多的配置，直接完成！    2、编辑代码2.1 编辑代码点击右上角的编辑代码，进入  2.2 新建 index.html如果所示，代码里面的docker.xxoo.team请替换成你自己的域名。  12345678910111213141516171819202122232425262728293031">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a8d5404a5c780a2f6053cdbbe030a4b9.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1c7c5d02027c7b2a7a7b932ddc9c4f7d.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a8a07f0e1a10927d3b31b4290b4e5bf1.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/37d3ea8d49d93e52a241a64c41a6fd5a.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/56cef134631fc0b582c946685a832cdc.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/be232dda6a30bf6dcfb8d7e101a9e0ee.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/cf6c9dfe4f3ad1df0420946e2d0d6544.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/96ce8c85884db95d109454c60ba0cda9.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/1a40230864eeb757a899bf45e1994fa3.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/006a302fd03558d2f129185b5355b8db.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/3734508fecce2f3548270eeac7367b7b.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a51252f5b9078a85b86e8be654f6e318.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/c68720a8b7eb351be432ca62627f2a28.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9854461d42a46a1d4e404002ff9bdcd2.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/8f4db54fd10b37b36c37c4ae5bc469ab.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/8e5b1d5188d704e8697fc1b9d8942aa1.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/07a17bfeb438357d04b98ce0f9951d70.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9893614b7c3ae0bc2b8dbbc0fce08842.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/e8f88a125864feff851f1bcaf2ebf40b.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/f441c5b63f9923ef94812c75972c3bf3.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/54c0242cac746dabf56906eee94c2ebe.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/95d2fbd2b6944aafec43ad67b183ff02.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/144926a5808432616a45d6d234c36422.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/01f881f3c4532d857e7d24fd6f3bd3de.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9a32f232c0aac69ca76057a45b70ba02.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b0224fb540499842180f3e9ca31a55bf.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/9eb222f5c1893e485a1a49847f5bc969.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/ce5e60875845054aa5514af4b68a1bb6.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/7022b9678bcaa5e0a5ac16bc5a40ed45.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/325249eb6064ee6d58d945aea044e6e8.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/62c973c74303630480a4ec3eff64d414.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/7837d7785ca556fb4591c34299487d41.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/f245c7df683140869fbbaf62810b9707.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5d67944d26c48c0a6e4fe4b2c55a5e57.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/26234c26afe85b390650797cb24eee34.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5600a3c2da4f5c215c3f053155ba1b6a.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/6c234029047e8c25d5e62dad3aa05446.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5f93be49a193561c82817d3f19b3b0e7.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/189db402473248d846472e9b9f946e8e.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/5351ef0cce736ede5ce0221ad2f7e2ba.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/bc32f43b9aa26e8a8f77adadf870c92b.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/b57cee45d856a4694809def01cd9594a.jpeg">
-<meta property="og:image" content="https://img01.xiaohei.us/2024/01/a6062e8a04e941e502e536ddbffd8322.jpeg">
-<meta property="article:published_time" content="2024-01-25T15:13:43.000Z">
-<meta property="article:modified_time" content="2024-01-25T15:31:48.423Z">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/84bef9ef564798abcecf4c190dc44e79.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/8296a2857a0933f23cdaf360c18b7c70.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/c2f681f62ce3a46fcd0bd50f81e4eeff.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/21716561646e4b84b8934310df08eb9d.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/45208a770ca24e56a83122b73b79af26.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/7ce1313ee49efca301764e61e75ff050.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/7ecf6bffdceaabd705067f699cec0b43.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/a15120db9468f6506de68fcb53c5ee80.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/3c5098f41b9e268c3282ebad821fe92e.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/67e28a9b0579ac51ba25495473d188c9.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/416a34f7b92e750e199b093ddff01f2f.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/607aa0d787a866e32424a683d7214760.png">
+<meta property="og:image" content="https://img01.xiaohei.us/2024/10/930fafafa61b05cb940f3ee7a552220c.png">
+<meta property="article:published_time" content="2024-10-14T14:27:53.000Z">
+<meta property="article:modified_time" content="2024-10-14T14:50:21.454Z">
 <meta property="article:author" content="Bboy">
-<meta property="article:tag" content="Hexo搭建">
-<meta property="article:tag" content="Backlaze">
 <meta property="article:tag" content="Cloudflare">
-<meta property="article:tag" content="图床">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Workers">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img01.xiaohei.us/2024/01/a8d5404a5c780a2f6053cdbbe030a4b9.jpeg">
+<meta name="twitter:image" content="https://img01.xiaohei.us/2024/10/84bef9ef564798abcecf4c190dc44e79.png">
     
     
     <!--- Icon Part-->
@@ -94,7 +63,7 @@
     
     <title>
         
-            Backblaze云存储+Cloudflare搭建高速安全的免费图床 -
+            通过Cloudflare白嫖个人Docker镜像加速服务 -
         
         一只特立独行的猪
     </title>
@@ -609,10 +578,10 @@
             
                 
                 
-                <img src="https://img01.xiaohei.us/2024/01/4db16bcb9cc0ff9f7445a93e28afeab4.png" alt="Backblaze云存储+Cloudflare搭建高速安全的免费图床" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                <img src="https://img01.xiaohei.us/2024/03/d77a588d92b9915d38bd3555bfa1b730.png" alt="通过Cloudflare白嫖个人Docker镜像加速服务" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
                 
                 <div class="w-full flex items-center absolute bottom-0 justify-start">
-                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">Backblaze云存储+Cloudflare搭建高速安全的免费图床</h1>
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-bold backdrop-blur-lg rounded-xl border border-border-color ">通过Cloudflare白嫖个人Docker镜像加速服务</h1>
                 </div>
             
             </div>
@@ -633,15 +602,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-01-25 23:13:43</span>
-        <span class="mobile">2024-01-25 23:13:43</span>
+        <span class="desktop">2024-10-14 22:27:53</span>
+        <span class="mobile">2024-10-14 22:27:53</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-01-25 23:31:48</span>
-            <span class="mobile">2024-01-25 23:31:48</span>
+            <span class="desktop">2024-10-14 22:50:21</span>
+            <span class="mobile">2024-10-14 22:50:21</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -660,6 +629,13 @@
                     
                     
                 
+                    
+                        <li>
+                            | <a href="/categories/%E7%BF%BB%E5%B1%B1%E8%B6%8A%E5%B2%AD/">翻山越岭</a>&nbsp;
+                        </li>
+                    
+                    
+                
             </ul>
         </span>
     
@@ -669,19 +645,15 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Hexo%E6%90%AD%E5%BB%BA/">Hexo搭建</a>&nbsp;
+                        <a href="/tags/Cloudflare/">Cloudflare</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/Backlaze/">Backlaze</a>&nbsp;
+                        | <a href="/tags/Docker/">Docker</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/Cloudflare/">Cloudflare</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E5%9B%BE%E5%BA%8A/">图床</a>&nbsp;
+                        | <a href="/tags/Workers/">Workers</a>&nbsp;
                     </li>
                 
             </ul>
@@ -707,392 +679,98 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p>引用原文：<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/651418903" >Backblaze云存储+Cloudflare搭建高速安全的免费图床  <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a><strong>0.前言</strong></h2><p>搭建个人博客、网站最头疼的莫过于图片存储的问题了吧，上传到免费图床站点就怕它哪天跑路，利用Github当图床访问速度又慢。</p>
-<p>最稳妥的方案还是使用大厂的云存储服务，比如我之前用过的腾讯云COS，只不过也并没有想象中那么美好。。。</p>
-<p>它的后台界面极其复杂、难用就不说了。我们使用对象存储首先要考虑的就是防坏蛋盗刷流量，否则，很可能一觉醒来一套房就没了。 （夸张了点）<br>而腾讯云COS服务没有提供相关防护功能，需要接入腾讯云CDN服务（这是另外收费的），接入腾讯云CDN后，才有抵御攻击以及流量封顶相关配置。再一个就是，接入腾讯云CDN还需要一个国内已备案的域名。总之，对于个人博客、网站来说过于麻烦，也不划算。</p>
-<h2 id="1-零成本个人图床方案"><a href="#1-零成本个人图床方案" class="headerlink" title="1.零成本个人图床方案"></a><strong>1.零成本个人图床方案</strong></h2><p>后来无意中发现了Cloudflare+Backblaze这套组合搭建图床的方案，完美地符合了我的需求！</p>
-<p>Cloudflare免费提供CDN全球加速、以及不计量的DDoS攻击防护，Backblaze云存储前10GB空间免费（用来当个人图床完全够用），需要更大容量的话，它也有着秒杀大厂的实惠价格：</p>
+            <h3 id="1、新建-workers"><a href="#1、新建-workers" class="headerlink" title="1、新建 workers"></a>1、新建 workers</h3><p>在左侧 workers and pages，然后新建，名字随便起。没有过多的配置，直接完成！</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/a8d5404a5c780a2f6053cdbbe030a4b9.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/84bef9ef564798abcecf4c190dc44e79.png"
                       alt="img"
                 ></p>
-<p>最关键的是Cloudflare和Backblaze都是<a class="link"   href="https://link.zhihu.com/?target=https://www.cloudflare.com/bandwidth-alliance/" >Bandwidth Alliance <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>（带宽联盟）的成员，它们之间的数据传输（带宽）是免费的，而Cloudflare的CDN服务也不收费，那么这样一来就不用担心流量费用的问题！</p>
-<p>没有对比就没有伤害，相比于某些知名大厂，Cloudflare和Backblaze不仅对于平民用户非常友好，最令我感到舒服的更是它们两的后台界面逻辑，非常简洁、直观，一看就懂！</p>
-<p>说了这么多，无非就是想表达我对这套方案十分满意，好的产品、服务就应该让更多的人知道！相信你也心动了，接下来搭建教程献上~</p>
-<h2 id="2-Backblaze账号注册"><a href="#2-Backblaze账号注册" class="headerlink" title="2.Backblaze账号注册"></a><strong>2.Backblaze账号注册</strong></h2><p>打开链接：<a class="link"   href="https://link.zhihu.com/?target=https://www.backblaze.com/" >The Best Unlimited Online Backup and Cloud Storage Services (backblaze.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，进入Backblaze官网</p>
-<p>点击B2 Cloud Storage注册账号</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/1c7c5d02027c7b2a7a7b932ddc9c4f7d.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/8296a2857a0933f23cdaf360c18b7c70.png"
                       alt="img"
                 ></p>
-<p>进入账号后台页面</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/a8a07f0e1a10927d3b31b4290b4e5bf1.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/c2f681f62ce3a46fcd0bd50f81e4eeff.png"
                       alt="img"
                 ></p>
-<h2 id="3-存储桶创建与上传文件"><a href="#3-存储桶创建与上传文件" class="headerlink" title="3.存储桶创建与上传文件"></a><strong>3.存储桶创建与上传文件</strong></h2><p>点击Create a Bucket创建存储桶</p>
+<h3 id="2、编辑代码"><a href="#2、编辑代码" class="headerlink" title="2、编辑代码"></a>2、编辑代码</h3><h4 id="2-1-编辑代码"><a href="#2-1-编辑代码" class="headerlink" title="2.1 编辑代码"></a>2.1 编辑代码</h4><p>点击右上角的<code>编辑代码</code>，进入</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/37d3ea8d49d93e52a241a64c41a6fd5a.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/21716561646e4b84b8934310df08eb9d.png"
                       alt="img"
                 ></p>
-<p>设置桶名（建议复杂一点，更安全），选择Public公开，其它选项保持默认</p>
+<h4 id="2-2-新建-index-html"><a href="#2-2-新建-index-html" class="headerlink" title="2.2 新建 index.html"></a>2.2 新建 index.html</h4><p>如果所示，代码里面的<code>docker.xxoo.team</code>请替换成你自己的域名。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/56cef134631fc0b582c946685a832cdc.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/45208a770ca24e56a83122b73b79af26.png"
                       alt="img"
                 ></p>
-<p>点击Lifecycle Settings</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/be232dda6a30bf6dcfb8d7e101a9e0ee.jpeg"
-                      alt="img"
-                ></p>
-<p>选择只保留最新版本文件—Keep only the last version of the file</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/cf6c9dfe4f3ad1df0420946e2d0d6544.jpeg"
-                      alt="img"
-                ></p>
-<p>点击<code>Upload/Download</code>随便上传一张图片</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/96ce8c85884db95d109454c60ba0cda9.jpeg"
-                      alt="img"
-                ></p>
-<p>上传完成后，打开图像查看详细信息</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/1a40230864eeb757a899bf45e1994fa3.jpeg"
-                      alt="img"
-                ></p>
-<h2 id="4-Friendly-URL"><a href="#4-Friendly-URL" class="headerlink" title="4.Friendly URL"></a><strong>4.Friendly URL</strong></h2><p>在文件详细信息中，有一个Friendly URL，它就是Backblaze云存储提供的日常引用、访问文件的原始链接，但我们肯定不能使用这个原始链接</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/006a302fd03558d2f129185b5355b8db.jpeg"
-                      alt="img"
-                ></p>
-<p>由于Backblaze云存储是有每日限额的，如果我们使用原始链接请求，那么是直接从Backblaze请求数据，是会消耗免费额度的：</p>
-<blockquote>
-<p>Daily Storage Caps：日常存储容量前10GB免费<br>Daily Download Bandwidth Caps：日常下载带宽前1GB免费<br>Daily Class B Transactions Caps：日常B类事务前2500次免费（B类事务包括下载、获取文件）<br>Daily Class C Transactions Caps：日常C类事务前2500次免费（C类事务包括创建存储桶、列举存储桶、列举文件版本、列举Keys）</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/3734508fecce2f3548270eeac7367b7b.jpeg"
-                      alt="img"
-                ></p>
-<p>所以如果我们公开的网站上面的图片都是用这种原始链接的话，那么免费额度很快就会被访客用完。而且这个链接不仅暴露了你用的云存储厂商，还暴露了你的桶名，坏蛋直接搞个脚本无限盗刷你的额度，一觉醒来又一套房没了 。。。</p>
-<p>这时候就要用到Cloudfare了，将我们自己的域名托管到Cloudfare，使用Cloudfare代理并启用免费的CDN服务，再将域名指向自己的Backblaze云存储地址，这时候使用自己定义的链接请求就是走的Cloudfare而不是Backblaze了。</p>
-<p>由于Cloudfare和Backblaze同属带宽联盟成员，它们之间数据传输免费，借由Cloudfare向Backblaze请求数据就不会消耗Backblaze的额度！而且Cloudfare的CDN服务还能够有效提升访问速度。</p>
-<blockquote>
-<p>要开始下面的操作，首先你要有一个自己的域名，建议在国外注册商那里购买，这里推荐我自己最常用的NameSilo：<br><a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/650147633" >NameSilo购买域名，免去实名、备案的麻烦 | 晚阳Crown <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-</blockquote>
-<h2 id="5-Cloudfare添加CNAME记录"><a href="#5-Cloudfare添加CNAME记录" class="headerlink" title="5.Cloudfare添加CNAME记录"></a><strong>5.Cloudfare添加CNAME记录</strong></h2><p>将你的域名托管到Cloudfare后，打开DNS&gt;Records，点击Add record添加记录</p>
-<p>在Cloudfare中添加一条CNAME记录，做好以下设置后点Save保存：</p>
-<ul>
-<li>二级域名自定义，这里我设置成img</li>
-<li>Target设置为你的Friendly URL的域名</li>
-<li>将Proxy status设置为开启，这样就会同时启用Cloudfare代理以及CDN服务</li>
-<li>TTL默认Auto</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/a51252f5b9078a85b86e8be654f6e318.jpeg"
-                      alt="img"
-                ></p>
-<p>打开SL&#x2F;TLS&gt;Overview，将SSL&#x2F;TLS的加密模式设置为完全（严格）</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/c68720a8b7eb351be432ca62627f2a28.jpeg"
-                      alt="img"
-                ></p>
-<p>现在就可以用自定义的域名访问刚才的文件了：</p>
-<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 原先的：</span><br><span class="line">https://f005.backblazeb2.com/file/oneyangcrown-bucket/avatar.jpg</span><br><span class="line">// 现在的：</span><br><span class="line">https://img.oneyangcrown.top/file/oneyangcrown-bucket/avatar.jpg</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">  &lt;title&gt;镜像使用说明&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">      font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif;</span><br><span class="line">      margin: 0;</span><br><span class="line">      padding: 0;</span><br><span class="line">      background-color: #f0f2f5;</span><br><span class="line">      display: flex;</span><br><span class="line">      flex-direction: column;</span><br><span class="line">      min-height: 100vh;</span><br><span class="line">    &#125;</span><br><span class="line">    .header &#123;</span><br><span class="line">      background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);</span><br><span class="line">      color: white;</span><br><span class="line">      text-align: center;</span><br><span class="line">      padding: 20px 0;</span><br><span class="line">    &#125;</span><br><span class="line">    .container &#123;</span><br><span class="line">      flex: 1;</span><br><span class="line">      display: flex;</span><br><span class="line">      justify-content: center;</span><br><span class="line">      align-items: center;</span><br><span class="line">      padding: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    .content &#123;</span><br><span class="line">      background: white;</span><br><span class="line">      border-radius: 8px;</span><br><span class="line">      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);</span><br><span class="line">      padding: 20px;</span><br><span class="line">      max-width: 800px; /* 调整后的宽度 */</span><br><span class="line">      width: 100%;</span><br><span class="line">      font-size: 16px; /* 放大字体 */</span><br><span class="line">    &#125;</span><br><span class="line">    .code-block &#123;</span><br><span class="line">      background: #2d2d2d;</span><br><span class="line">      color: #f8f8f2;</span><br><span class="line">      padding: 10px;</span><br><span class="line">      border-radius: 8px;</span><br><span class="line">      margin: 10px 0;</span><br><span class="line">      overflow-x: auto;</span><br><span class="line">      font-family: &quot;Courier New&quot;, Courier, monospace; /* 保持代码块的字体 */</span><br><span class="line">    &#125;</span><br><span class="line">    .footer &#123;</span><br><span class="line">      background: #444;</span><br><span class="line">      color: white;</span><br><span class="line">      text-align: center;</span><br><span class="line">      padding: 5px 0; /* 调低高度 */</span><br><span class="line">    &#125;</span><br><span class="line">    .footer a &#123;</span><br><span class="line">      color: #4caf50;</span><br><span class="line">      text-decoration: none;</span><br><span class="line">    &#125;</span><br><span class="line">    @media (max-width: 600px) &#123;</span><br><span class="line">      .content &#123;</span><br><span class="line">        padding: 10px;</span><br><span class="line">        font-size: 14px; /* 在小屏幕上稍微减小字体 */</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class=&quot;header&quot;&gt;</span><br><span class="line">    &lt;h1&gt;镜像使用说明&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">      &lt;p&gt;要设置加速镜像服务，你可以执行下面命令：&lt;/p&gt;</span><br><span class="line">      &lt;div class=&quot;code-block&quot;&gt;</span><br><span class="line">        &lt;pre&gt;</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;EOF</span><br><span class="line">&#123;</span><br><span class="line">	&quot;registry-mirrors&quot;: [&quot;https://docker.xxoo.team&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">        &lt;/pre&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">	  &lt;p&gt;如果执行了上述命令，配置了镜像加速服务，可以直接 pull 镜像：&lt;/p&gt;</span><br><span class="line">      &lt;div class=&quot;code-block&quot;&gt;</span><br><span class="line">        &lt;pre&gt;</span><br><span class="line">docker pull halohub/halo:latest # 拉取 halo 镜像</span><br><span class="line">        &lt;/pre&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">	  &lt;p&gt;因为Workers用量有限，在使用加速镜像服务时，你可以手动 pull 镜像然后 re-tag 之后 push 至本地镜像仓库:&lt;/p&gt;</span><br><span class="line">      &lt;div class=&quot;code-block&quot;&gt;</span><br><span class="line">        &lt;pre&gt;</span><br><span class="line">docker pull docker.xxoo.team/halohub/halo:latest # 拉取 halo 镜像</span><br><span class="line">        &lt;/pre&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;footer&quot;&gt;</span><br><span class="line">    &lt;p&gt;Powered by Cloudflare Workers&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&lt;a href=&quot;https://www.xxoo.team&quot;&gt;www.xxoo.team&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="6-额度消耗测试"><a href="#6-额度消耗测试" class="headerlink" title="6.额度消耗测试"></a><strong>6.额度消耗测试</strong></h2><p>接下来做个简单的测试，对比使用原始链接以及自定义链接请求后，Backblaze云存储额度的消耗情况。</p>
-<p>这是bat脚本，使用curl工具来发起请求，url参数为请求链接，iterations参数是请求次数</p>
-<div class="highlight-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> url=https://f005.backblazeb2.com/file/oneyangcrown<span class="literal">-bucket</span>/avatar.jpg</span><br><span class="line"><span class="built_in">set</span> iterations=<span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> /l %%i <span class="keyword">in</span> (<span class="number">1</span>,<span class="number">1</span>,%iterations%) <span class="keyword">do</span> (</span><br><span class="line">    <span class="built_in">curl</span> <span class="literal">-X</span> GET <span class="string">&quot;%url%&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+<h4 id="2-3-修改-worker-js"><a href="#2-3-修改-worker-js" class="headerlink" title="2.3 修改 worker.js"></a>2.3 修改 worker.js</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://img01.xiaohei.us/2024/10/7ce1313ee49efca301764e61e75ff050.png"
+                      alt="img"
+                ></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import HTML from &#x27;./index.html&#x27;;</span><br><span class="line">export default &#123;</span><br><span class="line">    async fetch(request) &#123;</span><br><span class="line">        const url = new URL(request.url);</span><br><span class="line">        const path = url.pathname;</span><br><span class="line">        const originalHost = request.headers.get(&quot;host&quot;);</span><br><span class="line">        const registryHost = &quot;registry-1.docker.io&quot;;</span><br><span class="line">        if (path.startsWith(&quot;/v2/&quot;)) &#123;</span><br><span class="line">        const headers = new Headers(request.headers);</span><br><span class="line">        headers.set(&quot;host&quot;, registryHost);</span><br><span class="line">        const registryUrl = `https://$&#123;registryHost&#125;$&#123;path&#125;`;</span><br><span class="line">        const registryRequest = new Request(registryUrl, &#123;</span><br><span class="line">            method: request.method,</span><br><span class="line">            headers: headers,</span><br><span class="line">            body: request.body,</span><br><span class="line">            redirect: &quot;follow&quot;,</span><br><span class="line">        &#125;);</span><br><span class="line">        const registryResponse = await fetch(registryRequest);</span><br><span class="line">        console.log(registryResponse.status);</span><br><span class="line">        const responseHeaders = new Headers(registryResponse.headers);</span><br><span class="line">        responseHeaders.set(&quot;access-control-allow-origin&quot;, originalHost);</span><br><span class="line">        responseHeaders.set(&quot;access-control-allow-headers&quot;, &quot;Authorization&quot;);</span><br><span class="line">        return new Response(registryResponse.body, &#123;</span><br><span class="line">            status: registryResponse.status,</span><br><span class="line">            statusText: registryResponse.statusText,</span><br><span class="line">            headers: responseHeaders,</span><br><span class="line">        &#125;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">        return new Response(HTML.replace(/&#123;&#123;host&#125;&#125;/g, originalHost), &#123;</span><br><span class="line">            status: 200,</span><br><span class="line">            headers: &#123;</span><br><span class="line">            &quot;content-type&quot;: &quot;text/html&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<p>测试结果：可以看到当我使用原始链接请求50次后，流量消耗了5MB，Class B事务增加了50次，而换成自定义链接再次请求50次后，额度消耗几乎没有了：</p>
+<h4 id="2-4-保存"><a href="#2-4-保存" class="headerlink" title="2.4 保存"></a>2.4 保存</h4><p>一定要保存！！！一定要保存！！！一定要保存！！！一定要保存！！！</p>
+<p><strong>方法一 (推荐):</strong> 选点左上角返回，会提示你保存</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/9854461d42a46a1d4e404002ff9bdcd2.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/7ecf6bffdceaabd705067f699cec0b43.png"
                       alt="img"
                 ></p>
-<blockquote>
-<p>实不相瞒，我也不清楚为啥还是会有一丁点消耗 ，我预想的应该是零消耗，可能是Backblaze和Cloudfare订好的计费规则吧。<br>我看带宽联盟的介绍也有说是折扣或免除数据传输费用，这样看来的话，那应该就不是完全免除而是折扣，不过也非常良心了！</p>
-</blockquote>
-<h2 id="7-优化链接"><a href="#7-优化链接" class="headerlink" title="7.优化链接"></a><strong>7.优化链接</strong></h2><p><em><strong>此处可以参考另一篇文章：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45890533/article/details/130211510" >Backblaze + Cloudflare + Picgo 打造免费顺畅的图床体验_picgo配置b2-CSDN博客 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></em>    <em><strong>对照实施</strong></em></p>
-<p>前面我们已经更换了域名，但是链接中还是有存储桶的名称：</p>
-<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://img.oneyangcrown.top/file/oneyangcrown-bucket/avatar.jpg</span><br></pre></td></tr></table></figure></div>
-
-<p>暴露存储桶名称是有风险的，如果坏蛋知道你的用的是Backblaze云存储，那么他是能拼凑出你的原始链接的，所以接下来要做的是把链接中的这一段<code>/file/oneyangcrown-bucket</code>去掉，这里用到的是Cloudflare的转换规则。</p>
-<p>点击Cloudflare仪表板左侧的Rules&gt;Transform Rules</p>
+<p><strong>方法二：</strong> 点击右上角的下拉保存</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/8f4db54fd10b37b36c37c4ae5bc469ab.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/a15120db9468f6506de68fcb53c5ee80.png"
                       alt="img"
                 ></p>
-<p>选择Rewrite URL，点击Create rule创建URL重写规则</p>
+<h3 id="3、部署"><a href="#3、部署" class="headerlink" title="3、部署"></a>3、部署</h3><p>直接弹出部署，不用填任何东西，即可</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/8e5b1d5188d704e8697fc1b9d8942aa1.jpeg"
-                      alt="img"
-                ></p>
-<p>填上规则名称（随意，主要用来表明规则的用途），选择Custom filter expression</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/07a17bfeb438357d04b98ce0f9951d70.jpeg"
-                      alt="img"
-                ></p>
-<p>点击Edit expression</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/9893614b7c3ae0bc2b8dbbc0fce08842.jpeg"
-                      alt="img"
-                ></p>
-<p>输入<code>not starts_with(http.request.uri.path,&quot;/file/oneyangcrown-bucket&quot;)</code></p>
-<blockquote>
-<p>❗<strong>注意</strong>：这里第二个参数的值要改成你自己的，还有后面步骤的第一个参数</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/e8f88a125864feff851f1bcaf2ebf40b.jpeg"
-                      alt="img"
-                ></p>
-<p>选择Rewrite to…，选择Dynamic，输入<code>concat(&quot;/file/oneyangcrown-bucket&quot;,http.request.uri.path)</code></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/f441c5b63f9923ef94812c75972c3bf3.jpeg"
-                      alt="img"
-                ></p>
-<p>点击Deploy部署规则</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/54c0242cac746dabf56906eee94c2ebe.jpeg"
-                      alt="img"
-                ></p>
-<p>这样规则就启用成功了：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/95d2fbd2b6944aafec43ad67b183ff02.jpeg"
-                      alt="img"
-                ></p>
-<p>现在就可以用优化好的链接访问刚才的文件了：</p>
-<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 原先的：</span><br><span class="line">https://img.oneyangcrown.top/file/oneyangcrown-bucket/avatar.jpg</span><br><span class="line">// 优化的：</span><br><span class="line">https://img.oneyangcrown.top/avatar.jpg</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="8-优化响应头"><a href="#8-优化响应头" class="headerlink" title="8.优化响应头"></a><strong>8.优化响应头</strong></h2><p>在浏览器中打开开发人员工具（默认快捷键是F12），可以看到在请求链接时，响应头有一些X-Bz开头的字段，这些都是和Backblaze云存储相关的，要把它们都隐藏掉。</p>
-<blockquote>
-<p>PS：也可以使用curl工具来获取响应头信息<br><code>curl -I https://img.oneyangcrown.top/avatar.jpg</code></p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/144926a5808432616a45d6d234c36422.jpeg"
-                      alt="img"
-                ></p>
-<p>打开Rules&gt;Transform Rules，选择Modify Response Header，点击Create rule创建响应头修改规则</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/01f881f3c4532d857e7d24fd6f3bd3de.jpeg"
-                      alt="img"
-                ></p>
-<p>选择All incoming requests，通过点击Set new header来添加一行Header配置，将类型设置为Remove，将所有X-Bz开头的字段添加进去，然后点击Deploy部署规则即可</p>
-<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X-Bz-Content-Sha1</span><br><span class="line">X-Bz-File-Id</span><br><span class="line">X-Bz-File-Name</span><br><span class="line">X-Bz-Info-Src_last_modified_millis</span><br><span class="line">X-Bz-Upload-Timestamp</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/9a32f232c0aac69ca76057a45b70ba02.jpeg"
-                      alt="img"
-                ></p>
-<p>最后再次测试、查看响应头信息中，规则配置好的字段是否都已移除</p>
-<h2 id="9-缓存设置"><a href="#9-缓存设置" class="headerlink" title="9.缓存设置"></a><strong>9.缓存设置</strong></h2><p>在前面的额度消耗测试中，之所以使用Cloudfare链接还会有一些消耗，其实是因为缓存控制默认是不缓存的。查看响应头中Cache-Control字段，会发现它的值是max-age&#x3D;0（资源缓存的有效期限为0，也就是不缓存）。</p>
-<p>所以每次通过Cloudfare链接去请求都无法命中CDN缓存，对应的字段就是Cf-Cache-Status的值为MISS，值为HIT才是命中缓存。</p>
-<p>这样每次Cloudfare都会直接到Backblaze源服务器去取数据，因为Cloudfare在自己的CDN服务器上找不到缓存数据。</p>
-<p>但得益于带宽联盟，借由Cloudfare去向Backblaze取数据，有相应折扣或免除数据传输费用，虽然官方没有明确说明，目前看来就是折扣，所以才会产生一些消耗。</p>
-<p>所以，如果开启缓存，那么额度消耗还可以降到更低。</p>
-<p>相关文档—Cloudfare CDN默认缓存行为：<br><a class="link"   href="https://link.zhihu.com/?target=https://developers.cloudflare.com/cache/concepts/default-cache-behavior/" >Default Cache Behavior · Cloudflare Cache (CDN) docs <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>点击Bucket Settings</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/b0224fb540499842180f3e9ca31a55bf.jpeg"
-                      alt="img"
-                ></p>
-<p>设置Bucket Info为<code>&#123;&quot;cache-control&quot;:&quot;max-age=5184000&quot;&#125;</code>，5184000秒（也就是60天），最后点Update Bucket保存设置</p>
-<blockquote>
-<p>对于图床数据来说，图片文件不是新增就是删除，一般不会去修改一个图片文件，所以缓存有效期限可以设置更长，没必要让服务器那边频繁更新缓存数据。</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/9eb222f5c1893e485a1a49847f5bc969.jpeg"
-                      alt="img"
-                ></p>
-<p>查看响应头字段是否已更新过来：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/ce5e60875845054aa5514af4b68a1bb6.jpeg"
-                      alt="img"
-                ></p>
-<p>缓存设置完成后，现在再通过Cloudfare链接去测试多次请求同一资源的话，只要CDN服务器上已经缓存了数据，那么后续请求就都是零消耗。</p>
-<h2 id="10-PicGo设置"><a href="#10-PicGo设置" class="headerlink" title="10.PicGo设置"></a><strong>10.PicGo设置</strong></h2><p><a class="link"   href="https://link.zhihu.com/?target=https://picgo.github.io/PicGo-Doc/" >PicGo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>是一个用于快速上传图片并获取图片URL链接的工具。</p>
-<h3 id="10-1-申请Application-Key"><a href="#10-1-申请Application-Key" class="headerlink" title="10.1 申请Application Key"></a><strong>10.1 申请Application Key</strong></h3><p>在Backblaze云存储中打开Application Keys，点击Add a New Application Key</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/7022b9678bcaa5e0a5ac16bc5a40ed45.jpeg"
-                      alt="img"
-                ></p>
-<p>配置好Application Key后，点击Create New Key创建即可</p>
-<ul>
-<li>Allow access to Bucket(s)：指定该Key允许访问的存储桶</li>
-<li>Type of Access：访问权限，设置为Read and Write</li>
-<li>勾选Allow List All Bucket Names</li>
-<li>Duration：有效期（单位是秒），留空就是永久有效，直到你删除它。为了提高安全性，也可以自己设定一个期限。</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/325249eb6064ee6d58d945aea044e6e8.jpeg"
-                      alt="img"
-                ></p>
-<p>复制keyID和applicationKey，特别是applicationKey，只会显示一次，忘记的话重新创建一个新的Application Key即可</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/62c973c74303630480a4ec3eff64d414.jpeg"
-                      alt="img"
-                ></p>
-<h3 id="10-2-s3插件设置"><a href="#10-2-s3插件设置" class="headerlink" title="10.2 s3插件设置"></a><strong>10.2 s3插件设置</strong></h3><p>首先确保你的设备已安装<a class="link"   href="https://link.zhihu.com/?target=https://nodejs.org/en" >Node.js <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>环境</p>
-<p>然后在PicGo插件设置中搜索s3插件并安装：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/7837d7785ca556fb4591c34299487d41.jpeg"
-                      alt="img"
-                ></p>
-<p>安装完毕后左侧的图床设置会多出Amazon S3设置，对于所有与S3 API兼容的云存储均可使用。</p>
-<p>S3设置需要填入的信息：</p>
-<ul>
-<li>首先是前两项，就是前面申请的Application Key，应用密钥ID—keyID，应用密钥—applicationKey</li>
-<li>桶名：桶相关信息的标题（如下图所示），也可以查看Bucket Settings中的Bucket Unique Name</li>
-<li>文件路径：{fullName}，表示使用源文件名，上传到根目录</li>
-<li>地区：对应Endpoint的第二部分，比如我这里要填的是us-east-005</li>
-<li>自定义节点：填入Endpoint链接，前面加上https:&#x2F;&#x2F;</li>
-<li>自定义域名：前面在Cloudfare自己设定的域名</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/f245c7df683140869fbbaf62810b9707.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/3c5098f41b9e268c3282ebad821fe92e.png"
                       alt="img"
                 ></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/5d67944d26c48c0a6e4fe4b2c55a5e57.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/67e28a9b0579ac51ba25495473d188c9.png"
                       alt="img"
                 ></p>
-<p>其它选项：</p>
-<ul>
-<li>ForcePathStyle：no关闭</li>
-<li>拒绝无效TLS证书连接 ：yes开启，如果出现证书错误可以关闭</li>
-<li>ACL访问控制列表：public-read</li>
-<li>Bucket前缀：false</li>
-</ul>
+<h3 id="4、绑定域名"><a href="#4、绑定域名" class="headerlink" title="4、绑定域名"></a>4、绑定域名</h3><p>系统默认分配的有域名，被墙无法访问，所以只能用自己的域名才行。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/26234c26afe85b390650797cb24eee34.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/416a34f7b92e750e199b093ddff01f2f.png"
                       alt="img"
                 ></p>
-<p>最后在PicGo设置中，开启时间戳重命名，这样能够确保上传的每一张图片名字都是唯一的：</p>
+<p>绑定成功需要等待几分钟，访问你的域名，如果出现如下页面就完成！</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/5600a3c2da4f5c215c3f053155ba1b6a.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/607aa0d787a866e32424a683d7214760.png"
                       alt="img"
                 ></p>
-<h2 id="11-数据备份"><a href="#11-数据备份" class="headerlink" title="11.数据备份"></a><strong>11.数据备份</strong></h2><p>为了防止一些不可预料的事故发生，导致数据丢失，建议定期做好数据备份。</p>
-<h3 id="11-1-手动备份"><a href="#11-1-手动备份" class="headerlink" title="11.1 手动备份"></a><strong>11.1 手动备份</strong></h3><p>选择要备份的桶，点击Make Full Bucket Snapshot创建一个快照</p>
+<p>在<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AE%9D%E5%A1%94&spm=1001.2101.3001.7020" >宝塔 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>中试一下，没问题~~</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/6c234029047e8c25d5e62dad3aa05446.jpeg"
+                     data-src="https://img01.xiaohei.us/2024/10/930fafafa61b05cb940f3ee7a552220c.png"
                       alt="img"
                 ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/5f93be49a193561c82817d3f19b3b0e7.jpeg"
-                      alt="img"
-                ></p>
-<p>在Snapshots中就可以看到已创建的快照，等待快照准备完成就可以下载了</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/189db402473248d846472e9b9f946e8e.jpeg"
-                      alt="img"
-                ></p>
-<h3 id="11-2-群晖Cloud-Sync自动备份"><a href="#11-2-群晖Cloud-Sync自动备份" class="headerlink" title="11.2 群晖Cloud Sync自动备份"></a><strong>11.2 群晖Cloud Sync自动备份</strong></h3><p>如果你有一台NAS，那么就可以实现自动备份，比如群晖的Cloud Sync就支持Backblaze云存储备份。</p>
-<p>打开Cloud Sync，创建新链接，选择Backblaze B2</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/5351ef0cce736ede5ce0221ad2f7e2ba.jpeg"
-                      alt="img"
-                ></p>
-<p>设置Application Key和桶名</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/bc32f43b9aa26e8a8f77adadf870c92b.jpeg"
-                      alt="img"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/b57cee45d856a4694809def01cd9594a.jpeg"
-                      alt="img"
-                ></p>
-<p>由于同步会消耗额度，所以轮询期不要设置太短，这里我设置的是24小时</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://img01.xiaohei.us/2024/01/a6062e8a04e941e502e536ddbffd8322.jpeg"
-                      alt="img"
-                ></p>
-<p>引用原文：<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/651418903" >Backblaze云存储+Cloudflare搭建高速安全的免费图床 - 知乎 (zhihu.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 
         </div>
 
@@ -1100,18 +778,18 @@
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> Backblaze云存储+Cloudflare搭建高速安全的免费图床</li>
+        <li><strong>标题:</strong> 通过Cloudflare白嫖个人Docker镜像加速服务</li>
         <li><strong>作者:</strong> Xiao.Hei.Ge</li>
         <li><strong>创建于
-                :</strong> 2024-01-25 23:13:43</li>
+                :</strong> 2024-10-14 22:27:53</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-01-25 23:31:48
+                    :</strong> 2024-10-14 22:50:21
             </li>
         
         <li>
-            <strong>链接:</strong> https://cool.xiaohei.us/2024/01/25/Backblaze云存储-Cloudflare搭建高速安全的免费图床/
+            <strong>链接:</strong> https://cool.xiaohei.us/2024/10/14/通过Cloudflare白嫖个人Docker镜像加速服务/
         </li>
         <li>
             <strong>
@@ -1133,19 +811,15 @@
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/Hexo%E6%90%AD%E5%BB%BA/">#Hexo搭建</a>&nbsp;
-                    </li>
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tags/Backlaze/">#Backlaze</a>&nbsp;
-                    </li>
-                
-                    <li class="tag-item mx-0.5">
                         <a href="/tags/Cloudflare/">#Cloudflare</a>&nbsp;
                     </li>
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/%E5%9B%BE%E5%BA%8A/">#图床</a>&nbsp;
+                        <a href="/tags/Docker/">#Docker</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Workers/">#Workers</a>&nbsp;
                     </li>
                 
             </ul>
@@ -1156,29 +830,14 @@
         
             <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
                 
-                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2024/01/27/%E5%A8%81%E8%81%94%E9%80%9ANAS%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">威联通NAS设置方法(含兰空图床)</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/01/23/PicGo%E5%9B%BE%E5%BA%8A%E6%8F%92%E4%BB%B6/"
+                        href="/2024/08/12/2024%E5%B9%B4-Typora%E7%A0%B4%E8%A7%A3%EF%BC%8C%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%AF%E7%94%A8/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">PicGo图床插件</span>
+                                <span class="post-nav-title-item">2024年-Typora破解，最新版本可用</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -1241,8 +900,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">Backblaze云存储+Cloudflare搭建高速安全的免费图床</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E5%89%8D%E8%A8%80"><span class="nav-text">0.前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%9B%B6%E6%88%90%E6%9C%AC%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%E6%96%B9%E6%A1%88"><span class="nav-text">1.零成本个人图床方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Backblaze%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C"><span class="nav-text">2.Backblaze账号注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AD%98%E5%82%A8%E6%A1%B6%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-text">3.存储桶创建与上传文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Friendly-URL"><span class="nav-text">4.Friendly URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Cloudfare%E6%B7%BB%E5%8A%A0CNAME%E8%AE%B0%E5%BD%95"><span class="nav-text">5.Cloudfare添加CNAME记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E9%A2%9D%E5%BA%A6%E6%B6%88%E8%80%97%E6%B5%8B%E8%AF%95"><span class="nav-text">6.额度消耗测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E4%BC%98%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="nav-text">7.优化链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E4%BC%98%E5%8C%96%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="nav-text">8.优化响应头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E7%BC%93%E5%AD%98%E8%AE%BE%E7%BD%AE"><span class="nav-text">9.缓存设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-PicGo%E8%AE%BE%E7%BD%AE"><span class="nav-text">10.PicGo设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-%E7%94%B3%E8%AF%B7Application-Key"><span class="nav-text">10.1 申请Application Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-s3%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE"><span class="nav-text">10.2 s3插件设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD"><span class="nav-text">11.数据备份</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1-%E6%89%8B%E5%8A%A8%E5%A4%87%E4%BB%BD"><span class="nav-text">11.1 手动备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-2-%E7%BE%A4%E6%99%96Cloud-Sync%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD"><span class="nav-text">11.2 群晖Cloud Sync自动备份</span></a></li></ol></li></ol>
+        <div class="page-title">通过Cloudflare白嫖个人Docker镜像加速服务</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%96%B0%E5%BB%BA-workers"><span class="nav-text">1、新建 workers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%BC%96%E8%BE%91%E4%BB%A3%E7%A0%81"><span class="nav-text">2、编辑代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E9%83%A8%E7%BD%B2"><span class="nav-text">3、部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-text">4、绑定域名</span></a></li></ol>
 
     </div>
 </div>
